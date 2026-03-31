@@ -1,0 +1,12 @@
+<Project Sdk="WixToolset.Sdk/6.0.2">
+  <PropertyGroup>
+    <OutputType>Package</OutputType>
+    <SuppressIces>ICE64;ICE71;ICE91</SuppressIces>
+    <DefaultLanguage>1041</DefaultLanguage>
+    <Cultures>ja-JP</Cultures>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CustomAction\CustomAction.csproj" />
+    <PackageReference Include="WixToolset.UI.wixext" Version="6.0.2" />
+  </ItemGroup>
+</Project>

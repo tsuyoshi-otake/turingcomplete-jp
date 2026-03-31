@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization Culture="ja-JP" Codepage="932" xmlns="http://wixtoolset.org/schemas/v4/wxl">
+
+  <String Id="WixUIBack" Overridable="yes" Value="&#x623B;&#x308B;(&amp;B)" />
+  <String Id="WixUINext" Overridable="yes" Value="&#x6B21;&#x3078;(&amp;N)" />
+  <String Id="WixUICancel" Overridable="yes" Value="&#x30AD;&#x30E3;&#x30F3;&#x30BB;&#x30EB;" />
+  <String Id="WixUIFinish" Overridable="yes" Value="&#x5B8C;&#x4E86;(&amp;F)" />
+  <String Id="WixUIInstall" Overridable="yes" Value="&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;(&amp;I)" />
+  <String Id="WixUIRemove" Overridable="yes" Value="&#x524A;&#x9664;(&amp;R)" />
+  <String Id="WixUIRepair" Overridable="yes" Value="&#x4FEE;&#x5FA9;(&amp;E)" />
+  <String Id="WixUIChange" Overridable="yes" Value="&#x5909;&#x66F4;(&amp;C)" />
+  <String Id="WixUIClose" Overridable="yes" Value="&#x9589;&#x3058;&#x308B;(&amp;L)" />
+  <String Id="WixUIYes" Overridable="yes" Value="&#x306F;&#x3044;(&amp;Y)" />
+  <String Id="WixUINo" Overridable="yes" Value="&#x3044;&#x3044;&#x3048;(&amp;N)" />
+
+  <String Id="WelcomeEulaDlg_Title" Overridable="yes" Value="[ProductName] &#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;" />
+  <String Id="WelcomeEulaDlgTitle" Overridable="yes" Value="{\WixUI_Font_Title}&#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7; &#x30A6;&#x30A3;&#x30B6;&#x30FC;&#x30C9;&#x3078;&#x3088;&#x3046;&#x3053;&#x305D;" />
+  <String Id="WelcomeEulaDlgDescription" Overridable="yes" Value="[ProductName] &#x3092;&#x30B3;&#x30F3;&#x30D4;&#x30E5;&#x30FC;&#x30BF;&#x30FC;&#x306B;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3057;&#x307E;&#x3059;&#x3002;&#x300C;&#x6B21;&#x3078;&#x300D;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x7D9A;&#x884C;&#x3059;&#x308B;&#x304B;&#x3001;&#x300C;&#x30AD;&#x30E3;&#x30F3;&#x30BB;&#x30EB;&#x300D;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x7D42;&#x4E86;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;" />
+
+  <String Id="WelcomeDlg_Title" Overridable="yes" Value="[ProductName] &#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;" />
+  <String Id="WelcomeDlgTitle" Overridable="yes" Value="{\WixUI_Font_Title}&#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7; &#x30A6;&#x30A3;&#x30B6;&#x30FC;&#x30C9;&#x3078;&#x3088;&#x3046;&#x3053;&#x305D;" />
+  <String Id="WelcomeDlgDescription" Overridable="yes" Value="[ProductName] &#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3001;&#x5909;&#x66F4;&#x3001;&#x307E;&#x305F;&#x306F;&#x524A;&#x9664;&#x3092;&#x884C;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x300C;&#x6B21;&#x3078;&#x300D;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x7D9A;&#x884C;&#x3059;&#x308B;&#x304B;&#x3001;&#x300C;&#x30AD;&#x30E3;&#x30F3;&#x30BB;&#x30EB;&#x300D;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x7D42;&#x4E86;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;" />
+
+  <String Id="LicenseAgreementDlg_Title" Overridable="yes" Value="[ProductName] &#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;" />
+  <String Id="LicenseAgreementDlgTitle" Overridable="yes" Value="{\WixUI_Font_Title}&#x4F7F;&#x7528;&#x8A31;&#x8AFE;&#x5951;&#x7D04;" />
+  <String Id="LicenseAgreementDlgDescription" Overridable="yes" Value="&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3092;&#x7D9A;&#x884C;&#x3059;&#x308B;&#x524D;&#x306B;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x4F7F;&#x7528;&#x8A31;&#x8AFE;&#x5951;&#x7D04;&#x3092;&#x304A;&#x8AAD;&#x307F;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;" />
+  <String Id="LicenseAcceptedCheckBox" Overridable="yes" Value="&#x4F7F;&#x7528;&#x8A31;&#x8AFE;&#x5951;&#x7D04;&#x306E;&#x6761;&#x9805;&#x306B;&#x540C;&#x610F;&#x3057;&#x307E;&#x3059;(&amp;A)" />
+
+  <String Id="ProgressDlg_Title" Overridable="yes" Value="[ProductName] &#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;" />
+  <String Id="ProgressDlgTitleInstalling" Overridable="yes" Value="{\WixUI_Font_Title}[ProductName] &#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;" />
+  <String Id="ProgressDlgTitleRepairing" Overridable="yes" Value="{\WixUI_Font_Title}[ProductName] &#x3092;&#x4FEE;&#x5FA9;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;" />
+  <String Id="ProgressDlgTitleRemoving" Overridable="yes" Value="{\WixUI_Font_Title}[ProductName] &#x3092;&#x524A;&#x9664;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;" />
+  <String Id="ProgressDlgStatusLabel" Overridable="yes" Value="&#x72B6;&#x614B;:" />
+
+  <String Id="ExitDlg_Title" Overridable="yes" Value="[ProductName] &#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;" />
+  <String Id="ExitDlgTitle" Overridable="yes" Value="{\WixUI_Font_Title}[ProductName] &#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;&#x306E;&#x5B8C;&#x4E86;" />
+  <String Id="ExitDlgDescription" Overridable="yes" Value="[ProductName] &#x306E;&#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;&#x304C;&#x5B8C;&#x4E86;&#x3057;&#x307E;&#x3057;&#x305F;&#x3002;&#x300C;&#x5B8C;&#x4E86;&#x300D;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x30A6;&#x30A3;&#x30B6;&#x30FC;&#x30C9;&#x3092;&#x7D42;&#x4E86;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;" />
+
+  <String Id="MaintenanceWelcomeDlg_Title" Overridable="yes" Value="[ProductName] &#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;" />
+  <String Id="MaintenanceWelcomeDlgTitle" Overridable="yes" Value="{\WixUI_Font_Title}[ProductName] &#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7; &#x30A6;&#x30A3;&#x30B6;&#x30FC;&#x30C9;&#x3078;&#x3088;&#x3046;&#x3053;&#x305D;" />
+  <String Id="MaintenanceWelcomeDlgDescription" Overridable="yes" Value="[ProductName] &#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x65B9;&#x6CD5;&#x306E;&#x5909;&#x66F4;&#x3084;&#x3001;&#x30B3;&#x30F3;&#x30D4;&#x30E5;&#x30FC;&#x30BF;&#x30FC;&#x304B;&#x3089;&#x306E;&#x524A;&#x9664;&#x3092;&#x884C;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x300C;&#x6B21;&#x3078;&#x300D;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x7D9A;&#x884C;&#x3059;&#x308B;&#x304B;&#x3001;&#x300C;&#x30AD;&#x30E3;&#x30F3;&#x30BB;&#x30EB;&#x300D;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x7D42;&#x4E86;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;" />
+
+  <String Id="MaintenanceTypeDlg_Title" Overridable="yes" Value="[ProductName] &#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;" />
+  <String Id="MaintenanceTypeDlgTitle" Overridable="yes" Value="{\WixUI_Font_Title}&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x306E;&#x5909;&#x66F4;&#x3001;&#x4FEE;&#x5FA9;&#x3001;&#x307E;&#x305F;&#x306F;&#x524A;&#x9664;" />
+  <String Id="MaintenanceTypeDlgDescription" Overridable="yes" Value="&#x5B9F;&#x884C;&#x3059;&#x308B;&#x64CD;&#x4F5C;&#x3092;&#x9078;&#x629E;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;" />
+  <String Id="MaintenanceTypeDlgChangeButton" Overridable="yes" Value="&#x5909;&#x66F4;(&amp;C)" />
+  <String Id="MaintenanceTypeDlgRepairButton" Overridable="yes" Value="&#x4FEE;&#x5FA9;(&amp;R)" />
+  <String Id="MaintenanceTypeDlgRemoveButton" Overridable="yes" Value="&#x524A;&#x9664;(&amp;M)" />
+  <String Id="MaintenanceTypeDlgChangeText" Overridable="yes" Value="[ProductName] &#x306F;&#x500B;&#x5225;&#x306B;&#x9078;&#x629E;&#x53EF;&#x80FD;&#x306A;&#x6A5F;&#x80FD;&#x304C;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;" />
+  <String Id="MaintenanceTypeDlgRepairText" Overridable="yes" Value="[ProductName] &#x3092;&#x4FEE;&#x5FA9;&#x3057;&#x307E;&#x3059;&#x3002;&#x7FFB;&#x8A33;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3068;&#x8A00;&#x8A9E;&#x8A2D;&#x5B9A;&#x3092;&#x518D;&#x9069;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;" />
+  <String Id="MaintenanceTypeDlgRemoveText" Overridable="yes" Value="[ProductName] &#x3092;&#x30B3;&#x30F3;&#x30D4;&#x30E5;&#x30FC;&#x30BF;&#x30FC;&#x304B;&#x3089;&#x524A;&#x9664;&#x3057;&#x307E;&#x3059;&#x3002;" />
+
+  <String Id="VerifyReadyDlg_Title" Overridable="yes" Value="[ProductName] &#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;" />
+  <String Id="VerifyReadyDlgInstallTitle" Overridable="yes" Value="{\WixUI_Font_Title}[ProductName] &#x306E;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x6E96;&#x5099;&#x5B8C;&#x4E86;" />
+  <String Id="VerifyReadyDlgInstallDescription" Overridable="yes" Value="&#x300C;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x300D;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3092;&#x958B;&#x59CB;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;" />
+  <String Id="VerifyReadyDlgRepairTitle" Overridable="yes" Value="{\WixUI_Font_Title}[ProductName] &#x306E;&#x4FEE;&#x5FA9;&#x6E96;&#x5099;&#x5B8C;&#x4E86;" />
+  <String Id="VerifyReadyDlgRepairDescription" Overridable="yes" Value="&#x300C;&#x4FEE;&#x5FA9;&#x300D;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x4FEE;&#x5FA9;&#x3092;&#x958B;&#x59CB;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;" />
+  <String Id="VerifyReadyDlgRemoveTitle" Overridable="yes" Value="{\WixUI_Font_Title}[ProductName] &#x306E;&#x524A;&#x9664;&#x6E96;&#x5099;&#x5B8C;&#x4E86;" />
+  <String Id="VerifyReadyDlgRemoveDescription" Overridable="yes" Value="&#x300C;&#x524A;&#x9664;&#x300D;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3066; [ProductName] &#x3092;&#x524A;&#x9664;&#x3057;&#x307E;&#x3059;&#x3002;" />
+
+  <String Id="CancelDlg_Title" Overridable="yes" Value="[ProductName] &#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;" />
+  <String Id="CancelDlgText" Overridable="yes" Value="[ProductName] &#x306E;&#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;&#x3092;&#x4E2D;&#x65AD;&#x3057;&#x307E;&#x3059;&#x304B;&#xFF1F;" />
+
+  <String Id="ErrorDlg_Title" Overridable="yes" Value="[ProductName] &#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30E9;&#x30FC;" />
+
+  <String Id="FilesInUseDlg_Title" Overridable="yes" Value="[ProductName] &#x30BB;&#x30C3;&#x30C8;&#x30A2;&#x30C3;&#x30D7;" />
+  <String Id="FilesInUseDlgTitle" Overridable="yes" Value="{\WixUI_Font_Title}&#x4F7F;&#x7528;&#x4E2D;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30EB;" />
+  <String Id="FilesInUseDlgDescription" Overridable="yes" Value="&#x4EE5;&#x4E0B;&#x306E;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x3001;&#x66F4;&#x65B0;&#x304C;&#x5FC5;&#x8981;&#x306A;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x4F7F;&#x7528;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;" />
+
+</WixLocalization>

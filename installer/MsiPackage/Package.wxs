@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
+     xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
+
+  <Package Name="Turing Complete 日本語化MOD"
+           Manufacturer="turingcomplete-jp"
+           Version="1.0.0.0"
+           UpgradeCode="d3a7f1b9-5e2c-4d8a-9b6f-7c1e4a3d5b8e"
+           Compressed="yes"
+           InstallerVersion="500"
+           Codepage="65001"
+           Scope="perUser">
+
+    <SummaryInformation Description="Turing Complete 日本語化MOD インストーラー" />
+    <MajorUpgrade DowngradeErrorMessage="新しいバージョンが既にインストールされています。"
+                  AllowSameVersionUpgrades="yes"
+                  Schedule="afterInstallValidate" />
+    <MediaTemplate EmbedCab="yes" />
+
+    <Launch Condition="GAMEDIR OR Installed"
+            Message="Turing Complete のインストール先が見つかりません。&#xA;Steamでゲームがインストールされているか確認してください。" />
+
+    <ComponentGroup Id="ProductComponents">
+      <Component Id="RegistryComponent" Guid="b8c9d0e1-f2a3-4567-890a-bcdef1234567">
+        <RegistryValue Root="HKCU" Key="Software\TuringCompleteJpMod" Name="Installed" Value="1" Type="integer" KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+
+    <Feature Id="MainFeature" Title="Turing Complete 日本語化MOD" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+    </Feature>
+
+    <!-- ── カスタムアクション ─────────────────────────── -->
+
+    <Binary Id="CustomActionDll"
+            SourceFile="$(var.CustomAction.TargetDir)\CustomAction.CA.dll" />
+
+    <CustomAction Id="CA_FindGame"
+                  BinaryRef="CustomActionDll"
+                  DllEntry="FindGameDirectory"
+                  Execute="immediate"
+                  Return="check" />
+
+    <CustomAction Id="CA_Install"
+                  BinaryRef="CustomActionDll"
+                  DllEntry="InstallMod"
+                  Execute="immediate"
+                  Return="check" />
+
+    <CustomAction Id="CA_Uninstall"
+                  BinaryRef="CustomActionDll"
+                  DllEntry="UninstallMod"
+                  Execute="immediate"
+                  Return="ignore" />
+
+    <!-- ── スケジューリング ───────────────────────────── -->
+
+    <InstallUISequence>
+      <Custom Action="CA_FindGame" Before="LaunchConditions" />
+    </InstallUISequence>
+
+    <InstallExecuteSequence>
+      <Custom Action="CA_FindGame" Before="LaunchConditions" />
+
+      <!-- アンインストール: 完全削除 OR アップグレード時 -->
+      <Custom Action="CA_Uninstall" Before="RemoveFiles"
+              Condition="Installed AND (REMOVE~=&quot;ALL&quot; OR UPGRADINGPRODUCTCODE)" />
+
+      <!-- インストール: 新規インストール OR アップグレード時 -->
+      <Custom Action="CA_Install" After="InstallFiles"
+              Condition="NOT Installed OR NOT REMOVE~=&quot;ALL&quot;" />
+    </InstallExecuteSequence>
+
+    <!-- ── UI ─────────────────────────────────────────── -->
+    <ui:WixUI Id="WixUI_Minimal" />
+    <WixVariable Id="WixUILicenseRtf" Value="License.rtf" />
+
+  </Package>
+</Wix>

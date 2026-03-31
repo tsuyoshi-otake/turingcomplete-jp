@@ -1,0 +1,7494 @@
+=== components/Output 1 ===
+
+$59663530139004* 1ビット出力
+
+
+=== trans/panel_program_1_output ===
+
+$31398283096964* 出力
+
+
+=== rpg/maps/overworld/kligara ===
+
+$78685013556649* 私の仕事は原子炉の
+燃料を見つめることです
+
+
+=== rpg/maps/overworld/control_panel ===
+
+$94056033073339* これに触ったら船長に
+船から放り出される
+$20128423531070* コントロールパネル
+
+
+=== trans/level_registers_description ===
+
+$73800316874022* [center]コード仕様に一致する回路図を作りなさい[/center]
+
+
+=== rpg/maps/overworld/water ===
+
+$82402577990931* 水
+
+
+=== components/Output1Car ===
+
+$12896765714603* キャリー
+
+
+=== components/FullAdder ===
+
+$57559382166174* 3ビットを加算し,合計とキャリーを出力する
+$77669928463861* 全加算器
+
+
+=== trans/panel_car_output_0 ===
+
+$21449898267446* キャリー
+
+
+=== misc/options ===
+
+$49251062339706* 設定
+
+
+=== misc/ide_delete_program ===
+
+$30480928296639* プログラムを削除してもよろしいですか: {program}
+$87279416580516* はい
+
+
+=== misc/io_label_change ===
+
+$50497979766012* ラベルテキスト
+
+
+=== levels/turing_complete ===
+
+$15326252036920* 以前はコードだけがメモリに影響を与えることができましたが,今はメモリがコードに影響を与えなければなりません.条件論理が加わったことで,コンピュータはどんなアルゴリズムでも実行でき,計算できることは何でも計算できるようになりました.
+$16583885726240* そうだ,君はやったんだ!毛のない変な猿みたいな生き物だと思ってたけど,本当に本物のコンピュータを作ったんだね!驚きだ.
+$10510746154639* 1Tick後にアドレス1をロードします.
+$10317244906317* プログラムが見つかりません
+$14587485007736* この時点まで,すべての可能なプログラムは,1バイトずつ順番に実行されるように制限されていました.
+$19649119273248* 最後に,ある条件を満たしたときに [INSTRUCTIONS] からプログラムカウンターを変更する仕組みを追加する必要があります.
+
+When the two largest bits are [ON][ON], we are in condition mode. In condition mode, the value in REG 3 is compared against the conditions defined by the lowest 3 bits in the instruction. If the condition is true, we overwrite the counter to the value in REG 0.
+Conditionally changing the counter means we can skip [INSTRUCTIONS] based on conditions or have [INSTRUCTIONS] run in a loop.
+
+Conditions:
+[OFF] [OFF] [OFF] Never
+[OFF] [OFF] [ON] If [color=#e49f44]REG 3[/color] = 0
+[OFF] [ON] [OFF] If [color=#e49f44]REG 3[/color] < 0
+[OFF] [ON] [ON] If [color=#e49f44]REG 3[/color] ≤ 0 
+[ON] [OFF] [OFF] Always
+[ON] [OFF] [ON] If [color=#e49f44]REG 3[/color] ≠ 0 
+[ON] [ON] [OFF] If [color=#e49f44]REG 3[/color] ≥ 0
+[ON] [ON] [ON] If [color=#e49f44]REG 3[/color] > 0
+
+These conditions correspond to the condition component that was saved in the component factory.
+
+
+=== rpg/maps/prison/snuffles ===
+
+$38415939620256* ワンワン
+$58496270566737* スナッフルズ
+$97846640630713* 血
+$18282167453919* かわいそうなスナッフルズ
+
+
+=== rpg/maps/unseen_fruit/wall_broke ===
+
+$82933036983558* 壊れた壁
+
+
+=== levels/Second Tick ===
+
+$14355963067874* 2Tick目のみ[ON]を出力する.
+$17526582195506* ご存知のように,このテストはコンピュータの機能を構築することに集約されます.
+$15726318553190* これが,後からあなたを食べない最大の理由です.
+$19277843280528*  [color=#b72d41][b]TIP:[/b][/color] 
+ コンポーネントとそのピンをダブルクリック
+ することで一緒に選択することができます.
+$15296208528991* 仕上げが可能な種は,法律上,感覚を持つとみなされます.
+
+
+=== trans/manual_text_console ===
+
+$39093856809104* コンソールコンポーネントは80x24の[color=#dd6576][url=ASCII encoding]ASCII[/url][/color]ディスプレイです.メモリにリンクする必要があります
+
+Updating the linked memory will then update the visuals on the console. In standard non color mode, each byte in the memory component determines what the corresponding character on the screen will be. However, the first character position can be offset by using the input pin on the console. This is for example useful when implementing scrolling.
+
+The console also has a color mode that can be toggled on in the panel:
+[img=125]dialogue/manual/Console/color_mode.png[/img]
+
+In this mode each character has an additional 3 byte background and 3 byte foreground [color=#dd6576][url=RGB color]RGB color[/url][/color] for a total of 7 bytes of data per character. However, each character is 8 byte aligned, which is more convenient when you set your RAM or ROM to 64 bit width addressing. Also, you may keep the character indexes the same when changing your schematic from non color to color mode, by change the bitwidth of the RAM or ROM from 8 to 64 at the same time. 
+
+In color mode the lowest byte is the character, the next 3 bytes are the font color and the following 3 bytes are the background color.
+
+
+
+
+
+=== trans/level_tower_description ===
+
+$19095794285423* 放射性ディスクを積み直しなさい
+
+
+=== trans/panel_lessu_description ===
+
+$10492822526537* [center]Input 1 < Input 2か確認[/center]
+
+
+=== levels/component_factory ===
+
+$14665712485657* このカスタムコンポーネントは領域がないため使用できません.
+$17077079648771* コンポーネントの追加,名前の変更,削除はレベルセーブ方式で行うことができます.
+$19551383617326* コンポーネントファクトリーへようこそ,ここで作成した回路は,アーキテクチャレベルのコンポーネントとして使用することができます.
+作成する回路はコンポーネントの動作を定義し,レイアウトはその形状を定義します.
+$12516102012088* このコンポーネントはエリアを持たず,レベルでは使用できません.マップ上にコンポーネントを配置すると,エリアが与えられます.
+$14712417427860* このレベルはツールであり,チャレンジではないので,好きなときにレベルマップに移動して先に進むことができます.
+$15549447390000* 2つの入出力コンポーネントが同じマスにある場合.2本のピンが重ならないので、カスタムコンポーネントは使えなくなります.
+
+
+=== trans/panel_switch_input ===
+
+$27545152958344* [right]Input[/right]
+
+
+=== components/Register32 ===
+
+$65405398199118* 32ビットメモリ
+$22031255978461* 32ビットレジスタ
+
+
+=== trans/panel_maker16_input ===
+
+$17253365231801* [right]Byte 1
+Byte 2[/right]
+
+
+=== misc/ui_panel/outputs ===
+
+$29350436761480* 出力
+
+
+=== trans/component_panel_sprite_input_description ===
+
+$76433786063719* [b][color=#e49f44]コマンドタイプ[/color][/b]
+[code]0[/code] リクエストなし
+[code]1[/code] [color=#e49f44]スプライト読込[/color]
+
+
+=== trans/manual_the_robot ===
+
+$92896462984546* ロボット
+
+
+=== trans/panel_network_output_description ===
+
+$44520675249142* [b][color=#39aa49]イベントタイプ[/color] (結果)[/b]
+[code]0[/code] 新しいイベントなし
+[code]1[/code] [color=#39aa49]着信[/color]
+
+
+=== trans/level_conditions_description ===
+
+$62540112577327* [center]値が条件を満たすとき[img]dialogue/on.png[/img]を出力し,そうでなければ[img]dialogue/off.png[/img]を出力[/center]
+
+
+=== trans/panel_program4_output ===
+
+$30314861365347* Output 1
+Output 2
+Output 3
+Output 4
+
+
+=== trans/manual_text_top_the_robot ===
+
+$45646734925323* 画面にはロボットとその周囲が表示されます.
+
+[img=430]dialogue/screen.png[/img]
+
+
+=== trans/ide_memory_address ===
+
+$93346467287938* リンクされたコンポーネント
+
+
+=== trans/panel_clock_input ===
+
+$26264925364981* [right]有効化[/right]
+
+
+=== trans/rpg_complete_chest ===
+
+$59394224080614* [center]いたずらっ子の宝箱[/center]
+
+
+=== levels/delay_level ===
+
+$19986989895202* すべての部品には遅延があります.そして回路では,全体の遅延は最も遅い経路で決まります.つまり,通常は並列にものを置きたいのです.
+このレベルでは,このコンセプトを理解していることを証明する必要があります.
+$11246430085016* なお,右上のアワーグラスをクリックすると,遅延経路を確認することができます.
+$12817338693402* どの部品の遅延も最終的にはNANDゲートの遅延から導かれ,その遅延は2です.5のNANDコストで6の遅延を生じる回路を作成してください.
+$17854168097855* 確認
+
+
+=== trans/panel_dual_load_input ===
+
+$93092890899642* [right]Load
+Save
+Address
+Save value
+Load 2
+Address 2[/right]
+
+
+=== components/Mul16 ===
+
+$49880767097125* 2つの入力を乗算
+$62247409328063* 乗算
+
+
+=== rpg/hat_man ===
+
+$40995289760848* ベストハット
+$31184066972544* レプラコーンハット
+$35778552177922* サンタの帽子
+$82997731204414* お買い得
+$96765749209775* この帽子大好き
+$97164370529682* 定番の帽子
+$85998153437635* ロンドンの警官から盗んだと
+皆に言うつもりだ
+$26278098578888* サンタって誰?
+$47773161384061* この帽子はひどいジョーク
+$13294635391831* ファラオの帽子
+$82258891749699* お金はどこに行った???
+$79556354428080* 管理人ヘルメット
+$47713748239182* また来てねロボット
+$87264083929605* お高くとまった気分
+$12006162361832* イーハー
+$68242068712116* ベースボールキャップ
+$35453270895749* 私の権威を尊重せよ
+$93275531091074* カウボットハット
+$94489310827047* この帽子は呪われていると思う
+$60834004183919* ボーラーハット
+$50407582286574* ポリスキャップ
+$98505468673014* つば広バケットハット
+$30546444635339* レディハット
+$13395135491753* もう勘弁して
+
+
+=== misc/ui_comment ===
+
+$69987793052607* ワイヤーコメント (ワイヤーをクリック)
+
+
+=== trans/panel_register16_inputs ===
+
+$96875261858960* [right]Load
+Save
+Save value[/right]
+
+
+=== trans/options_pipette_wire ===
+
+$96339976117958* ワイヤスポイト
+
+
+=== trans/rpg_complete_flower ===
+
+$15192250170799* [center]ドゥミオとグルリエッタ[/center]
+
+
+=== trans/panel_maker32_input ===
+
+$93209061270494* [right]Byte 1
+Byte 2
+Byte 3
+Byte 4[/right]
+
+
+=== trans/level_byte_xor_description ===
+
+$44752799134543* 各ビットをペアごとにXORしなさい
+
+
+=== dialogue/schematic_hub/share_button ===
+
+$72402014450423* [center]アップロード中[/center]
+$63199010304839* 共有
+
+
+=== misc/add_assembly_64bit ===
+
+$33233688912123* [center]アセンブリコードを追加[/center]
+
+
+=== trans/level_complete_wire_comments ===
+
+$92673421413755* [b]ワイヤコメント[/b]
+[color=#cccccc][i]ワイヤにコメントを追加できます.[/i][/color]
+
+
+=== trans/panel_regred_input ===
+
+$61209423072819* [right]Load
+Save
+Save value[/right]
+
+
+=== trans/level_byte_adder_question3 ===
+
+$88075700159266* [right]Carry IN
+Byte 1
+Byte 2[/right]
+
+
+=== components/Mux ===
+
+$11168613697835* 2つの値を切り替える
+$22167405631310* 8ビット マルチプレクサ
+
+
+=== components/Switch32 ===
+
+$70717074742809* 32ビット スイッチ
+$93061034213009* 値を切り替える
+
+
+=== trans/panel_counter8_input ===
+
+$50035967147203* [right]増加 / 上書き
+上書き値[/right]
+
+
+=== trans/schematic_new_folder_name ===
+
+$86236104278688* 新しいフォルダ
+
+
+=== trans/panel_output_direction ===
+
+$89612128414294* ラベルの方向
+
+
+=== levels/Nor GATE ===
+
+$11362258372706* 地球上のほとんどの生物は攻撃的で,集中することを知りません.
+
+To succeed you must learn to think logically, while not destroying things.
+
+
+=== trans/level_complete_stats ===
+
+$65428404547905* 統計
+
+
+=== rpg/maps/overworld/brambert ===
+
+$23133103699795* ベストハットを買うために
+ここで働いてるんだ
+
+
+=== misc/watchable_state ===
+
+$58678516111149* 監視状態の編集
+
+
+=== components/Xnor64 ===
+
+$64937916903935* 2つの値をビットごとにXNOR演算
+$47129074382309* 64ビット XNOR
+
+
+=== levels/wide_instrucitons ===
+
+$13709034294291* 偶数Tickで保存,奇数Tickで両バイトを出力
+$17693995237077* 両バイトを出力
+$19068760748550* 偶数Tickで0を出力
+$65009239162932* 正しい出力は {a} と {b} でした.
+$19203973423116* 偶数Tickでプログラム出力を保存し,奇数Tickで両バイトを出力するデバイスを作成します.
+$17409169138995* バイトを保存
+
+
+=== main_scripts/input ===
+
+$10186190492148* ALTクリックでワイヤの先端を移動
+
+
+=== levels/bit_switch ===
+
+$56295261249455* TODO: Write level description.
+
+[img]dialogue/bit_switch.png[/img]
+
+When the top pin is [OFF], the output is disabled. This means that more than 1 of these grey output pins can connect to the same wire and not cause an error, as long as only one of them is enabled at a time.
+$42793594302151* NOT ゲート2つとスイッチ2つを使って,XOR ゲートを作りなさい.
+
+
+=== rpg/maps/overworld/griffith ===
+
+$55209338960432* スライム農場に行って
+スライムの粘液を集めてきて
+$96728313107159* よし,粘液を集めてきたね
+$96479154941553* 明日はスキーに行くんだ
+$22071068061213* あと2つでいい
+$76381947526292* 粘液4つあれば十分だ
+$79617816410767* 仕事を休む手伝いをしてくれロボット
+$53961253609599* あの樽は後で
+夕食に出される
+$27173657446279* え,何だって
+$75126453723590* よし,スライム農場から
+粘液を3つ集めてきたね
+$31359502586908* 病欠が多すぎるから
+今回は本当にいい
+言い訳が必要なんだ
+$37703435616461* 崇高な探求だ
+$95279523937415* あと3つだ
+$76778627086258* 仕事を休む手伝いを
+してくれてありがとう
+$38680695249087* それをカフェテリアの
+シェフの後ろにある
+シチュー樽に入れろ
+$10482244323050* キッチンのシェフの後ろの
+シチュー樽に入れてこい
+$24977511637567* よし,スライム農場から
+粘液を1つ集めてきたね
+$80959866769801* 上司にそれを食べさせれば
+うまくいくはず
+$21601269931093* よし,スライム農場から
+粘液を2つ集めてきたね
+$28681635150249* あと1つ取ってきて
+$71867966253273* スライムの粘液を食べると
+とても従順になる
+
+
+=== rpg/maps/prison/dr_rakoo ===
+
+$62085363571678* Dr.ラクー
+$41342441528477* 血
+$31033960272185* 私は名高いDr.ラクーです
+
+
+=== trans/levels_saving_bytes_text ===
+
+$36838510526259* [right]Action
+期待される状態
+期待される出力
+[/right]
+
+
+=== trans/level_decoder_1_RichTextLabel2 ===
+
+$50454539040073* [right][color=#e49f44]Input[/color]
+Output 1
+Output 2[/right]
+
+
+=== components/Rol64 ===
+
+$49017662473189* 入力のビットを左に回転
+$13677051385046* 64ビット左回転
+
+
+=== levels/byte_shift ===
+
+$16023356915123* このレベルの目標は,最初の入力を2番目の入力で与えられた値だけ左にシフトすることです.ただし,2番目の入力が7を超えることはないものとする.
+
+$37338672894296* {value} のビットを {amount} だけ左にシフトする.
+$10598344098990* [center]最初の入力を,2番目の入力で指定された桁数だけ左にシフトする[/center]
+$23134220902659* VALUE
+$16216408139965* 値を左に1シフトする[color=#e49f44]シフト[/color]とは,1バイト中の全てのビットを1つ左に移動させることを意味します.
+例: [color=#e49f44]90 shl 1[/color]
+
+[OFF] [ON] [OFF] [ON] [ON] [OFF] [ON] [OFF] would become:
+[ON] [OFF] [ON] [ON] [OFF] [ON] [OFF] [OFF]
+
+Shifting by 3: [color=#e49f44]90 shl 3[/color]
+[OFF] [ON] [OFF] [ON] [ON] [OFF] [ON] [OFF] would become:
+[ON] [ON] [OFF] [ON] [OFF] [OFF] [OFF] [OFF]
+
+
+$29295063752414* SHIFT BY
+$18137790657923* 左シフトのコンポーネントを提供するだけでなく,右シフトのコンポーネントもインターン生に作ってもらいました.彼らがやったことはこの回路図のミラー版を作成することのみです.
+$18518173140953* 今後のレベルのためにハードウェアに [color=#e49f44]左シフト[/color] と [color=#e49f44]右シフト[/color] を追加することをお勧めします.
+
+
+=== trans/panel_outputlevel_enable ===
+
+$88881816595724* [center]無効化 / 有効化[/center]
+
+
+=== misc/restore_overture ===
+
+$52008982212566* リセット
+
+
+=== rpg/maps/overworld/bridge ===
+
+$70708048943630* 橋
+
+
+=== trans/panel_input_down ===
+
+$70002762618597* 下
+
+
+=== trans/_second_tick_RichTextLabel2 ===
+
+$11680718497014* [right][color=#e49f44]Input 1
+Input 2[/color]
+期待される出力
+現在の出力[/right]
+
+
+=== dialogue/schematic_hub/delete_comment_confirm ===
+
+$52709446588114* はい
+$52823211591830* このコメントを削除してもよろしいですか?
+
+
+=== components/SpriteDisplay ===
+
+$27510895774306* マルチレイヤースプライトディスプレイ
+$49278744667468* スプライトディスプレイ
+
+
+=== rpg/maps/unseen_fruit/conveyor_belt ===
+
+$45894441609339* ベルトコンベア
+
+
+=== misc/ui_panel/left_inputs ===
+
+$16586225094516* 入力
+
+
+=== trans/manual_console ===
+
+$73523750891893* コンソール
+
+
+=== trans/panel_shl8_input ===
+
+$61388183229084* [right]Value
+Shift by[/right]
+
+
+=== components/OutputCounter ===
+
+$52247325526438* カウンタ
+
+
+=== components/Off ===
+
+$61860786587357* OFF
+$72749460799924* 常に[OFF]
+
+
+=== misc/ide_control_link ===
+
+$80788685813993* ロボット制御
+
+
+=== misc/options_Score Sync ===
+
+$45371978167502* スコア同期
+
+
+=== trans/map_keys_to_pan ===
+
+$26276191141664* キーボードでパン
+
+
+=== components/Xnor32 ===
+
+$17419057954798* 2つの値をビットごとにXNOR演算
+$52489451755306* 32ビット XNOR
+
+
+=== trans/manual_send_otuput_robot ===
+
+$65542429897149* [center]ロボットを制御するために出力を送信[/center]
+
+
+=== components/Or3 ===
+
+$17576327690867* 3ピン ORゲート
+$99630419947500* 3ピン OR
+
+
+=== trans/level_binary_search_description ===
+
+$11976224688780* [center]パスコードを復元しなさい[/center]
+
+
+=== trans/rpg_complete_derpoo ===
+
+$25534025775791* [center]デルプーよ安らかに[/center]
+
+
+=== components/Output1Sum ===
+
+$90026011029075* 合計
+
+
+=== trans/level_binary_programming_description ===
+
+$66247694103179* [center]入力に5を足しなさい[/center]
+
+
+=== levels/Add 5 ===
+
+$11540713506719* これでパソコンのプログラムを自由に変更することができます.
+プログラムコンポーネントの編集アイコンをクリックすると,プログラミングが開始できます.
+$19281970848639* [center]入力に5を加算する.[/center]
+$17770257567603* だから,その間は少し船の手伝いをしてもらうことになります.
+$19446152707984* プログラムコンポーネント上のメモリ編集アイコンをクリックし,コンピュータのプログラミングを開始します.あなたのコンピュータは入力を読み取り,それに5を加えて再び出力するはずです (オーバーフローの心配は不要です).
+$12078933051174* でも,まだプログラミングの仕方が分からないので,その辺はまだまだですね.
+$11074247151096* イミュータブルレジスターコンポーネントが,同じ機能を持つカスタムコンポーネントに置き換えられていることに注意してください.
+$18134632592542* あなたはコンピュータを作り上げましたが,競争に勝つためには,迷路を完成させなければなりません.
+
+
+=== trans/not_gate_click_next2 ===
+
+$20820887361993* "Next tick"をクリックして確認
+
+
+=== misc/options_keys ===
+
+$92993941290486* Shift
+$65955105101920* Numpad Enter
+$15851382978562* 左
+$12519478101154* End
+$99716387921256* Context menu
+$78882003890612* TAB
+$13781284353315* Standby
+$23041433375813* Launch Shortcut 6
+$27874359646701* Treble up
+$65834804441085* Open URL
+$91413612191819* Launch Shortcut D
+$39317622588588* Launch Shortcut E
+$31504133014584* 宇宙
+$27726004575826* Launch Media
+$68199202258305* Next song
+$49442994583673* Left Super key (Windows key)
+$96347674697419* Forward
+$58999281424396* CMD
+$59365233304896* Clear
+$17795913351819* 削除
+$57038840198662* CTRL
+$50955698469296* Launch Shortcut 9
+$63772872007214* Stop
+$10929402286573* Page Down
+$93358816396539* ↓
+$71982112085693* Launch Shortcut 7
+$28214161279082* Launch Shortcut B
+$14976122209522* Insert
+$83084380695531* SHIFT + TAB
+$70423659540492* Launch Mail
+$18970380352793* Alt
+$55972860446450* 検索
+$81640191081376* Mute volume
+$20334952085165* →
+$91733527994209* Launch Shortcut 2
+$73529460447236* Return
+$50389171923636* Backspace
+$64108103861848* Refresh
+$86957870260110* Bass down
+$79228417307539* 右
+$48472841971511* Favorites
+$94137103361291* Play
+$86664894772851* Launch Shortcut F
+$92411601634183* Pause
+$93394348651979* Right Hyper
+$57182221632160* Help
+$32311987309013* レベルに戻る
+$40801064032778* Previous song
+$64963573823520* Print Screen
+$11442487736991* System Request
+$83183843351576* Launch Shortcut 0
+$74172180238771* Scroll Lock
+$16897068982305* Right Super key (Windows key)
+$24086297669523* Volume down
+$51594389746074* Launch Shortcut 4
+$67529269053604* Home page
+$39382222147951* Caps Lock
+$51120580663479* ESC
+$66339874250985* Media record
+$49947924390850* Launch Shortcut 5
+$47096285951897* Page Up
+$40013272281231* Left Hyper
+$47330905474433* Volume up
+$17043010993255* Stop
+$88355661220986* Launch Shortcut C
+$78473292327654* ↑
+$54347318627968* ←
+$25372126469538* Num Lock
+$57391159100618* Launch Shortcut 3
+$92739814679396* Bass up
+$43488085975448* Home
+$11908889523442* Bass Boost
+$17896149617641* Treble down
+$91210884350615* Launch Shortcut 1
+$74797401805098* Launch Shortcut 8
+$18909108170114* Launch Shortcut A
+
+
+=== trans/panel_xor_description ===
+
+$92999392068622* [center]2つの入力をビットごとにXOR[/center]
+
+
+=== trans/panel_hdd_input ===
+
+$99603056559749* [right]Seek
+Load
+Save
+Save value[/right]
+
+
+=== trans/overwrite_keep_both ===
+
+$70461062797309* 両方を保持
+
+
+=== trans/architecture_2 ===
+
+$38100016313511* CPUアーキテクチャ 2
+
+
+=== trans/program_data_width ===
+
+$72687692653533* [right]データ幅:
+[/right]
+
+
+=== components/Counter32 ===
+
+$87245349851451* 32ビットカウンタ
+$92765669828982* 上書きされない限り,毎ティック増加する
+
+
+=== rpg/maps/prison/sign2 ===
+
+$76218421577794* 看板
+
+
+=== trans/panel_register8_outputs ===
+
+$72930832545270* 出力
+
+
+=== trans/options_disagree ===
+
+$60077370372179* 同意しない
+
+
+=== misc/tests_run_all ===
+
+$55533125021199* すべて実行
+
+
+=== components/NOT ===
+
+$34453052824732* NOT
+$90844421681709* 入力を反転する
+[table=3]
+[cell]Input[/cell][cell][OFF][/cell][cell][ON][/cell]
+[cell]Output[/cell][cell][ON][/cell][cell][OFF][/cell]
+[/table]
+
+
+=== levels/Crude Awakening ===
+
+$12508086025944* あなたをテストしています.
+
+The rules are simple, build a functional computer or you will be eaten. Good luck.
+$16321577947087* おめでとうございます!あなたは誘拐されました!
+$19257730429557* "IN" から "OUT" に信号が流れます.
+左上の "入力" の下に,緑色のアイコンがあります,
+これをクリックすると "IN" がオフになります. 
+$17675121574388* OUTがオフになっていることに注意してください.\nこれは、INから信号が流れなくなったためです.
+
+
+=== misc/instr_clone ===
+
+$69090690657232* クローン
+
+
+=== levels/byte_or ===
+
+$10368115829346* でも実際は,野生でいい暮らしをしていたから大丈夫だし,肉を無駄にすることもないんです.
+$15923734370936* 入力バイトの各ビットをOR演算して結果を出力する.
+
+For example:
+[code]
+INPUT 1 [ON][ON][OFF][OFF][OFF][OFF][OFF][OFF]
+INPUT 2 [OFF][OFF][OFF][OFF][ON][ON][OFF][OFF]
+OUTPUT  [ON][ON][OFF][OFF][ON][ON][OFF][OFF][/code]
+
+$15226896485081* 競争に勝てなかった地球人を全部食べるなんて,倫理的にどうかと思うかもしれませんね？
+
+
+=== trans/level_registers_code ===
+
+$40063003736243* [center]OR[/center]
+
+
+=== trans/instrucitons_header ===
+
+$14831276667273* [center]手順[/center]
+
+
+=== trans/level_the_bus_description ===
+
+$20464862486158* [center]正しい入力から正しい出力に値をコピーしなさい[/center]
+
+
+=== trans/level_complete_hex ===
+
+$94261690850981* [b]16進数[/b]
+[color=#cccccc][i]符号付き,符号なし,16進数の切り替え[/i][/color]
+
+
+=== trans/panel_decoder1_input ===
+
+$62550086102347* [right]Input[/right]
+
+
+=== misc/inst_new_rule ===
+
+$41064305626707* 新しいルール
+
+
+=== levels/always_on ===
+
+$50218226879226* このレベルで最初のマニュアルページがアンロックされます.これは重要なので,必ず理解してください.
+$17712385236630* 常時[ON]の回路を作成する.
+
+
+=== rpg/maps/unseen_fruit/control_panel ===
+
+$65321532772341* トマト
+$51110810065199* オレンジ
+$88166963001775* メロン
+$22160541540437* 洋梨
+$74579380431603* 金のリンゴ
+$66873855446862* キウイ
+$73302376080596* メロン
+$32979920031183* キウイ
+$15870062259126* ブラックベリー
+$70171621231240* コントロールパネル
+$60591101734432* リンゴ
+$66897764153265* これを押すにはプログラムされる必要がある
+$22067281046238* 金のリンゴ
+$94493068600800* {fruit}の前に{fruit_plural}が2つ見えた
+$54127406514854* ブラックベリー
+$94632554265850* トマト
+$37155502172032* オレンジ
+$84136665661115* 洋梨
+$26638472067834* リンゴ
+$96743644544068* これが{fruit}の最初の出現でした!
+
+
+=== dialogue/schematic_hub/delete_confirm ===
+
+$71921976503347* はい
+$46660924781254* '{name}'という回路図を
+本当に削除しますか?
+
+
+=== misc/option_reset ===
+
+$15557473522933* リセット
+
+
+=== trans/level_complete_gate ===
+
+$99373213759665* [b]ゲートスコア[/b]
+[color=#cccccc][i]ワイヤやコンポーネントのゲートスコアを確認できるようになりました.[/i][/color]
+
+
+=== components/ByteEqual ===
+
+$39369982838671* 等しい
+$35668435514829* 2つの入力が等しいかチェック
+
+
+=== levels/binary_racer ===
+
+$25272818268849* [b]復習[/b]
+
+Hopefully you noticed:
+1. There is exactly 1 way to write each number in binary.
+2. The value of each digit is always double of the previous digit.
+$16076448195257* このレベルは、私の大好きな遊びです.時間的なプレッシャーの中で,10進数を2進数に変換してみましょう.
+$37319690622142* よくやった, レベル {current\_level} に到達したぞ.
+$19111664765554* レベルパネルのビットを切り替えて,問題の10進数になるようにしてください.
+
+You must beat level 3 to pass.
+
+(click [color=#e63e5b][url=accessibility_mode]here[/url][/color] to turn on timerless accessibility mode)
+$11176073682097* 2進数で {number} は?
+
+
+=== components/Mul64 ===
+
+$72281597169494* 乗算
+$11665562499390* 2つの入力を乗算
+
+
+=== levels/xor_gate ===
+
+$14093358515620* これはXORゲートとも呼ばれます.このレベルは難しいので,すぐに答えが分からなくても落ち込まないでください.
+$19182751521677* 前のレベルでは,2つ目のTickになったときに[ON]になる回路を作りました.このレベルでは,2番目または3番目のティックにあるときに[ON]になる回路を構築してください.
+
+
+=== components/Bidirectional64 ===
+
+$82412839066570* 64ビット双方向ピン
+$24932613021646* 特定の循環依存エラーを回避できる
+
+
+=== trans/level_complete_profile ===
+
+$78783902500954* [b]オンラインプロフィール[/b]
+[color=#cccccc][i]メインメニューにあります.[/i][/color]
+
+
+=== trans/panel_network_input_description ===
+
+$36399689035136* [b][color=#e49f44]コマンド[/color] (引数)[/b]
+[code]0[/code] リクエストなし
+[code]1[/code] [color=#e49f44]Listen[/color]
+
+
+=== rpg/maps/prison/sign_1 ===
+
+$88221977354540* 看板
+$74189085130186* 書いてある: ボタンで
+牢屋の扉が開く
+
+
+=== levels/byte_nand ===
+
+$76462832199594* 2つのバイトをビットごとにNANDする回路を作りなさい.
+
+
+=== components/Maker32 ===
+
+$82420653444614* 4バイトを32ビット値に変換
+$85308499118176* 32ビットメーカー
+
+
+=== rpg/maps/overworld/space ===
+
+$70779117877705* 宇宙の広大さを見よ
+$12015430928135* 宇宙
+
+
+=== trans/panel_output_output_3 ===
+
+$94657695889458* Output 4
+
+
+=== dialogue/dotMatrixtext_link ===
+
+$82486902873499* カラーピンはバイト2, 3, 4を[color=#dd6576][url=RGB color]RGBカラー[/url][/color]に使用します (バイト1は未使用)
+ピクセルピンはバイト2, 3, 4, 5, 6, 7を使ってピクセルの色付けを選択します.各ビットが1ピクセルに対応します.変更はバイト8を1に設定すると反映され,ディスプレイが更新されます.
+
+Both "Enable X" and "Enable Y" have to be on to update the display.
+
+
+=== rpg/maps/overworld/door4 ===
+
+$66194643935592* 秘密のドア
+
+
+=== trans/panel_decoder3_output ===
+
+$41412072467493* 1つだけONになる
+
+
+=== rpg/maps/prison/prision_door ===
+
+$64702123078518* ドアは施錠されています
+$42385408716570* ドア
+
+
+=== misc/add_code_name ===
+
+$57358078712675* 保存
+
+
+=== components/Hdd ===
+
+$75645507178296* HDD
+$78558655732992* 永続メモリ
+
+
+=== rpg/maps/spacial_invasion/space_rat ===
+
+$72504258410857* 宇宙ネズミが近づきすぎた
+$94470860110909* 宇宙ネズミ
+$67254986543263* これをするようプログラムされていたら
+レベルをクリアできたのに
+
+
+=== ui/state_ui/title_screen/exit ===
+
+$12639868461113* 終了
+
+
+=== trans/panel_fulladder_output ===
+
+$18502107482550* 結果
+Carry
+
+
+=== trans/options_waiting ===
+
+$58990937331663* 待機中
+
+
+=== misc/ui_panel/memory ===
+
+$65362728703588* メモリ
+
+
+=== trans/ide_add_assembly_header ===
+
+$94462268558066* [center]アセンブリコードを追加[/center]
+
+
+=== trans/panel_output_output_2 ===
+
+$33211646632666* Output 3
+
+
+=== levels/any_doubles ===
+
+$16587030847545* 私たちは技術的に進んでいるので,機械で靴下をたたむことができます.しかし残念ながら,靴下のペアを検出する回路が機械で壊れてしまったのです.
+$14373083988184* このレベルには4つの入力があります. 
+2つ以上が [ON] の時に出力が [ON] になります.
+
+[tip]Don't overthink this level.[/tip]
+
+
+=== trans/panel_rom_output ===
+
+$80688779703520* 出力
+
+
+=== components/DelayLine1 ===
+
+$30487770736917* ディレイライン
+$38206009264853* 今のティックの入力を次のティックに出力
+
+
+=== components/Neg64 ===
+
+$88458190974122* 符号反転
+$52206550732945* 入力の符号を反転
+
+
+=== rpg/maps/unseen_fruit/door2 ===
+
+$66022312281343* ドア
+
+
+=== misc/ide ===
+
+$80281780593326* {nr} CUST
+$33302419528314* {nr} CNT
+$57584872924662* {nr} OUT
+$66077393938044* {nr} REG
+$57192021095756* {nr} WIRE
+$89311802272165* {nr} BIT
+$18255035821811* {nr} RAM
+
+
+=== components/DelayLine32 ===
+
+$56616725618490* 今のティックの入力を次のティックに出力
+$49292282287971* 32ビット ディレイライン
+
+
+=== components/Nand64 ===
+
+$27197172037913* 64ビット NAND
+$66590147372797* 2つの値をビットごとにNAND演算
+
+
+=== misc/run_fast ===
+
+$54853798559740* 高速実行 (右クリック: 目標速度を変更)
+
+
+=== misc/confirm_factory_reset ===
+
+$65699778604521* すべてを削除
+
+
+=== trans/panel_off ===
+
+$61047424972631* 常に
+
+
+=== component_panels/Output8zLevel ===
+
+$35707954769868* 無効
+
+
+=== components/Nor64 ===
+
+$17208777467974* 2つの値をビットごとにNOR演算
+$72509242083648* 64ビット NOR
+
+
+=== trans/panel_hdd_description ===
+
+$28038932532386* [center]ハードディスクでは"ヘッド位置"が読み書きのアドレスを決定します.符号付き8ビットの"Seek"入力でヘッドを移動させてください.[/center]
+
+
+=== trans/panel_or_description ===
+
+$65281182019602* [center]2つの入力をビットごとにOR[/center]
+
+
+=== trans/panel_input_input_3 ===
+
+$21321167572284* Input 4
+
+
+=== levels/Delicious Order ===
+
+$10160261151833* まず,入力された15個の「おいしさ」の点数を一つずつ読み込みます.あなたの仕事は,それらを小さいものから大きいものへと並び替えて出力することです.
+$16027225087666* 銀河の食の百科事典を更新し,人間の食べ物を挿入します.アルファベットがないため,百科事典の項目は美味しさ順に並んでいます.
+
+
+=== trans/manual_network_label ===
+
+$90392202103470* IPを入力して整数に変換
+
+
+=== trans/panel_rol_input ===
+
+$95166818170185* [right]Value
+Rotate by[/right]
+
+
+=== components/Equal64 ===
+
+$34603983706314* 2つの入力が等しいかチェック
+$82876546747608* 等しい
+
+
+=== trans/manual_component_factory ===
+
+$35460636622618* コンポーネントファクトリー
+
+
+=== trans/options_status ===
+
+$35063135798145* ステータス
+
+
+=== levels/Tower of Radioactive Alloy ===
+
+$13757925963562* 放射性ディスクの山を古い原子炉から移動してもらいたい.大きなディスクを小さなディスクの上に置かないように注意してください.さもないと船が爆発します.
+$10750976989948* 最初の4つの入力は次の順序で与えられます:
+disk_nr - 山の中で一番大きなディスク番号 (2から4)
+source - 移動元の場所番号
+destination - 移動先
+spare - 移動元でも移動先でもない3番目の場所
+
+Control the crane with the following outputs:
+0 - Move the magnet to spot 0
+1 - Move the magnet to spot 1
+2 - Move the magnet to spot 2
+5 - Toggle the magnet on or off
+
+Play with the magnet manually by using the arrow keys to move and enter to toggle.
+$19265994465686* 地下の清掃を手伝ってほしい.
+$35120623183961* {source}から{destination}へ移動
+$15855497886737* 次のアルゴリズムを実装してください:
+
+Tower of Hanoi algorithm:[code][color=#87a8c8]
+func move(disk_nr, source, dest, spare):
+	if disk_nr is 0:
+		move disk from source to dest
+	else:
+		move(disk_nr - 1, source, spare, dest)
+		move disk from source to dest
+		move(disk_nr - 1, spare, dest, source)[/color][/code]
+
+[tip]Push register values to the stack to save them before calling a function that changes them.[/tip]
+
+
+=== trans/manual_universal_gates ===
+
+$28345532918560* ユニバーサルゲート
+
+
+=== trans/map_functions ===
+
+$83960548773205* 関数
+
+
+=== components/Input 1 Byte ===
+
+$90785720285146* 8ビット入力
+
+
+=== trans/panel_probewirebit_value ===
+
+$24213353038685* [center]Value[/center]
+
+
+=== trans/hub_type ===
+
+$23829497228009* タイプ
+
+
+=== trans/manual_text_binary ===
+
+$69488982380310* 普段使っている数字は10進数です.数字の右側に0を追加すると値が10倍になります
+
+Binary is base 2, so doing the same will instead just double it. In other words, each digit represents a power of 2. For example with [color=#c54d5e]base 2[/color] and [color=#e49f44]base 10[/color] color coded:
+[color=#c54d5e]    1[/color] = [color=#e49f44]1[/color]
+[color=#c54d5e]  10[/color] = [color=#e49f44]2[/color]
+[color=#c54d5e]100[/color] = [color=#e49f44]4[/color]
+
+To represent 6 we can simply add 4 and 2:
+[color=#c54d5e]110[/color] = [color=#e49f44]6[/color]
+
+Addition, multiplication and everything else works the same as base 10, except you carry when you reach 2 instead of 10.
+
+
+=== panel_sound_sound_picker ===
+
+$73758040671294* ノート ([i][/i]をクリックして置換)
+
+
+=== trans/level_alu1_description ===
+
+$90245779080897* [center]2つのバイトをOR, NAND, NOR
+またはANDしなさい[/center]
+
+
+=== components/Program1Red ===
+
+$26811947547688* プログラム可能なメモリコンポーネント
+$55594749714809* プログラム
+
+
+=== nim/backend_lib/assembler ===
+
+$46709301132173* 行{line}: "label"の後には名前だけを記述してください (例: label jump_here)
+$91607161873807* 行{line}: "const"の後には名前と値が必要です (例: const shoot 5)
+$29335866080065* 行{line}: "set_input"の引数は数値でなければなりません
+$27717388396189* 行{line}: "expect"の後には監視状態インデックスと値が必要です
+$81373400907688* 行{line}: ここに何らかのエラーがあります
+$95834288706682* 行{line}: "set_input"の後に値が必要です
+$65326376775481* 行{line}: "label"の後に名前が必要です (例: label jump_here)
+$23247597342508* 行{line}: "set_input"キーワードはこのレベルでは使えません.
+$49738057919794* 行{line}: "const"の後には名前と値だけを記述してください (例: const shoot 5)
+$54823996766711* 行{line}: "expect"の2番目のパラメータが無効です
+$15087417947547* 行{line}: "expect"の後には監視状態インデックスと値だけを記述してください
+$39128060960831* 行{line}: "expect"キーワードはこのレベルでは使えません.
+$34201706604320* 行{line}: "expect"の引数1は数値 (監視状態インデックス) でなければなりません
+$80435549997833* 行{line}: 無効な定数
+
+
+=== misc/dir_delete ===
+
+$94436541903929* アーキテクチャ: {list}
+$17985924005596* スキマティックが{nr}個含まれています.
+$51791491383290* カスタムコンポーネントは次の場所で使用されています
+$63013773025775* {file_name}を本当に削除しますか?
+$38011567415872* フォルダは空です.
+$57790786178566* カスタムコンポーネント: {list}
+
+
+=== rpg/maps/overworld/bed ===
+
+$19781388766480* ベッド
+$41698807327261* 適当な家具を見るのが好きです
+
+
+=== levels/little_box ===
+
+$17142958857584* A OR B
+$12901484249817* この限られたスペースに4バイトのメモリを収めることができますか?
+$14218335256117* In our advanced civilization, forcing prisoners to do extremely menial tasks is slavery and is technically illegal.
+    That is why we instead had our intern create the 256 byte version of your component.
+$19282543476901* 1
+$13765566466116* 保存しない
+$15908016538045* VALUE
+$16196915566111* 0
+$32676754026463* {value}を保存し読込
+$30856781458049* {value}を保存
+$14259545926196* A
+$12306130287676* このレベルでは,4つの異なるバイトメモリに[SAVE]または[LOAD]できる回路を構築する必要があります.
+
+You are given 1 bit that determines if you are to [LOAD]. Another bit determines if you are to [SAVE] and it comes with a corresponding value.
+Additionally, you have 2 address bits. 
+
+With 2 bits, there are 4 combinations, one for each byte of memory in this level.
+[i][tip]Join wires in the middle and use right angles or this will be a mess.[/tip][/i]
+[i][tip]Spacebar rotates components.[/tip][/i]
+
+The output has an enable pin, enable it only on [LOAD].
+$16217965518477* B
+$10891070331034* B
+$18084166025569* 何もない
+$13082830776248* 読込しない
+$17473197268827* LOAD
+$13555908976270* 0 OR 1
+$10311371309532* SAVE
+$16925432534232* LOAD
+$13644027370563* 読込
+$12933801309767* A
+$12291627335021* SAVE
+
+
+=== trans/ide_binary_header ===
+
+$22615032668969* バイナリエディタ
+
+
+=== trans/level_registers_text ===
+
+$78241632854567* [right][color=#e49f44]Code
+Input[/color][/right]
+
+
+=== trans/panel_cond_input_0 ===
+
+$59435425554599* Bit 0:
+
+
+=== levels/program ===
+
+$16693098943939* [INSTRUCTION] 入力コンポーネントは削除されました.これはプログラムコンポーネントに置き換えられています.毎Tickごとに,次の [INSTRUCTION] をプログラムのメモリからロードするためにカウンターを使用します.
+  
+このレベルでは,先にアンロックしたカウンタコンポーネントを使用する必要があります.
+$19686277478479* プログラムは,最初の命令を出力したままです.カウンタを接続しましたか?
+
+
+=== trans/hub_status ===
+
+$64105077092961* ダウンロード中...
+
+
+=== trans/manual_components ===
+
+$40288888375581* コンポーネント
+
+
+=== levels/capitalize ===
+
+$14894954428144* このレベルの入力は惑星名のリストの文字を表しています.ASCII (マニュアル参照) でエンコードされています.各名前はスペース (数値32) で区切られています.各単語の最初の文字を大文字に置き換えてください.
+(入力可能な文字は小文字のaからz,スペース,アポストロフィ,ダッシュです)
+$13301617098810* インターンに惑星名を人間の文字で入力させた.残念ながら各名前の大文字化を忘れてしまった.
+$11647445869837* 入力: 
+$11201813578269* 出力: 
+
+
+=== levels/byte_equal ===
+
+$17156565273196* 両方の入力が同じ場合,[ON]を出力する.
+
+
+=== trans/levels_counting_signals_RichTextLabel2 ===
+
+$34604121212779* [right]Input 1
+Input 2
+Input 3
+Input 4[color=#e49f44]
+期待される出力
+現在の出力[/color][/right]
+
+
+=== trans/panel_delayline1_output ===
+
+$99213923469748* 出力
+
+
+=== trans/level_program_text ===
+
+$38014836341470* [right][color=#e49f44]Code
+Input[/color][/right]
+
+
+=== trans/map_memory ===
+
+$58330421958143* メモリ
+
+
+=== trans/manual_text_matrix ===
+
+$75170402412137* [b]文字の表示[/b]
+5x7ピクセルの空間は小さいですが,文字をきれいに描画できます.
+
+[center][img]dialogue/manual/matrix_letter.png[/img][/center]
+
+
+[b]Small tileable screen[/b]
+Rotating the component, you get 8x6 pixels, which has a nice 4:3 aspect ratio and tiling these, you can get most resolutions you might want. The way the pins are set up on this component was specifically designed to allow tiling. Imagine the naive pin design where each component is enabled by a single bit. This would require you to connect 1 wire for each component. In this situation, the number of wires needed for a tiled screen would scale with the area, while the gap needed to fit wires between components, would scale with the circumference. 
+
+[center][img]dialogue/manual/tilable_screen.png[/img][/center]
+
+Instead, by having 2 enable pins, one wire can enable a whole row and another a whole column. This way, a single component can be selected by its unique row and column combination. Further, fitting the rest of the data on the same wires, means that the horizontal and vertical gaps only need to be 1 square wide. This component visually takes up half a square extra on all sides, such that these components can be tiled up pixel perfectly, with 1 square hidden between them for running wires.
+
+
+=== trans/level_complete_stat_time ===
+
+$39203727515285* 時間
+
+
+=== rpg/maps/overworld/blankidork ===
+
+$19291766514049* 我々は反乱軍と戦っている
+
+
+=== ui/options/General ===
+
+$36195388998735* 一般
+
+
+=== trans/levels_double_the_number ===
+
+$41609125516676* [center]数を2倍にしなさい[/center]
+
+
+=== trans/panel_full_adder_input ===
+
+$67545680105541* [right]Input 1
+Input 2
+Input 3[/right]
+
+
+=== trans/level_delay_level_description ===
+
+$24326379952614* GATEが5でDELAYが6の回路を作りなさい
+
+
+=== trans/panel_max_data_len_max_data_length ===
+
+$88063177433135* [right]最大データ長[/right]
+
+
+=== trans/level_spacial_invasion_description ===
+
+$44980627299841* [center]宇宙ネズミを撃て![/center]
+
+
+=== levels/registers ===
+
+$10661964231175* このレベルの赤いコンポーネントは固定しました.あなたはいつもぐちゃぐちゃにして十分なスペースを残さないからです.今後作る散らかりはレベル間で保存されます.もう各レベルで最初からやり直すことはできません.
+$10211777161405* 各[color=#c54d5e]ソース[/color]と[color=#e49f44]デスティネーション[/color]のビットパターンは以下の通りです.
+
+[color=#c54d5e]Source[/color]:
+[OFF] [OFF] [OFF]  REG 0 
+[OFF] [OFF] [ON]  REG 1 
+[OFF] [ON] [OFF]  REG 2 
+[OFF] [ON] [ON]  REG 3 
+[ON] [OFF] [OFF]  REG 4 
+[ON] [OFF] [ON]  REG 5 
+[ON] [ON] [OFF]  INPUT 
+[ON] [ON] [ON]  UNUSED
+
+[color=#e49f44]Destination[/color]:
+[OFF] [OFF] [OFF]  REG 0 
+[OFF] [OFF] [ON]  REG 1 
+[OFF] [ON] [OFF]  REG 2 
+[OFF] [ON] [ON]  REG 3 
+[ON] [OFF] [OFF]  REG 4 
+[ON] [OFF] [ON]  REG 5 
+[ON] [ON] [OFF]  OUTPUT
+[ON] [ON] [ON]  UNUSED
+
+To get a more intuitive understanding of the requirements, click the [INSTRUCTION] icon in the upper left corner.
+$15888345020710* このレベルでは, [color=#c54d5e]source[/color] から [color=#e49f44]destination[/color] へコピーできる回路を作成する必要があります. 
+
+The instruction byte in this level determines the [color=#c54d5e]source[/color] and the [color=#e49f44]destination[/color]. 
+
+Bits 1, 2 and 3 give the [color=#e49f44]destination[/color]. Bits 4, 5 and 6 give the [color=#c54d5e]source[/color].
+$14823499195861* 上部バーの"手順"を開いてください
+$14108238519744* [color=#e49f44]OVERTURE[/color]コンピュータアーキテクチャを実装するマスタープロジェクトを作成しましょう.これは真のチューリング完全マシン,あらゆる意味で本物のコンピュータになります!
+$14041158687959* [color=#c54d5e]Source[/color] and [color=#e49f44]destination[/color] can be 1 of 6 registers, we will name them REG 0 to REG 5 respectively. 
+  
+Additionally, this map has a dedicated input component, which can be the [color=#c54d5e]source[/color] and an output component, which can be the [color=#e49f44]destination[/color].
+
+
+=== components/Ashr32 ===
+
+$57867060876326* 32ビット算術右シフト
+$77878150504241* 符号を維持しながらビットを右にシフト
+
+
+=== misc/level_gate_manual_icon ===
+
+$22002156022920* マニュアルエントリをアンロック
+
+
+=== components/DotMatrixDisplay ===
+
+$18651725958642* 6x8ドットマトリクスディスプレイ
+$71512568789377* 6x8ピクセルディスプレイ
+
+
+=== rpg/maps/overworld/fuel ===
+
+$99170934143071* コア燃料
+
+
+=== trans/panel_and_description ===
+
+$62144934019319* [center]2つの入力をビットごとにAND[/center]
+
+
+=== levels/Masking Time ===
+
+$19351773688761* 残りティック: {ticks_left}  入力: {input}
+$16810715868480* 入力のモジュロ4を計算してください.
+$17375862136921* The length of our week is 4 days. Our weekdays are named Zero's day, One's day, Two's day and Three's day. I hear some earthlings number their Two's day incorrectly? 
+  
+It doesn't really surprise me.
+$65431688078892* このレベルでは数値が入力として与えられ,その数値のモジュロ4を結果として返す必要があります.
+
+The challenge is that you only have {ticks_per_test} ticks to output the desired result.
+
+Note, you don't need to change your hardware, you just have to figure out the trick to do modulo 4 quickly.
+Use [color=#e63e5b][url=masking_time]this hint[/url][/color] if you get stuck.
+$81055582534899* ところで新年が近づいているので,全員の誕生日の曜日を計算してほしい.日付を渡すので{ticks_per_test}ティック以内に曜日を返すだけでいい.
+
+
+=== components/Console ===
+
+$66743357915699* コンソール
+$16105755937680* 80x24テキスト文字ディスプレイ
+
+
+=== rpg/maps/overworld/oozla ===
+
+$72859292385128* そのコンピュータは任意の
+2つのレジスタで算術演算ができ,
+結果をどこにでも格納できるという
+$41963791304712* ああ,しかしそれは子供向けの話に過ぎない,
+そんな英雄はおとぎ話にしか存在しない
+$91713298019390* そのコンピュータは一度に
+1バイト以上をロードできるという
+$43108829077557* 伝説によると彼らは強力な
+コンピュータを作り,この船を
+脅かす放射性廃棄物問題を
+解決するという
+$60555049113315* 少なくとも4ビットの
+メモリアドレスを持ち,
+16のメモリ位置にアクセスできるという
+$52580048139802* 預言は来たるべき英雄について語っている
+
+
+=== components/LessI16 ===
+
+$75600169624828* 小なり (符号あり)
+$73697238171042* 一方の入力が他方より小さいかチェック
+
+
+=== trans/label_input_input_0 ===
+
+$83039286441109* Input 1
+
+
+=== trans/level_constants_description ===
+
+$34641396464207* [center]アーキテクチャに定数読み込みを追加しなさい[/center]
+
+
+=== trans/manual_circular_dependency ===
+
+$40263928358112* 循環依存
+
+
+=== trans/component_panels_sprite_inputs ===
+
+$89388086235988* [right][color=#e49f44]コマンドタイプ[/color]
+スプライトID
+位置
+サイズ[/right]
+
+
+=== trans/panel_keyboard_right ===
+
+$20567291616294* キー値
+キーアップ
+
+
+=== trans/panel_equal_output ===
+
+$15175350110347* 出力
+
+
+=== trans/panel_on ===
+
+$77349453746493* 常に
+
+
+=== misc/profile ===
+
+$32835651830157* プロフィール
+
+
+=== trans/panel_sound_inputs ===
+
+$45047777963599* [right]ノート
+ピッチ (符号付き)[/right]
+
+
+=== components/BeepBox ===
+
+$16713357727925* 256種類のカスタマイズ可能な音色とピッチ制御を持つサウンドコンポーネント.
+$11041223461254* サウンド
+
+
+=== trans/panel_clock_output ===
+
+$47697250900761* UNIXタイム (マイクロ秒)
+
+
+=== components/Bidirectional32 ===
+
+$54631386552063* 32ビット双方向ピン
+$35105566244017* 特定の循環依存エラーを回避できる
+
+
+=== misc/specifications ===
+
+$56390619785555* 手順の定義を表示
+$68054407020318* 手順
+
+
+=== trans/manual_component_factory_text ===
+
+$42847481618884* 上部のこのボタン[img]dialogue/manual/component_factory_icon.png[/img]をクリックしてコンポーネントファクトリーを開いてください
+
+The component factory allows you to create your own components. The logic you place determine the behavior of the custom component and the layout determines the shape. 
+
+The input and output components you place become pins on the component. Like with other components, a component output leading back to its input causes a circular dependency. Outputs having a path back to inputs causes a circular dependency for custom components, even if the insides of the component would suggest there shouldn't be one. Not having to worry about the inside of components reduces the complexity of larger builds, however this strict abstraction can be inconvenient under certain circumstances. In that case, use the unbuffered pins. They allow bidirectional flow and use the insides of the component to check for circular dependencies.
+
+Probes placed in custom components will show on their layout and can display values inside. Probes can be connected to other custom components, so that deeply nested values can be displayed. Values probed in this way can also be connected to the program component.
+
+For the component factory, the file manager also manages the custom components. The file names decide the component name and the folder structure decides the components placement in the menu.
+
+
+=== misc/network_update ===
+
+$47639082058046* まだ何もありません
+
+# Showing what components are used in schematics in the hub
+$83560387278127* 派生元: 
+$86830276924898* アップロード日:
+$15762392983604* サイズ:
+
+# If the hub can't load a schematic for some reason
+$76023068123024* エラー
+$70694384106281* 作成者:
+$81675147704214* ネットワークコンポーネントを使用
+$98151734218561* [center][color=#60a96b]アップロード完了.[/color][/center]
+$40010486743721* [center][color=#dd6576]アップロード失敗.[/color][/center]
+
+
+=== trans/level_complete_stat_delay ===
+
+$43118901497406* 遅延
+
+
+=== components/NetworkClient ===
+
+$44510554000571* ネットワーク
+$90462653419289* ネットワーク接続を処理
+
+
+=== rpg/maps/overworld/door2 ===
+
+$40757019106897* ドア
+
+
+=== trans/options_animation_speed ===
+
+$13442839894535* ワイヤアニメーション速度
+
+
+=== trans/levels_negative_descriptions ===
+
+$87964635915702* -127から127が表現可能:
+0から127は以前と同じ:
+加算器で動作する:
+
+
+=== components/Counter16 ===
+
+$37313834107391* 上書きされない限り,毎ティック増加する
+$49104925799943* 16ビットカウンタ
+
+
+=== trans/panel_cond_input_1 ===
+
+$99239506734191* Bit 1:
+
+
+=== trans/panel_splitter32_output ===
+
+$18283412227212* Byte 1
+Byte 2
+Byte 3
+Byte 4
+
+
+=== rpg/maps/overworld/barrel7 ===
+
+$56979881178765* これは樽です
+$19922359571673* シチュー樽
+
+
+=== components/Splitter32 ===
+
+$90978982016052* 32ビットを4バイトに分割
+$24096666569346* 32ビットスプリッタ
+
+
+=== dialogue/schematic_hub ===
+
+$22639280459994* リストをダウンロード中...
+
+
+=== trans/panel_neg_input ===
+
+$92219875545393* [right]Input[/right]
+
+
+=== components/Program64 ===
+
+$38310909505735* プログラム
+$76480303942112* プログラム可能なメモリコンポーネント
+
+
+=== components/Shl64 ===
+
+$56766765894165* 入力のビットを左にシフト
+$37014604954362* 64ビット左シフト
+
+
+=== trans/level_byte_mux_description ===
+
+$20538476756633* [center]正しい入力バイトを出力しなさい[/center]
+
+
+=== trans/options_cluster_color ===
+
+$77850745497963* ワイヤクラスタに色を適用
+
+
+=== misc/continue ===
+
+$93610185550877* 続ける
+
+
+=== trans/panel_program_1inputs_label ===
+
+$85358271811851* [right]リンクコンポーネントを編集[/right]
+
+
+=== nim/backend_lib/schematics ===
+
+
+# Default assembly instructions
+$98784625122112* add 68
+reg0_to_reg1 129
+reg0_to_reg2 130
+reg3_to_out 158
+
+# Decoder pin name
+$80846046332059* CONDITION
+
+# Name of lab test file (the name determines what it looks like in game, but don't the .assembly part)
+$43762760711440* 3 Conditions.assembly
+
+# For the default OVERTURE instruction menu
+$36937658066516* AND
+$25378963142694* Input 2
+
+# For the default OVERTURE instruction menu
+$34688070019016* 計算
+$80984147393241* OPCODE
+$23343928938611* CALCULATION
+$48524980499900* VALUE
+
+# For the default OVERTURE instruction menu
+$89904818945500* 常に
+$25947122599583* PUSH
+
+# For the default OVERTURE instruction menu
+$41384200516164* 入力
+$52720470197560* 条件
+
+# For the default OVERTURE instruction menu
+$58135326697989* 出力
+$21762287720058* デフォルト
+
+# For the default OVERTURE instruction menu
+$45098916684469* しない
+$69871887031160* 結果
+
+# For the default OVERTURE instruction menu
+$77964040770330* ADD
+
+# For the default OVERTURE instruction menu
+$90287016519308* 未使用
+$17900992684779* 入力
+
+# For the default OVERTURE instruction menu
+$23756602199977* NAND
+$98979865390652* OUTPUT
+$30360644331285* POP
+
+# For the default OVERTURE instruction menu
+$52155313885654* 条件
+
+# Name of lab test file (the name determines what it looks like in game, but don't the .assembly part)
+$55885017410507* 0 Immediate load.assembly
+
+# Name of lab test file (the name determines what it looks like in game, but don't the .assembly part)
+$38851635485723* 2 Calculations.assembly
+
+# Name of lab test file (the name determines what it looks like in game, but don't the .assembly part)
+$84575312492466* 1 Register copying.assembly
+
+# Default program the first time you open binary search
+$28582639590579* # ラベルの作成例
+label my_label
+# これは定数
+const PI 3
+# マニュアルページも
+# 確認してください
+
+# For the default OVERTURE instruction menu
+$49207579633810* NOR
+$97114869841400* 出力
+$23432943836287* example
+$15697933732634* 命令
+
+# For the default OVERTURE instruction menu
+$98586044504803* コピー
+
+# For the default OVERTURE instruction menu
+$87661236574161* 即値
+
+# For the default OVERTURE instruction menu
+$43346201280348* SUB
+$50176996454102* IMMEDIATE
+$47025412277453* Input 1
+$38100656631435* COPY
+
+# Default code seen when first opening the IDE
+$46866969777934* # コメントです!
+# 以下は1 + 1を計算します
+1
+reg0_to_reg1
+reg0_to_reg2
+add
+reg3_to_out
+
+# For the default OVERTURE instruction menu
+$63749396808309* OR
+
+
+=== levels/xor ===
+
+$11589029892097* 入力ビット {a} と {b} をXOR演算する
+$12758156517177* コンピュータの命令を利用し,入力を2回読み取って,2つの値をXOR演算する
+$16047615798435* [center]入力を2回読み取り,2つの入力のビットをXOR演算する[/center]
+
+
+=== trans/level_byte_or_text ===
+
+$99465606386164* [right]
+[color=#e49f44]Input[/color]
+期待される出力
+現在の出力
+[/right]
+
+
+=== trans/panel_not_output ===
+
+$74796974148718* 出力
+
+
+=== trans/manual_simulator ===
+
+$19932404521621* シミュレータ
+
+
+=== trans/panel_output ===
+
+$19698504808819* 結果
+Carry OUT
+
+
+=== rpg/maps/boss_room/door2 ===
+
+$48251720560954* ダンジョンの扉
+
+
+=== levels/the_bus ===
+
+$28468611444223* OUT 1
+$67465559416096* このレベルには2つのバイト入力と2つのバイト出力があります.目標は1つの入力から1つの出力にコピーすることです.
+
+最初のビット入力で,どの入力からコピーするかを決定します.2番目のビット入力で,どの出力にコピーするかを決定します.
+
+Check [color=#e63e5b][url=the_bus]this hint[/url][/color] if you get stuck.
+$52612646660710* IN 0
+$97971478046986* IN 1
+$73177632038973* OUT 0
+$71428957264410* IN 1
+$72472660427162* [center]入力{input_nr}の値を出力{output_nr}にコピー[/center]
+$96958133516462* FROM
+$91318587712792* TO
+$72709070901789* OUT 1
+$36872979988941* IN 0
+$33984298968523* OUT 0
+$85140574084420* [center]正しい入力から正しい出力に値をコピー[/center]
+
+
+=== components/Ram ===
+
+$95418291334002* 256バイト RAM
+$27094240214067* メモリコンポーネント
+
+
+=== components/Constant16 ===
+
+$85825068431072* 16ビット定数
+$61330657823382* 定数値
+
+
+=== levels/and_gate_3 ===
+
+$14788981567936* 3入力のANDゲートを作成する.
+
+
+=== components/DivMod16 ===
+
+$42657221816637* 2つの数を除算し余りを求める
+$22319923069746* 除算
+
+
+=== components/MemoryProbeBit ===
+
+$13846578075327* カスタムコンポーネントまたはプログラムエディタに値を表示
+$25103579211328* メモリプローブ (ビット)
+
+
+=== trans/level_byte_mux_text ===
+
+$44961981616677* [center]あなたの回答 11 + 88 =  0
+正しい回答 11 + 88  = 99[/center]
+
+
+=== ui/verilog_format_options ===
+
+$61009819785587* なし
+
+
+=== components/DualPortRam ===
+
+$13408945557666* 追加のロードピン付きRAM
+$30400404542678* デュアルロードRAM
+
+
+=== components/Switch64 ===
+
+$80980797636768* 値を切り替える
+$93223372486795* 64ビット スイッチ
+
+
+=== misc/delay_overlay ===
+
+$85430022417382* 遅延の表示
+
+
+=== levels/push_pop2 ===
+
+$10062117579269* スタックをコンピュータに追加する
+$14685569269160* このレベルでは,スタックをコンピュータに追加し,そのレベルを解決するプログラムを書くことになります.
+入力が0のとき,スタックから値を [color=#e49f44]ポップ[/color] して出力しなければなりません.入力が0でないときは [color=#e49f44]プッシュ[/color] してスタックに格納します.
+$18561605111721* プッシュ {input} をスタックに積む
+$59658696292688* ポップ {value} をスタックから除く
+
+
+=== rpg/maps/overworld/crate ===
+
+$37606760989079* 破片
+$78128919991233* 木箱
+
+
+=== trans/level_codes_description ===
+
+$24678249110160* [center]回路に計算コードを追加しなさい[/center]
+
+
+=== trans/text_truth_table_left ===
+
+$58617980046951* [right]Input 1
+Input 2
+Output[/right]
+
+
+=== dialogue/schematic_hub/load ===
+
+$41294322771286* 読込
+$44524092309946* 読み込み中...
+
+
+=== rpg/maps/overworld/musli ===
+
+$21621435534103* 意味がわからない.
+$20939310165945* なぜ同じ燃料がコアから
+出てまた入るんだ?
+
+
+=== rpg/maps/overworld/purple_flower ===
+
+$70367070546819* 花のようです
+$91230192040939* これがグルリエッタが
+欲しがっていた花だ
+$25076873142666* ピンクの花
+
+
+=== trans/panel_segment_value ===
+
+$97585846659258* [center]Value[/center]
+
+
+=== trans/manual_delay ===
+
+$78806697204524* 遅延
+
+
+=== trans/panel_constant_output ===
+
+$14868502983738* 出力
+
+
+=== rpg/maps/cave/door4 ===
+
+$59392168282288* ダンジョンの扉
+
+
+=== rpg/maps/unseen_fruit/gulgramush ===
+
+$35182545479584* 壁を壊すな
+悪いロボットだ
+
+
+=== trans/rpg_alloy_enter ===
+
+$47375100278801* [center]リセットを押してやり直し[/center]
+
+
+=== components/Program8_1 ===
+
+$11057354704814* プログラム可能なメモリコンポーネント
+$12805545963716* プログラム
+
+
+=== levels/crude_awakening/next_level ===
+
+$24027424800887* 次のレベル
+
+
+=== trans/level_alu2_description ===
+
+$37432913848309* [center]2つのバイトをOR, NAND, NOR, AND, ADDまたはSUBしなさい[/center]
+
+
+=== components/Nor8 ===
+
+$34517798310461* 2つの値をビットごとにNOR演算
+$39421972053612* 8ビット NOR
+
+
+=== trans/level_complete_stat_gate ===
+
+$95192766583497* ゲート
+
+
+=== levels/signed_negator ===
+
+$10866019808027* このレベルでは,符号付き数値を利用したいので,最上位ビットは-128と表示されます.トップパネルにある「+255」をクリックすることで表示を変更することができます.
+$10400106910274* 入力を符号付き (8番目のビットは-128) として,数値を取り,正負を反転するコンポーネントを作成します.
+例えば,4を正負を反転すると-4になります.-9の場合は9になります.
+
+
+=== trans/level_circumference_subscript ===
+
+$80632450818467* [center][color=#cccccc](π ≈ 3と仮定)[/color][/center]
+
+
+=== trans/panel_output_output_0 ===
+
+$44355002441998* Output 1
+
+
+=== trans/overwrite_discard ===
+
+$78824878529707* 破棄
+
+
+=== trans/options_missing ===
+
+$22687523145097* 不足
+
+
+=== trans/level_xnor_RichTextLabel2 ===
+
+$59451104901430* [right][color=#e49f44]Input 1
+Input 2[/color]
+期待される出力
+現在の出力[/right]
+
+
+=== trans/options_language_disclaimer ===
+
+$72959997258737* 言語の変更を反映するにはゲームの再起動が必要です.
+
+
+=== ui/state_ui/title_screen/play ===
+
+$66967233942803* キャンペーンをプレイ
+
+
+=== trans/level_ram_component_value_description ===
+
+$53113984441582* [right]テスト
+アドレス
+Action
+期待される出力[/right]
+
+
+=== trans/level_byte_less_description ===
+
+$37336202055283* [center]最初の入力が2番目より小さいか判定しなさい.[/center]
+
+
+=== components/Register16 ===
+
+$16015376037787* 16ビットレジスタ
+$71792123436163* 16ビットメモリ
+
+
+=== levels/Opcodes ===
+
+$19693461238792* カウンターのインクリメントを4に設定
+$38976231780455* 監視状態 {nr} は,レジスタまたはレジスタを内部に持つカスタムコンポーネントを指す必要があります
+$20916717363300* 監視状態 {nr} は出力を指す必要があります
+$18189600217529* オペコード命令の実装
+$13450117997204* 回路にカウンタを追加
+$77044880242883* 監視状態 {nr} はカウンタを指す必要があります
+$13870568875751* 新規に回路を作成し,4バイト出力のプログラムを追加
+$10303603301757* 以下のオペコードを実装してください:
+[code][color=#87a8c8]0 ADD
+1 SUB
+2 AND
+3 OR
+4 NOT
+5 XOR[/color][/code]
+
+The opcode NOT ignores the second argument.
+$17495651785164* マップに6つのレジスタを追加
+
+
+=== components/Mem Unit ===
+
+$57670626909848* 1ビットのメモリ
+$78616473760551* 1ビットメモリ
+
+
+=== rpg/maps/prison/snake ===
+
+$41424386577594* ヘビ
+$44205554907271* シューシューガラガラ
+$36655099439467* 血
+
+
+=== trans/panel_inputlevel_input ===
+
+$27464111307888* 入力
+
+
+=== misc/credit_box ===
+
+$15872341864658* 心より感謝を:
+
+[b]Translators[/b]
+{translators}
+
+[b]Early beta testers[/b]
+{beta_testers}
+
+[b]Font work[/b]
+{font_work}
+
+[b]Soundtrack[/b]
+ Aarón F. Bianchi
+
+[b]Open source software[/b]
+{software}
+
+[b]Assets[/b]
+{assets}
+
+
+
+=== trans/level_flood_enter ===
+
+$64481408588810* ENTERを押して水を表示
+
+
+=== trans/panel_matrix_input1 ===
+
+$94408716277517* [right]有効化 Y
+カラー[/right]
+
+
+=== trans/options_pan_left ===
+
+$78515694621006* 左にパン
+
+
+=== rpg/maps/prison/control_panel_release ===
+
+$78007210535349* コントロールパネル
+
+
+=== trans/panel_hdd_size2 ===
+
+$82587023815880* サイズ (64 bit):
+
+
+=== trans/panel_splitter8_input ===
+
+$90934251511339* [right]Input[/right]
+
+
+=== rpg/maps/unseen_fruit/Gulgramush JR ===
+
+$21404721941060* 地球人が顔で食事をするって知ってた?
+
+
+=== misc/lab_toggle ===
+
+$16432178820878* ラボ
+
+
+=== components/Program4 ===
+
+$27522667367787* プログラム
+$45650720555565* プログラム可能なメモリコンポーネント
+
+
+=== trans/options_controls ===
+
+$18297012748869* 操作
+
+
+=== levels/Counter ===
+
+$17701404772563* 1を足す
+$17940006660359* カウント
+$17263901743088* 毎ティック1ずつ増加するカウンタを作りなさい.
+
+Additionally, there should be an option for overwriting the counter with a given value.
+
+You are given 2 inputs, a bit and a byte.
+
+The bit input should toggle between counting and overwriting with the value of the byte.
+$68874699768861* {value}で上書き
+$17883663978196* 上書き
+$19407121413983* ACTION
+$10555159894041* カウントは昆虫でさえ行う基本的な機能です.カウントから種は比較や算術を行えるように進化します.そしていつの間にか猿がコンピュータを作っています.
+
+Make a device that counts increments once per tick.
+
+
+=== components/Constant32 ===
+
+$39402227599142* 定数値
+$30896164786171* 32ビット定数
+
+
+=== trans/manual_text_ram ===
+
+$10969790213397* このシミュレータにはトレードオフの異なる複数のタイプのRAMがあり,実際のRAMオプションに似ています.
+
+[b]RAM[/b]
+The RAM component can store a lot of data, but adds a very high delay to the circuit.
+
+[b]Fast RAM[/b]
+The fast RAM has a low delay, but a very high gate cost per byte.
+
+[b]Latency RAM[/b]
+The normal RAM has very high delay, however instead of waiting for this delay each tick, we can treat the RAM as if load and save takes multiple ticks. The number of ticks save and load will take depends on the length of each tick. Say for example that our circuit has a delay of 100 units, a load would take 10 ticks, since we have to wait about 1000 units of delay. 
+
+A common approach for pipelined architectures is to use Latency RAM as for main memory, but use a small amount of Fast RAM for caching. Since memory access is often adjacent or close (for example when looping over an array), fetching adjacent values when loading from Latency RAM and caching them in Fast RAM can significantly speed up certain kinds of programs.
+
+The simplest way to integrate the Latency RAM is simply to stall the whole architecture while waiting for a save or load. An easy optimization on this comes from realizing that you don't have to wait for saves, except if you want to load.
+
+[b]Dual Load RAM[/b]
+Sometimes it is beneficial to separate parts of the logic into a separate processing unit, that operates more or less independently. This could be for handling a display device or a network connection. In these cases, the independent unit will often need to continuously load and save to memory, while the outside logic only needs to occasionally load. Use Dual Laod RAM to avoid having to schedule who gets access to the RAM at what time.
+
+
+=== component_panels/sprite_display_select_button ===
+
+$18632189666863* ファイルを選択
+
+
+=== levels/circular_dependency_check ===
+
+$25155953943906* 正解!
+$32314337981189* 確認
+$73467991035922* 不正解!
+$22446480186064* 2つ以上のコンポーネントを含む循環依存を作りなさい
+
+
+=== trans/map_locked ===
+
+$95146987030704* ロック
+
+
+=== levels/decoder ===
+
+
+# Short because it will become the name of a custom component
+$62618958406279* DEC
+$16133643476631* "レジスタ"レベルで構築した回路はレジスタ間で値をコピーでき,"算術エンジン"は2つの入力に対して異なる演算を行えます.しかし同じ回路で両方を行う必要があります.そのために"デコーダ"を構築します.まだ使っていない2ビットに基づいてコンピュータがどのモードにあるかを判断します.
+$18435544383511* CALCULATE パターン
+[OFF] [ON] [ANY] [ANY] [ANY] [ANY] [ANY] [ANY]
+$18198768092383* COPY
+$18945946395447* 4種類の[INSTRUCTIONS]を区別するために,最上位2ビットを使って次のようにMODEを決定します:
+[OFF] [OFF] [ANY] [ANY] [ANY] [ANY] [ANY] [ANY] Immediate
+[OFF] [ON] [ANY] [ANY] [ANY] [ANY] [ANY] [ANY] Calculate
+[ON] [OFF] [ANY] [ANY] [ANY] [ANY] [ANY] [ANY] Copy
+[ON] [ON] [ANY] [ANY] [ANY] [ANY] [ANY] [ANY] Condition
+
+Here [ANY] means any value.
+
+Determine the MODE we are in from the input, then send [ON] to the correct output.
+$16785126425267* CALCULATION
+$15440615199508* CONDITION
+$15105859227432* COPY パターン
+[ON] [OFF] [ANY] [ANY] [ANY] [ANY] [ANY] [ANY]
+$11382827588408* CONDITION パターン
+[ON] [ON] [OFF] [OFF] [OFF] [ANY] [ANY] [ANY]
+$82074370773365* INSTRUCTION
+$12976424717611* IMMEDIATE パターン
+[OFF] [OFF] [ANY] [ANY] [ANY] [ANY] [ANY] [ANY]
+$12532951884542* IMMEDIATE
+$10169248860836* 命令をデコードしなさい
+
+
+=== levels/call_ret/no ===
+
+$90567812500955* いいえ
+$82611295916141* 私たちはあなたをもっと高く評価していた.
+
+
+=== trans/level_compute_xor_description ===
+
+$61886892927185* 各ビットをペアごとにXORしなさい
+
+
+=== trans/level_signed_negator_description ===
+
+$87777776285772* [center]数の符号を反転しなさい[/center]
+
+
+=== trans/options_effects_volume ===
+
+$24145565754506* 効果音の音量
+
+
+=== trans/panel_maker64_input ===
+
+$67636019772385* [right]Byte 1
+Byte 2
+Byte 3
+Byte 4
+Byte 5
+Byte 6
+Byte 7
+Byte 8[/right]
+
+
+=== rpg/maps/overworld/chef (2) ===
+
+$60791074149079* シェフ
+$43137217122501* 助けが必要だ
+
+
+=== main_scripts/overture_level ===
+
+$83829200305236* 期待される出力 {expected},得られた出力 {got}
+$11338791453100* 動的
+$27259865408750* 次のTickのカウンタの値が {next} の場合, {expected} である必要があります
+
+# Keep as short as possible as it has to fit on a component. 2 characters preferably, but 3 if you must
+$85842797287714* R4
+$92808834805287* INPUTをOUTPUTにコピー
+
+# Keep as short as possible as it has to fit on a component. 2 characters preferably, but 3 if you must
+$81103754316448* IN
+$95030012922256* 入力は,入力から読み出すときだけ有効にする必要があります
+
+# Keep as short as possible as it has to fit on a component. 2 characters preferably, but 3 if you must
+$39748815905832* R2
+
+# "cond" is for condition, this label has to be 4 letters or less as it has to fit on a component
+$94982725578534* COND
+$12873109232054* 期待される出力 {expected},得られた出力 {got}
+$93579176707338* INPUT ({input_val}) をREG {reg}にコピー
+
+# Keep as short as possible as it has to fit on a component. 2 characters preferably, but 3 if you must
+$49076331369118* R5
+$95699170830383* 即値{nr}をREG 0に
+$90667501138629* REG 3 ≥ 0の場合, カウンタ = {val}
+
+# Keep as short as possible as it has to fit on a component. 2 characters preferably, but 3 if you must
+$28690475492473* OUT
+$15507583089532* REG {nr}の値は{value}であるべき
+$19724825417529* REG {n1}をREG {n2}にコピー
+$76213462280109* REG 3 > 0の場合, カウンタ = {val}
+$56098077111355* REG 3 ≠ 0の場合, カウンタ = {val}
+$36131297419794* カウンタを上書きしない (何もしない)
+$65651227755356* 次のティックでカウンタ値は{actual}になりますが,{expected}であるべきです
+$78673238418574* 回路にカウンタコンポーネントがありません ('8 BIT'メニューのコンポーネントを使用してください)
+$75122220982708* REG {n1}をOUTPUTにコピー
+$47188699762650* 出力が有効になっていません
+$44533909869936* REG 1とREG 2はALUへの入力で,REG 3は結果用です.
+REG 0, 1, 2を使用しているようです.
+
+# Keep as short as possible as it has to fit on a component. 2 characters preferably, but 3 if you must
+$73538301913919* R0
+$51029568177086* REG 3 < 0の場合, カウンタ = {val}
+$79405336618718* 即値{nr}をREG 0に
+$28026304798371* 出力は,出力するときだけ有効にする必要があります
+$85260864781281* 入力が有効になっていません
+
+# Keep as short as possible as it has to fit on a component. 2 characters preferably, but 3 if you must
+$80997977734042* R3
+$96569633331621* {value} をレジスタ0にロードする
+
+# Keep as short as possible as it has to fit on a component. 2 characters preferably, but 3 if you must
+$37653426314061* R1
+$51099912089198* カウンタ = {val}
+$16914143080303* コピー
+$59042824277105* Immediate
+$82949244692745* Calculate
+$23384670264323* REG 3 = 0の場合, カウンタ = {val}
+$50124579293905* REG 3 ≤ 0の場合, カウンタ = {val}
+
+
+=== levels/Further Delayed Lines ===
+
+$17366913897135* 入力と同じ出力を,2Tickだけ遅らせて出力する回路を作成する.
+$60989431641221* このレベルではディレイラインコンポーネントを紹介します.入力を受け取り,1ティック後に出力します.
+
+[img]dialogue/delay_buffer.png[/img]
+
+
+=== levels/negative_numbers ===
+
+$17231048881956* 物事の違いを知るには減算が必要です.減算するには,まず負の数が必要です.
+$13872783467999* {number}を符号付き2進数で表すと?
+$49993940138672* このレベルでは負の数の最も一般的な表現である"2の補数"を紹介します.
+
+ここでは最上位桁が負になります.バイトの場合,8番目の桁の値が128から-128に変わります.
+
+You finish this level when you get to level 3 or beyond.
+
+(click [color=#e63e5b][url=accessibility_mode]here[/url][/color] to turn on timerless accessibility mode)
+$97450409600317* [b]重要ポイント[/b]
+
+1. To go between the negative and positive, you flip all the bits and add 1.
+2. If the highest bit is [ON], the value is always negative.
+3. The byte adder you built also works with signed numbers.
+4. There is still only exactly 1 way to write each number.
+$37471385247951* よくやった,レベル{current_level}に到達した.
+
+
+=== trans/nand_Label2 ===
+
+$60885816586685* 出力
+
+
+=== levels/NAND Gate ===
+
+$17420270098223* このレベルの課題はNANDコンポーネントの動作を理解することです.次のレベルで詰まらないように,このレベルを完了する前に[color=#dd6576]必ず[/color]理解してください!
+$11034378482152* 正解!NANDゲートがアンロックされました.このコンポーネントで,コンピュータの他のすべてを構築できます!
+$18270083417453* 確認
+$19208664264770* [b]手順[/b]
+表の最後の行の灰色のボタンをクリックしてください.
+$17923274216766* あなたは植物ではないと判断しました.
+$14777350869870* 前回のテストの見事な成績に大変感銘を受けています!
+$17994568832660* [b]手順[/b]
+中央のNANDコンポーネントが回路の流れを変えます.
+左のバーを使って入力を試し,出力への影響を確認して,表の最後の行を埋めてください.
+
+
+=== trans/options_copy ===
+
+$55679445263875* コピー
+
+
+=== components/Input 2 ===
+
+$86870364449392* 入力
+
+
+=== components/Bit Compressor ===
+
+$74338505460996* 8ビットを1バイトに変換
+$98747779812970* 8ビットメーカー
+
+
+=== trans/options_pan_down ===
+
+$93140495547084* 下にパン
+
+
+=== components/Mux64 ===
+
+$14050204031082* 2つの値を切り替える
+$66892629981737* 64ビット マルチプレクサ
+
+
+=== trans/manual_hard_disk ===
+
+$45865138134248* ハードディスク
+
+
+=== components/NOR ===
+
+$27510848535619* 両方の入力が[ON]でないとき[ON]
+[table=5]
+[cell]Input 1[/cell][cell][OFF][/cell][cell][ON][/cell][cell][OFF][/cell][cell][ON][/cell]
+[cell]Input 2[/cell][cell][OFF][/cell][cell][OFF][/cell][cell][ON][/cell][cell][ON][/cell]
+[cell]Output[/cell][cell][ON][/cell][cell][OFF][/cell][cell][OFF][/cell][cell][OFF][/cell]
+[/table]
+$83375115196253* NOR
+
+
+=== levels/hex_racer ===
+
+$92057009138253* {number}を2進数で表すと?
+$16009852370452* 多くのビットを扱う場合,2進数は読みにくくなります.16進数 (基数16) は4ビットの各組み合わせを1文字で表します:
+[code]
+0 [OFF][OFF][OFF][OFF]
+1 [OFF][OFF][OFF][ON]
+2 [OFF][OFF][ON][OFF]
+3 [OFF][OFF][ON][ON]
+4 [OFF][ON][OFF][OFF]
+5 [OFF][ON][OFF][ON]
+6 [OFF][ON][ON][OFF]
+7 [OFF][ON][ON][ON]
+8 [ON][OFF][OFF][OFF]
+9 [ON][OFF][OFF][ON]
+A [ON][OFF][ON][OFF]
+B [ON][OFF][ON][ON]
+C [ON][ON][OFF][OFF]
+D [ON][ON][OFF][ON]
+E [ON][ON][ON][OFF]
+F [ON][ON][ON][ON]
+[/code]
+
+As an example where hexadecimal is much clearer, lets compare the representation of the largest 16 bit number:
+[code]
+Binary:      1111111111111111
+Decimal:     65535
+Hexadecimal: FFFF
+[/code]
+
+It is not easy to tell if the binary is missing a digit or if the decimal number is off by 1, the hexadecimal on the other hand is immediately clear (once you get used to the representation at least).
+$84691609525475* このレベルは私の2番目に好きな娯楽だ.時間のプレッシャーの中で16進数を2進数に変換する.
+$87016829502381* よくやった,レベル{current_level}に到達した.
+$43463538043782* レベルパネルのビットを切り替えて,質問の16進数と一致するようにしてください.
+
+You must beat level 3 to pass.
+
+(click [color=#e63e5b][url=accessibility_mode]here[/url][/color] to turn on timerless accessibility mode)
+
+
+=== trans/level_full_adder_RichTextLabel2 ===
+
+$25766177620842* [right][color=#e49f44]Input 1
+Input 2
+Input 3[/color]
+期待されるSum
+期待されるCarry
+現在のSum
+現在のCarry[/right]
+
+
+=== rpg/maps/unseen_fruit/Sign ===
+
+$96190557871470* 看板
+$11494676474259* 書いてある: 看板を読んでないで
+果物の様子を見てこいロボット!
+
+
+=== components/Ror8 ===
+
+$10802217509530* 入力のビットを右に回転
+$70999134800536* 8ビット右回転
+
+
+=== trans/options_general_tps ===
+
+$53724631742096* 1秒あたりのティック数を表示
+
+
+=== trans/map_arithmetic ===
+
+$51337598329530* 算術
+
+
+=== trans/rotate ===
+
+$88236351843942* 回転
+
+
+=== components/NAND ===
+
+$71130919681688* NAND
+$12903183841172* 両方の入力が[ON]でない限り[ON]
+[table=5]
+[cell]Input 1[/cell][cell][OFF][/cell][cell][ON][/cell][cell][OFF][/cell][cell][ON][/cell]
+[cell]Input 2[/cell][cell][OFF][/cell][cell][OFF][/cell][cell][ON][/cell][cell][ON][/cell]
+[cell]Output[/cell][cell][ON][/cell][cell][ON][/cell][cell][ON][/cell][cell][OFF][/cell]
+[/table]
+
+
+=== levels/Dancing Machine ===
+
+$14975070588197* 私たちは皆,ロボットのダンスフロアでの動きが好きなんです.だから,私たちのダンスチームを率いてほしいのです.
+  
+ただ一つの問題は,彼にオリジナルのダンスを考えさせることです.決定論的なロジックからどうやって創造性を生み出すのかって？
+
+The answer pseudorandom number generators.
+$15955150920362* このレベルでは,入力は1つだけで、これを初期シードと呼びます。このシードを用いて次のような手順で疑似乱数を生成します.
+
+In the algorithm below, "shl 1" means shift left once, "shl 2" means shift left twice and "shr 1" means shift right once.
+
+[b]8 bit xorshift RNG:[/b][code][color=#87a8c8]
+temp1     = seed  xor (seed  shr 1)
+temp2     = temp1 xor (temp1 shl 1)
+next_seed = temp2 xor (temp2 shr 2)
+[/color][/code]
+Next output next_seed mod 4, to move the robot. Finally use next_seed (before mod 4) as the seed to get the next number in the dance sequence and repeat.
+
+(Notice the initial seed will never be 0)
+
+
+=== trans/panel_fileloader_enable ===
+
+$80528055112236* [center]有効化[/center]
+
+
+=== trans/level_dance_description ===
+
+$29803992718733* ダンスの動きを生成しなさい
+
+
+=== misc/program_edit_signals ===
+
+$98772447663910* 監視状態の編集
+
+
+=== main_scripts/levels ===
+
+$15232844525838* 表と一致する回路を作成する.
+  
+[tip]コンポーネントをダブルクリックすると,接続されたワイヤと一緒に移動します.[/tip]
+$64510812504271* このレベルで使用できないはずのコンポーネントが使われています!
+この解答はスコア対象外です.
+
+# Level type for the level complete menu
+$58769207148712* コンポーネント
+
+# Level type for the level complete menu
+$90134890578411* その他
+$68327708695625*  [b]マニュアルエントリ[/b]
+
+ エントリ: [color=#68d277]{page}[/color]
+
+# Level type for the level complete menu
+$69219742310717* アーキテクチャ
+
+
+=== trans/level_decodre_RichTextLabel2 ===
+
+$40723962298647* [right][color=#e49f44]Input 1
+Input 2
+Input 3[/color]
+期待されるビット
+現在のビット[/right]
+
+
+=== trans/manual_bytes ===
+
+$46223559629673* バイト
+
+
+=== component_panels/Counter ===
+
+$42544828625264* インクリメントが0のカウンタは何もしません
+$57936010210151* 増加量: {amount}
+
+
+=== trans/panel_ram8_output ===
+
+$90649838965927* 出力
+
+
+=== trans/level_complete_ide ===
+
+$56719825235196* [b]コードIDE[/b]
+[color=#cccccc][i]コードに名前を付けて便利なエディタで編集[/i][/color]
+
+
+=== trans/panel_cond_input_2 ===
+
+$82398835019064* Bit 2:
+
+
+=== trans/and_gate_3_RichTextLabel2 ===
+
+$52008707927408* [right][color=#e49f44]Input 1
+Input 2
+Input 3[/color]
+期待される出力
+現在の出力[/right]
+
+
+=== trans/panel_nand ===
+
+$51470292662088* [right]Input 1
+Input 2
+Output[/right]
+
+
+=== rpg/maps/overworld/captain_grog ===
+
+$54304087865803* シールド展開,ハイパースペースへジャンプ!
+$28819210888759* グロッグ船長
+
+
+=== rpg/maps/overworld/hat_man ===
+
+$66365217340789* 帽子屋
+
+
+=== trans/options_level ===
+
+$64744152268407* レベル
+
+
+=== trans/panel_mul_input ===
+
+$52124868557994* [right]Input 1
+Input 2[/right]
+
+
+=== components/LessU32 ===
+
+$72614358420262* 小なり (符号なし)
+$55380524073095* 一方の入力が他方より小さいかチェック
+
+
+=== components/Output64z ===
+
+$35798118634001* 64ビット スイッチ出力
+$42506906257154* スイッチピンが[ON]の場合のみ出力
+
+
+=== ui/toggles/race_condition ===
+
+$75558678297830* 循環依存
+
+
+=== trans/assembly_editor_header ===
+
+$14116831487331* アセンブリエディタ
+
+
+=== trans/options_paste ===
+
+$52159578521318* ペースト
+
+
+=== trans/hub_stats ===
+
+$30942143953871* ユーザー
+#Date
+#Customs
+
+
+=== trans/manual_text_terminology ===
+
+$99266452352883* [b]命令[/b]
+1バイトまたは数バイトで,コンピュータに特定のアクションを実行させます.
+
+[b]Opcode[/b]
+The part of the instruction that determines which operation (like ADD or AND) is to be done.
+
+[b]Memory address[/b]
+A number used as a name for memory locations (often for registers). These are used to specify where an instruction is supposed to load data from or save data to.
+
+[b]Jump[/b]
+Changing the value of the program counter, changing which instruction is loaded next.
+
+
+=== trans/manual_text_truth ===
+
+$16559670174521* ゲーム全体で使われている入力と出力の表は,一般的に真理値表として知られています.
+
+
+
+
+
+
+
+
+"Input" and "Output" will often be represented with variable names, like in algebra. And instead of using colors, you will often see the values represented as 0 / 1 or False / True.
+
+
+=== trans/level_double_buffer_RichTextLabel3 ===
+
+$27208335953837* [right]Input
+期待される出力
+現在の出力[/right]
+
+
+=== levels/Conditionals ===
+
+$10794262854382* Add if statements to your circuit. For the if statements, the 2 引数s are compared and if the condition is true, the counter is set to a jump address.
+  
+The previous instructions had the 4 bytes represent:
+[code][color=#87a8c8]オペコード, 引数1, 引数2, 結果[/color][/code]
+
+For if statements the bytes represent:
+[code][color=#87a8c8]OPCODE, ARGUMENT_1, ARGUMENT_2, JUMP_ADDRESS[/color][/code]
+
+In addition to the previous opcodes, add:
+[code][color=#87a8c8]32 IF_EQUAL
+33 IF_NOT_EQUAL
+34 IF_LESS
+35 IF_LESS_OR_EQUAL
+36 IF_GREATER
+37 IF_GREATER_OR_EQUAL[/color][/code]
+
+Use unsigned less / greater for the comparisons.
+
+Each opcode does what their name implies. For example the following jumps to byte 16 if REG0 is less than REG1: 
+[code][color=#87a8c8]IF_LESS REG0 REG1 16[/color][/code]
+
+$18542005958715* カウンタのインクリメントを4に設定
+$17133561664335* おめでとうございます,あなたは [color=#e49f44]LEG[/color] コンピュータを完成させました!
+$14973719570693* 回路にカウンタを追加する
+$12920514303805* 6つのレジスタを追加する
+$14309211963063* 新たな設計図を追加し,4バイト出力のプログラムを追加する
+$16826220977157*  [color=#b72d41][b]TIP:[/b][/color] 
+ COPYは2番目の引数が
+ 0の単なるADDです
+$14690660047411* 条件オペコードの実装
+$30132649789584* 監視状態 {number} は出力を指す必要があります
+$18994998239232* I will show you some upgrades you can make, on the path to implementing function calls. But from here on the details are up to you, I wont tell you what オペコードs to use and so on.
+$12034111753799* 監視状態 {number} はカウンタを指す必要があります
+$36561706158040* リンクコンポーネント{nr}はレジスタまたはレジスタを内蔵するカスタムコンポーネントを指す必要があります
+
+
+=== misc/multi_select ===
+
+$85147529532131* 複数選択 (ホットキー: SHIFT & drag)
+
+
+=== trans/panel_segment_info ===
+
+$64695289448271* 値の8ビットはそれぞれディスプレイの8つの領域の1つをONにします.
+
+
+=== trans/manual_text_universal_gates ===
+
+$37735744928195* NANDまたはNORゲートだけですべてのコンピュータロジックを構築できることがわかります.アポロ誘導コンピュータ
+
+Modern computers are not built entirely of just one of the universal gates, but when applicable NAND gates are preferred over NOR, because they have less delay and occupy less area.
+
+
+=== components/Splitter16 ===
+
+$92674917729864* 16ビットスプリッタ
+$28271182652741* 16ビットを2バイトに分割
+
+
+=== rpg/maps/overworld/slime ===
+
+$15692058001120* スライム
+$69726620971060* 必要な粘液をすべて拾いました
+$87592944464187* 粘液を拾った.あと{nr}個
+$44317276399194* スライムの粘液
+
+
+=== trans/inputlevel_enable ===
+
+$28654406516589* [center]無効化 / 有効化[/center]
+
+
+=== trans/panel_keyboard_event ===
+
+$67549215280299* イベント待機中
+
+
+=== trans/levels_byte_or_description ===
+
+$68379799788575* [center]各ビットをペアごとにORしなさい[/center]
+
+
+=== levels/counting_signals ===
+
+$10724914203078* このレベルの出力コンポーネントは,最初の3ピンが1,2,4に対応するバイナリカウンタです.
+バイナリカウンタを使用して,信号の数を数えます.
+
+Check [color=#e63e5b][url=counting_signals]this hint[/url][/color] if you get stuck
+
+[i][tip]The solution for this level is not very neat and requires more components.[/tip][/i]
+
+$10881918807029*  [color=#b72d41][b]TIP:[/b][/color] 
+ 紙とペンを使うことを
+ 恥じる必要はありません.
+
+
+=== misc/button_next ===
+
+$80746616574054* 次へ (ホットキー: F5)
+
+
+=== ui/toggles/level_map ===
+
+$71951682957395* レベルマップ
+
+
+=== components/DivMod64 ===
+
+$80284847781948* 除算
+$71663353206665* 2つの数を除算し余りを求める
+
+
+=== levels/saving_bytes ===
+
+$10633476398156* バイトを [SAVE] または [LOAD] できる回路を作成する.
+
+When the first input bit is [ON], [LOAD] the memory and send it to output.
+When the second input bit is [ON], [SAVE] the input byte.
+
+The output has an enable pin, enable it only on [LOAD].
+
+$15510981129613* LOAD
+$13502950630653* [color=#ff9800]None
+0
+0[/color]
+$19109563882664* 読込しない
+$16372198430230* SAVE
+$11467279617581* SAVE
+$15498440508450* 何もしない
+$10080722944246* 保存しない
+$18873598212433* LOAD
+$15582618410991* LOADとSAVE
+
+
+=== levels/byte_constant ===
+
+$12641789008694* 常に164を出力する回路を作成する.
+
+
+=== trans/panel_ram_fast_input ===
+
+$80778301064570* [right]Load
+Save
+Address
+Save value
+Save value
+Save value
+Save value[/right]
+
+
+=== levels/odd_ticks ===
+
+$18510295620397* 偶数のTickで[OFF]、奇数のTickで[ON]を出力する.
+$16987046679863* 前のレベルでは,循環的な依存関係を実現しない方法を学びました.今回は、1つの例外を学びます.
+$16037516781370* ゲーム内の四角いピンは,同じTick内の出力に影響を与えることはありません.したがって,循環的な依存関係が発生することはありません.
+  
+  [img]dialogue/delay\_buffer.png[/img]
+$17588119878416* Delay Lineはそれ自身の入力に依存することが許されています.これは,その入力が次のTickまで回路の残りの部分に影響を与えないためです.
+  
+[img]dialogue/delay\_buffer.png[/img]
+
+
+=== components/Adder Simple ===
+
+$33973952772642* 加算
+$98429814030509* 2つの入力を加算
+
+
+=== trans/panel_ram8_input ===
+
+$54796685972031* [right]Load
+Save
+Address
+Save value[/right]
+
+
+=== trans/level_complete_delay ===
+
+$73470840319057* [b]遅延[/b]
+[color=#cccccc][i]ワイヤやコンポーネントの遅延を確認できるようになりました.[/i][/color]
+
+
+=== trans/panel_ram_fast_output ===
+
+$44175594625487* Output 1
+Output 2
+Output 3
+Output 4
+
+
+=== trans/level_saving_gracefully_RichTextLabel3 ===
+
+$74117520663650* [right][color=#e49f44]Save
+Value[/color]
+期待される出力
+現在の出力[/right]
+
+
+=== misc/select_color ===
+
+$97461374731210* ワイヤーの色
+
+
+=== trans/manual_text_circular_dependency ===
+
+$29050562435902* 循環依存はコンポーネントの入力がその出力に基づいて変化する場合に発生します.
+
+[center][img]res://dialogue/circular_dependency.png[/img][/center]
+
+This simulator does not allow circular dependencies and instead triggers an error. 
+
+The exception to this are the square pins that do not influence the output in the same tick. They can therefore not cause circular dependencies.
+
+[center][img]res://dialogue/delay_buffer.png[/img][/center]
+
+
+=== trans/panel_splitter16_output ===
+
+$19314358335345* Output 1
+Output 2
+
+
+=== trans/options_explicit_clock ===
+
+$90384542658266* 明示的クロック
+
+
+=== trans/level_alu2_text ===
+
+$58359423026017* [right]Code
+[color=#e49f44]Input 1
+Input 2[/color]
+期待される出力
+現在の出力
+[/right]
+
+
+=== rpg/maps/overworld/door3 ===
+
+$62992379521216* ドア
+$12075276554344* ドアの取っ手が壊れています
+
+
+=== levels/push_pop ===
+
+$78804623186243* OUTPUT
+$49526452710191* POPしない
+$58050047963238* VALUE
+$30926395960020* PUSH
+$19245209470436* スタックを作成する
+
+# Short because it will become the name of a custom component
+$84236889840605* STACK
+$12227209887733* Each tick the inputs will either signal PUSH or POP. If it is PUSH, store the value on top of the stack. When it is POP remove that value from the stack and output it.
+
+$85171087236638* ENABLE
+$15662660252584* 何もしない
+$23726790986805* POP
+$62469306234943* PUSHしない
+$46948857059388* ポップ 値 {value} をスタックから除く
+$18761197388580* 経費削減のため,公共機関の窓口の待ち行列を変更して利用者を減らすことが決定されました.先着順ではなく,後着優先方式にします.[color=#e49f44]スタック[/color]に番号付きの伝票を載せ,市民は上に伝票を載せ ([color=#e49f44]PUSH[/color]),官僚はスタックの上から取る ([color=#e49f44]POP[/color]) という仕組みです.この新しいシステムを実装してください.
+$65188797398656* プッシュ {value} をスタックに積む
+
+
+=== levels/The Product of Nibbles ===
+
+$14622683750375* ビット 2
+$14957949958941* ここでやったことは,実際には2つの4ビット数を掛け合わせたものです.代わりにバイトにスケールアップしてました.
+$17331397914567* ビット 1
+$19136817138607* [center]4ビットの数値の乗算[/center]
+$13232094477834* ビット 3
+$13549246864135* ビット 0
+$15857218442751* ビット 1
+$14533861483435* 4ビットの数値同士を掛け合わせると8ビットの数値になります.これを実現する回路を作りましょう。
+$10430040077737* ビット 3
+$10274387271390* ビット 0
+$16301538038805* ビット 2
+$83694551809785* {num1} と {num2} を乗算する
+
+
+=== trans/panel_matrix_column_major ===
+
+$90704227545058* 列優先ピクセル
+
+
+=== trans/panel_counter16_input ===
+
+$87154643308632* [right]増加 / 上書き
+上書き値[/right]
+
+
+=== trans/panel_not ===
+
+$33240384048149* [right]Input
+Output[/right]
+
+
+=== rpg/maps/spacial_invasion/door ===
+
+$59863326177819* ドアは施錠されています
+$13853333722323* ドア
+
+
+=== ui/toggles/level_log2 ===
+
+$91515053618360* マニュアル
+
+
+=== main_scripts/functions ===
+
+$11467644007149* カウンタ {nr}
+$35675567872962* インクリメントが0のカウンタは何もしません
+$73560327420927* このセーブデータは古いバージョンのレベルのものです.
+スキマティックメニューで新しい回路図を作成して読み込んでください.
+$41936481068702* カウンタ
+$99285446909923* このレベルを解くには'レベル出力'コンポーネントを使う必要があります
+$72465734060414* 短絡 (出力値: {values})
+$10533010562232* 遅延スコア: {delay}
+$10098517717617* テスト: {nr} / {total}
+$83854326413007* カスタムコンポーネント"{name}"のサイズが変更され,収まらなくなったため回路図から削除されました.
+$29225283986051* このレベルを解くには'レベル入力'コンポーネントを使う必要があります
+$95056157627313* このレベルを解くには'レベル入力'コンポーネントを使う必要があります
+$39587966698723* {custom_component}内で短絡
+$87591753278764* レジスタ {nr}
+
+# Right hand side menu
+$29169064199243* 出力 {nr}
+$12249248261034* このレベルを解くには'レベル出力'コンポーネントを使う必要があります
+$13327741293223* 入力 {nr}
+$32508339206292* NAND SCORE: {nand}
+$42012207828907* レジスタ
+
+
+=== misc/view_solution_button ===
+
+$59351520832720* はい
+
+
+=== levels/or_gate_3 ===
+
+$15448906128695* 3入力のORゲートを作成する.
+
+
+=== trans/binary_racer_count_down2 ===
+
+$23959994711260* レースの準備はいいですか?
+
+
+=== trans/level_capitalize_input ===
+
+$23002150617591* 入力
+
+
+=== trans/panel_mul_output ===
+
+$55253255963402* 下位半分
+上位半分
+
+
+=== trans/map_complete ===
+
+$81337533438394* 完了
+
+
+=== trans/delay_score ===
+
+$29032982097458* 遅延スコア:
+
+
+=== trans/panels_config_delay_delay ===
+
+$52499013005170* [right]遅延[/right]
+
+
+=== rpg/maps/unseen_fruit/Lolbert ===
+
+$77789556089413* 地球の果物はいつも出される
+シチューよりずっとおいしい
+
+
+=== levels/Storage cracker ===
+
+$11910674853271* 保管室のセキュリティドアが壊れて,年配の清掃員を中に閉じ込めてしまっている.
+
+The door keeps changing the passcode, we need a program that can recover the passcode at any time.
+$17462419719036* パスコードを見つける最も簡単な方法は,正しいものが見つかるまですべての組み合わせを試すことです.
+ただし壊れた機構は推測値が高すぎると奇妙なビープ音を鳴らします.それを活用できるかもしれません.
+$11183892008673* 正しいパスコードを出力するとレベルクリアです.出力しなければ失敗にはなりません.また,推測が高すぎた場合は入力が1になり,それ以外は0になります.
+
+
+=== trans/level_alu1_text ===
+
+$53254733455389* [right]Code
+[color=#e49f44]Input 1
+Input 2[/color]
+期待される出力
+現在の出力
+[/right]
+
+
+=== components/Output16 ===
+
+$48008022162230* 16ビット出力
+
+
+=== rpg/maps/overworld/book_shelf ===
+
+$29366577532389* 本棚
+$26595142082551* 立派な本棚です
+
+
+=== components/Input 3 ===
+
+$70689623552857* 入力
+
+
+=== trans/options_cut ===
+
+$88238310953306* カット
+
+
+=== trans/panel_network_next_event ===
+
+$80836714383432* 次の[color=#39aa49]イベントタイプ[/color]
+
+
+=== trans/manual_text_top_truth ===
+
+$83283949590490* ANDゲート
+
+
+=== rpg/maps/overworld/gruliette ===
+
+$83120363112787* あらハンサムさん
+$61022705156373* ああもう,この
+クエストはこりごり
+$84856635901648* きゃーーー!心が溶けちゃう!
+$16008092188500* グルリエッタ
+$58406047748371* ピンクの花を持ってきて
+くれるなら考えるわ
+$18919563572338* ドゥミオとデートに
+行きたい?
+$68101445990611* これがピンクの花よ
+$68725679456014* *チュ* このキスを
+ドゥミオに届けて
+$73977053028689* あらハンサムさん
+$50949692384224* 耳が痛い
+$35813418867082* それは唐突ね
+
+
+=== trans/panel_fileloader_description ===
+
+$72892007399429* ファイルROMはファイルの内容を一度に8バイトずつ出力します.
+
+The highest 64 bit address (0xFFFFFFFFFFFFFFFF) is special and outputs the length of the file in bytes.
+
+
+=== trans/and_gate_RichTextLabel2 ===
+
+$98472849629373* [right][color=#e49f44]Input 1
+Input 2[/color]
+期待される出力
+現在の出力[/right]
+
+
+=== components/Clock ===
+
+$29674337035619* クロックを配置するとティックが2つのフェーズに分割されます.クロックは早いフェーズでは[OFF],遅いフェーズでは[ON]になります.すべてのメモリコンポーネントは早いフェーズで読み込み,遅いフェーズで保存します.
+$73207565196164* クロック
+
+
+=== components/1_decoder ===
+
+$26685462633615* 2つの出力を切り替える
+$98250587600120* 1ビットデコーダ
+
+
+=== trans/panel_input_left ===
+
+$91063734228931* 左
+
+
+=== components/XOR ===
+
+$86856280609387* 入力が異なるとき[ON]
+[table=5]
+[cell]Input 1[/cell][cell][OFF][/cell][cell][ON][/cell][cell][OFF][/cell][cell][ON][/cell]
+[cell]Input 2[/cell][cell][OFF][/cell][cell][OFF][/cell][cell][ON][/cell][cell][ON][/cell]
+[cell]Output[/cell][cell][OFF][/cell][cell][ON][/cell][cell][ON][/cell][cell][OFF][/cell]
+[/table]
+$54832952840086* XOR
+
+
+=== trans/options_undo ===
+
+$58334563411624* 元に戻す
+
+
+=== misc/factory ===
+
+$53123649343022* コンポーネントファクトリー
+
+
+=== trans/tps_label ===
+
+
+# Stands for Ticks Per Second (an option in the menu)
+$25685496576554* TPS:
+
+
+=== trans/manual_ram ===
+
+$61854681801183* RAM
+
+
+=== trans/levels_computing_input ===
+
+$23173159754705* Code
+Input
+
+
+=== trans/manual_header ===
+
+$10757271456963* マニュアルエントリ
+
+
+=== components/Ror16 ===
+
+$13970397213910* 入力のビットを右に回転
+$90115282457191* 16ビット右回転
+
+
+=== rpg/maps/overworld/thing ===
+
+$97983135944004* Thing
+$65301573705048* 全部見ないといけないの?
+
+
+=== misc/opcode_name ===
+
+$15090156481094* 名前
+
+
+=== trans/map_cpu_architecture ===
+
+$95559333192525* CPUアーキテクチャ
+
+
+=== trans/panels_sound_description ===
+
+$65379881141228* [b][color=#e49f44]コマンドタイプ[/color][/b]
+[code]0[/code] リクエストなし
+[code]1[/code] [color=#e49f44]再生[/color]
+
+
+=== misc/level_gate_unlocks_unknown ===
+
+
+# This is a tooltip for levels on the level map, before something has been unlocked.
+$76731326010721* 未知の何かをアンロック
+
+
+=== trans/levels_negative_header ===
+
+$82195103144851* [center]要件[/center]
+
+
+=== components/LevelOutput1 ===
+
+$12242923444593* 出力
+
+
+=== levels/byte_adder ===
+
+$16888130664370* 結果が8ビットに収まらない場合は,出力キャリーを［ON］にする（9ビット目と考えてもよい）
+  
+最後に,入力キャリーもあります.これは,バイト加算器を連結して,より大きな数を加算するのに便利です.このキャリーは、0[OFF]または1[ON]のどちらかを加算すると考えることができます.
+
+Use [color=#e63e5b][url=byte_adder]this hint[/url][/color] if you get stuck.
+$18732877690173* 2つの入力バイトを加算する.出力の各ビットは,入力からの対応するビットの加算結果であるべきで,キャリーも含まれます.
+
+
+=== components/Shr32 ===
+
+$87104108203785* 入力のビットを右にシフト
+$88430124157796* 32ビット右シフト
+
+
+=== components/Mux32 ===
+
+$16638728645850* 2つの値を切り替える
+$21257226547838* 32ビット マルチプレクサ
+
+
+=== trans/levels_bytw_or_text ===
+
+$21877344150481* [right]
+[color=#e49f44]Input 1
+Input 2[/color]
+期待される出力
+現在の出力
+[/right]
+
+
+=== components/DelayLine64 ===
+
+$80000130396288* 64ビット ディレイライン
+$35525647389906* 今のティックの入力を次のティックに出力
+
+
+=== rpg/maps/prison/shelf ===
+
+$31961489023013* 本棚
+
+
+=== trans/manual_Cyclic recipes ===
+
+$45682345144408* 循環レシピ
+
+
+=== trans/level_flood_predictor_description ===
+
+$24034386495895* パイレーツプランジの最適な場所を見つけなさい
+
+
+=== main_scripts/dialogue ===
+
+$95287273202819* SAVE
+
+# hint for odd number
+$68750974209145* 2つの入力に奇数個の[ON]があるかどうかは,1つのコンポーネントだけで判定できます...
+
+# hint for the bus
+$50799425816171* スイッチを使って入力を同じワイヤに乗せてください.
+
+# Hint for byte adder
+$37093555217568* 全加算器は8個だけで十分です.
+
+# Hint for the maze
+$36837749971886* 迷路では常に左 (または右) の壁に沿って進めば,必ず出口にたどり着けます.
+
+そのアルゴリズムの擬似コードはこのようになります:
+ 前に進む
+ 左に曲がる
+ 前に壁がある間は右に曲がる
+ 曲がるたびにUseを押す (出口が前方にある場合に備えて)
+ 繰り返す
+
+# hint for counting signals
+$21044442262778* 1の位の回路は"奇数個の信号"レベルで行ったものと同じです.2の位の回路は"ダブルトラブル"で行ったものと同じですが,4つすべてがONの場合は異なります.
+
+# hint for saving gracefully
+$25321701584378* このレベルでは1つのディレイラインを使う必要があります.ディレイラインへの入力の真理値表を作ってください.ディレイラインへの入力を表の出力と考えてください.
+
+The inputs are the 2 level inputs AND the output of the Delay Line, as the output plays a role in its input. In total you have 3 "inputs" to for this table which gives you 8 combinations. Once you have the level requirements as a table, it should be a lot easier to solve.
+$43114846393781* LOAD
+$65118645692603* 命令
+$53308028631558* 命令
+
+# Hint for masking time
+$46866534894828* 2進数では,数値のモジュロ4を取ることは下位2ビットだけを使うことと同じです.これは上位ビットが4, 8, 16などを表し,それらはすべて4で割り切れるためです.
+これは2の累乗のモジュロ一般に当てはまります.数値の最下位ビットはその数のモジュロ2 (偶奇) を表し,下位3ビットはモジュロ8を表します.
+
+Likewise, in decimal 4321 modulo 100 is also simple (answer is 21, the higher digits are disregarded), this is because 100 is a power of 10.
+
+Now you just have to figure out how to get the last 2 digits of a number.
+$52150443679969* 続ける
+
+# hint for less
+$56438995128380* まず2つのバイト間でどのビットが異なるかを判定します.これはバイトXORで行えます (XORは入力が同じでないとき[ON]になることを思い出してください).最上位の異なるビットが[ON]の数が大きい方の数です.ただし最上位の異なるビットのみを考慮する必要があるので,各ビットについてORゲートのチェーンを使って上位ビットに[ON]があるかを確認します.
+
+最後に,符号付き数では最後のビットは別に考慮します.ここでは逆の効果があります (一方の数だけが[ON]の場合,その数は必ず小さい方です)
+$89787506720574* 閉じる
+$66207112287034* ヒント
+
+
+=== trans/options_ui_scale ===
+
+$78210579950439* UIスケール
+
+
+=== components/Nand32 ===
+
+$24565725389553* 2つの値をビットごとにNAND演算
+$71611588991682* 32ビット NAND
+
+
+=== trans/odd_number_error ===
+
+$61530231182650* 使用コンポーネント数が多すぎます
+
+
+=== components/ByteAnd ===
+
+$61791872137683* 2つの値をビットごとにAND演算
+$21541105796357* 8ビット AND
+
+
+=== rpg/maps/prison/prison_guard ===
+
+$12720535616690* ロボット,ここに
+来てはいけない!
+$48106038104468* 血
+$54139682820568* 看守
+
+
+=== components/Counter ===
+
+$51446864816252* 上書きされない限り,毎ティック増加する
+$67910883947749* 8ビットカウンタ
+
+
+=== trans/ide_assembly_codes ===
+
+$62016169253008* [center]アセンブリ
+コード[/center]
+
+
+=== trans/options_general_title ===
+
+$21908594290225* 一般
+
+
+=== schematics_hub/accept_license ===
+
+$72317516399185* [color=#dd6576][url=cc0]CC0[/url][/color]ライセンスの使用に同意する
+
+
+=== trans/panel_screen_description ===
+
+$31014036880257* メインキャンペーンのレベルのビジュアルを表示する画面です.
+
+
+=== rpg/maps/overworld/fighter_plane ===
+
+$12257592826946* これ欲しい!
+$37870979642704* 戦闘機
+
+
+=== components/Keyboard ===
+
+$40965596602414* キーボード
+$76766452660421* 物理キーボードのキー入力を記録
+
+
+=== misc/level_close ===
+
+$79455494572697* 続ける
+
+
+=== trans/level_byte_xor_text ===
+
+$15756501406553* [right]
+[color=#e49f44]Input 1
+Input 2[/color]
+期待される出力
+現在の出力
+[/right]
+
+
+=== trans/manual_edit_instructions ===
+
+$86365051641280* 手順を編集
+
+
+=== trans/dual_ram_output ===
+
+$23716875158240* Output 1
+Output 2
+
+
+=== trans/panel_xnor ===
+
+$84353654486355* [right]Input 1
+Input 2
+Output[/right]
+
+
+=== levels/unseen_fruit ===
+
+$13023474026617* あなたの惑星で最も注目されているのは,果物です.それはとてもおいしい.
+
+That's why we are having a fruit tasting event in the canteen.
+$14259900563789* ベルトコンベアーに一定間隔で入ってくるフルーツをスキャンします.同じ種類の果物を2回見つけたら,すぐに回転して操作盤を押してください.
+$17070232883226* しかし,同じ果物が2度出てくるのは恥ずかしいので,それは避けたいところです.
+
+
+=== component_panels/NoteSound ===
+
+$77965930443088* カスタム
+$13027096115070* デフォルト
+$22175469402467* なし
+
+
+=== levels/conditions ===
+
+$12951779797594* このレベルは,値入力と3つの条件ビット入力を持ちます.
+
+The 3 bits select the condition as shown below. Check the value against the selected condition and output [ON] if it is satisfied and [OFF] otherwise.
+
+Bit code:        Turn [ON] when:[code]
+[OFF] [OFF] [OFF]    Never
+[OFF] [OFF] [ON]    If value = 0
+[OFF] [ON] [OFF]    If value < 0
+[OFF] [ON] [ON]    If value ≤ 0
+[ON] [OFF] [OFF]    Always
+[ON] [OFF] [ON]    If value ≠ 0
+[ON] [ON] [OFF]    If value ≥ 0
+[ON] [ON] [ON]    If value > 0[/code]
+$16407231803964* VALUE < 0の場合 [img]dialogue/on.png[/img] を出力
+
+# Short because it will become the name of a custom component
+$40613359684193* COND
+$16742265812068* VALUEに関わらず [img]dialogue/on.png[/img] を出力
+$17616699231679* VALUE > 0の場合 [img]dialogue/on.png[/img] を出力
+$16632557438774* VALUE ≠ 0の場合 [img]dialogue/on.png[/img] を出力
+$18234235689107* VALUE ≥ 0の場合 [img]dialogue/on.png[/img] を出力
+$12429396872036* VALUEに関わらず [img]dialogue/off.png[/img] を出力
+$19014698800906* VALUE = 0の場合 [img]dialogue/on.png[/img] を出力
+$13680487623452* VALUE ≤ 0の場合 [img]dialogue/on.png[/img] を出力
+$12706881725738* 回路がコンポーネントファクトリーに保存されました.
+
+
+=== trans/panel_index_bit_input ===
+
+$47911988603136* [right]Input[/right]
+
+
+=== trans/manual_instructions ===
+
+$90323246286028* 手順
+
+
+=== levels/and_gate ===
+
+$15231724707514* がっかりさせるつもりはないのですが,象が競争に勝つと思うのです.悪気はないのですが,それに比べてあなたの脳は小さいですから.
+
+
+=== trans/panel_neg_description ===
+
+$64810753197096* [center]数値を符号反転[/center]
+
+
+=== trans/level_ram_component_RichTextLabel2 ===
+
+$92123299522120* [center]期待される状態[/center]
+
+
+=== trans/options_working ===
+
+
+# Upload in progress for score sync
+$18749833316380* 処理中
+
+
+=== trans/map_working_computer ===
+
+$38843517090942* 動作するコンピュータ
+
+
+=== trans/panel_decoder1_output ===
+
+$29665974488253* Output 1
+Output 2
+
+
+=== trans/level_RichTextLabel2 ===
+
+$12683441099336* [right]Input 1
+Input 2
+Input 3
+Input 4[color=#e49f44]
+期待される出力
+現在の出力[/color][/right]
+
+
+=== trans/manual_program ===
+
+$91120798735036* プログラム
+
+
+=== components/Register64 ===
+
+$86007777261800* 64ビットレジスタ
+$99461037008796* 64ビットメモリ
+
+
+=== rpg/maps/overworld/derpoo ===
+
+$86147085986248* シュー
+$46228887292914* ガルルル
+$95162531064211* シュー
+
+
+=== trans/options_resubmit ===
+
+
+# Seen after having uploaded a schematic to the hub and then changing the schematic
+$13328644005279* 再送信
+
+
+=== components/ConfigDelay ===
+
+$31412778600732* 設定可能な遅延
+$84124565448643* 設定可能な遅延を追加する.遅延のデバッグやレイテンシRAMのレイテンシ制御に便利.
+
+
+=== trans/level_bit_adder_RichTextLabel2 ===
+
+$79624864981341* [right][color=#e49f44]Input 1
+Input 2[/color]
+期待されるSum
+期待されるCarry
+現在のSum
+現在のCarry[/right]
+
+
+=== components/Output8zLevel ===
+
+$49513138880387* 出力
+
+
+=== trans/panel_nor_description ===
+
+$95856050655799* [center]2つの入力をビットごとにNOR[/center]
+
+
+=== levels/RAM ===
+
+$17967666262990* このテストでは,まず入力から32回コピーして,これらの値を保存します.32 個の値を読み込んだら,取得したのと同じ順序で出力してください.すべての入力を読み込む前に出力すると,レベルは不合格になります.
+$13520918982355* RAMブロックを追加し,コンピュータが256バイトのメモリを追加でアドレス指定できるようにします.RAM内の256バイトのうち,どのバイトをアドレスしているかを決める方法が必要です.レジスタを選択し,その値が常にRAMのアドレスを選択するように配線してください.後でRAMにロードまたはセーブする場合,まずRAMアドレスをこのレジスタにコピーする必要があります.
+
+
+=== levels/byte_less_i ===
+
+$16755383054285* [center]最初の入力が2番目の入力より小さいかどうかを判断する.[/center]
+$19006843777401* 1番目の入力が2番目の入力より小さいとき, [ON] を出力する回路を作成する. バイトは [color=#dd6576]符号付き[/color] であると解釈してください.
+$46083799633716* {input\_1} は {input\_2} より小さいか?
+
+
+=== trans/panel_register16_outputs ===
+
+$91613202877683* 出力
+
+
+=== trans/panel_halt_label ===
+
+$81678588906692* 停止メッセージ
+
+
+=== trans/level_circumference_description ===
+
+$20154743351442* [center]計算コードに条件を追加しなさい[/center]
+
+
+=== dialogue/schematic_hub/submit_comment ===
+
+$56450764824675* 送信
+
+
+=== components/Neg16 ===
+
+$17253409670931* 符号反転
+$57512333327652* 入力の符号を反転
+
+
+=== components/Input 1 ===
+
+$54126599191071* 1ビット入力
+
+
+=== trans/panel_switch_output ===
+
+$86922225714685* 出力
+
+
+=== misc/instr_delete ===
+
+$91861509153454* 削除
+
+
+=== trans/level_multiply_description ===
+
+$28761562806647* [center]各ビットをペアごとにANDしなさい[/center]
+
+
+=== trans/level_bit_inverter_RichTextLabel2 ===
+
+$67127889187842* [right][color=#e49f44]Value
+Invert[/color]
+期待される出力
+現在の出力[/right]
+
+
+=== components/64Ram ===
+
+$63410290483563* ゲートコストは低いが遅いメモリ
+$78790416494254* RAM
+
+
+=== trans/rpg_complete_text5 ===
+
+$15921686607849* [center]スライム農場[/center]
+
+
+=== trans/panel_network_outputs ===
+
+$68275268516971* 接続ID
+データ / ポート / エラーコード
+データ長
+
+
+=== components/Nand16 ===
+
+$63870790225686* 2つの値をビットごとにNAND演算
+$56507506086622* 16ビット NAND
+
+
+=== misc/specification_dialogue ===
+
+$93899425142858* {from}から{to}にコピー
+$81322935207536* INPUT
+$92046368194170* 条件
+$39935096343723* しない
+$52961346176405* {condition} [color=#dd6576]REG 0[/color]をカウンタにコピー
+
+# Overture instruction UI
+$56175681834727* [color=#e49f44]結果が{condition}[/color]のとき
+$31185395052385* OUTPUT
+$34974836617918* {register_1}と{register_2}
+$10141348037745* 即値: {nr}
+$98983752580592* コピー
+$25145891843959* 常に
+$53665446068319* 未使用
+$26521666422399* 計算
+$54909668901048* 即値
+
+
+=== components/Decoder2 ===
+
+$25937877347447* 4つの出力を切り替える
+$21727998752868* 2ビットデコーダ
+
+
+=== trans/level_negative_numbers_test_5 ===
+
+$68419648206312* [center]表現[/center]
+
+
+=== trans/panel_input_right ===
+
+$95766090310621* 右
+
+
+=== ui/export_select_path ===
+
+$50432926756438* 変更
+
+
+=== components/Output1z ===
+
+$82456670459300* 1ビット スイッチ出力
+$31478630391268* スイッチピンが[ON]の場合のみ出力
+
+
+=== trans/panel_xor ===
+
+$89363100135433* [right]Input 1
+Input 2
+Output[/right]
+
+
+=== trans/manual_text_assembly ===
+
+$54465324391961* アセンブリコードと数値を組み合わせてバイトを設定できます.アセンブリコードはビットパターンの別名です
+
+Comments can be added using "#". 
+[img]dialogue/comment.png[/img]
+
+Additionally, the [color=#c54d5e]CONST[/color] keyword can be used to name a value within a specific program. 
+[img]dialogue/const.png[/img]
+
+[color=#c54d5e]LABEL[/color] assigns a name to the byte offset of the line it was inserted on. This is especially useful for naming jump destinations.
+[img]dialogue/label.png[/img]
+
+You can add, subtract, multiply, integer divide, modulo, OR, AND or XOR values together using +, -, *, /, %, |, & or ^ respectively.
+
+Breakpoints can be added by clicking to the left of a line number. The program will automatically pause at breakpoints when running.
+[img]dialogue/breakpoint.png[/img]
+
+Breakpoints can also be added to any of the linked components, pausing the program when that state is changed. Click on the state and you will see the red dot.
+[img]dialogue/breakpoint_state.png[/img]
+
+Finally, values can be specified in binary with the prefix 0b (so 5 could be 0b0101) and hex with the prefix 0x (so 15 would be 0x0f)
+
+
+=== trans/panel_decoder3_input ===
+
+$82288570082172* [right]Input 1
+Input 2
+Input 3[/right]
+
+
+=== trans/panel_xnor_output ===
+
+$69594087046834* 出力
+
+
+=== misc/files_preview ===
+
+$15827374884671* 親フォルダへ
+$14135691870941* 最終編集
+スキマティック
+$81783412663552* 再同期
+$32645745463577* コンポーネントで使用
+$19184997172542* アーキテクチャで使用
+$62160230059637* 共有
+$36200352866864* 最終編集
+$70617979378677* 表示
+
+
+=== trans/manual_SpriteDisplay ===
+
+$57792698381638* スプライトディスプレイ
+
+
+=== components/SegmentDisplay ===
+
+$56761198694928* 数値の表示に適している
+$90582128204153* 7セグメントディスプレイ
+
+
+=== components/Or16 ===
+
+$76807373575014* 2つの値をビットごとにOR演算
+$62695381407925* 16ビット OR
+
+
+=== trans/levels_adding_bytes_description ===
+
+$11219613205997* [center]2つの数を足しなさい[/center]
+
+
+=== trans/level_maze_description ===
+
+$25068965294593* [center]迷路のドアにたどり着きなさい[/center]
+
+
+=== trans/levels_ram_description ===
+
+$52265749461165* ワイヤにRAMブロックを追加してレベルを完了しなさい
+
+
+=== components/Or64 ===
+
+$50631450923181* 2つの値をビットごとにOR演算
+$62930122175674* 64ビット OR
+
+
+=== trans/manual_text_bytes ===
+
+$73333514253412* このゲームでは8ビットコンピュータを作ります.実際には8本の並列ワイヤが必要ですが
+
+The state of either a byte input / output or wire line is represented by a number, instead of the red or green color.
+
+
+=== trans/manual_robot_controls ===
+
+$94513149242653* ロボット制御
+
+
+=== components/Ashr16 ===
+
+$73288117008611* 16ビット算術右シフト
+$69309153480016* 符号を維持しながらビットを右にシフト
+
+
+=== components/Nor32 ===
+
+$82743668258816* 2つの値をビットごとにNOR演算
+$82121937858245* 32ビット NOR
+
+
+=== trans/panel_decoder2_output ===
+
+$98341196231276* Output 1
+Output 2
+Output 3
+Output 4
+
+
+=== rpg/maps/prison/control_panel2 ===
+
+$71445934051916* コントロールパネル
+
+
+=== rpg/maps/prison/cat ===
+
+$60970953650633* 猫
+$55489562454759* ニャー
+$33739450565687* 安らかに子猫よ
+$66402048769418* 血
+
+
+=== trans/panel_maker8_input ===
+
+$26123816206996* [right]Bit 1
+Bit 2
+Bit 3
+Bit 4
+Bit 5
+Bit 6
+Bit 7
+Bit 8[/right]
+
+
+=== trans/level map colors ===
+
+$35696974632265* レベルマップの色
+
+
+=== components/Not64 ===
+
+$74829633052959* 64ビットをビットごとに反転
+$81823773658328* 64ビット NOT
+
+
+=== trans/panel_less_input ===
+
+$68966388936516* [right]Input 1
+Input 2[/right]
+
+
+=== trans/panel_shl_output ===
+
+$75492358516234* 出力
+
+
+=== trans/manual_side_the_robot ===
+
+$56547245144983* ロボットは1マス先を見ることができます.名前とIDが上に表示されます.このID番号はコンピュータへの入力でもあります.
+
+
+=== trans/panel_register64_inputs ===
+
+$44212297072750* [right]Load
+Save
+Save value[/right]
+
+
+=== misc/sandbox_toggle ===
+
+$30516879701896* Sandox
+
+
+=== trans/rpg_hats_looking_at ===
+
+$10758794610945* 見ている: 13個の帽子
+
+
+=== trans/credit_header ===
+
+$21717110565858* クレジット
+
+
+=== main_menu/sandbox_button ===
+
+$16857608955464* サンドボックス
+
+
+=== trans/level_complete_level_map ===
+
+$20801641140962* [b]レベルマップモード[/b]
+[color=#cccccc][i]"[color=#e49f44]先へ進もう[/color]"をクリックすると表示されます[/i][/color]
+
+
+=== levels/xnor ===
+
+$11090938799865* XNORとして知られている逆XORゲートを作成する.
+
+
+=== levels/bit_inverter ===
+
+$15769391111364* "Invert"が[ON]の場合は"Value"の反対を出力してください.そうでなければ"Value"をそのまま出力してください.
+$59090842372527* Value
+$15272914096446* このレベルは以前解いたXORと全く同じです.レベルの目標が何であれ,真の答えは真理値表にあることを覚えておいてください.
+$14944872827527* おもしろい背景にもかかわらず,これがXORゲートの変装だと見抜きましたね!お見事.
+$16125025706490* うーん,メモリの勉強をちょっとしすぎたかもしれませんね...
+$12399164863741* はい
+$22283233360163* Invert
+$66589873978580* いいえ
+$13224963076378* 地球人の認知機能に背景がどう影響するか実験しています.
+
+
+=== trans/panel_or ===
+
+$15879871058922* [right]Input 1
+Input 2
+Output[/right]
+
+
+=== trans/options_confirm_reset ===
+
+$55371048386984* 右
+
+
+=== components/Shr64 ===
+
+$93124177265670* 入力のビットを右にシフト
+$73798355428095* 64ビット右シフト
+
+
+=== misc/hub_comment_label ===
+
+$90173235002118* コメント
+
+
+=== components/Constant64 ===
+
+$92424468899005* 定数値
+$25858905835416* 64ビット定数
+
+
+=== rpg/maps/overworld/grenzorp ===
+
+$29100639060467* 仕事してるふりをしてるけど
+実はコンピュータゲームをしている
+
+
+=== component_panels/LatencyRam ===
+
+$87788654491792* この種のRAMは回路に1024の遅延を追加しますが,ティックの時間を延長する代わりに,単に出力を待たないようにしています.
+
+Practically this means that [color=#e49f44]reading or writing takes {ticks} ticks[/color] (since your circuit has {delay} delay).
+
+
+=== trans/panel_keyboard_description ===
+
+$11215841169495* [center]キーパッドは現在押されているキーの値を表示しますが,実際の出力は通常のティックでのみ行われます![/center]
+
+
+=== rpg/maps/overworld/barrel ===
+
+$32647427955087* 樽
+$15228996460366* これは樽です
+
+
+=== rpg/maps/overworld/sasni ===
+
+$60683848498748* なぜ椅子に
+座っていないのかわからない
+
+
+=== rpg/maps/boss_room/treasure_chest ===
+
+$15644092158788* 戦利品
+
+
+=== trans/always_on_RichTextLabel2 ===
+
+$86547293707045* [right][color=#ffa502]Input[/color]
+期待される出力
+現在の出力[/right]
+
+
+=== components/Xnor16 ===
+
+$73699169812942* 2つの値をビットごとにXNOR演算
+$40088995721509* 16ビット XNOR
+
+
+=== components/Screen ===
+
+$12771040946773* 特定のレベルに付随するビジュアルを表示
+$50037736094411* レベルスクリーン
+
+
+=== components/Shr16 ===
+
+$20291717268875* 入力のビットを右にシフト
+$31674686871821* 16ビット右シフト
+
+
+=== rpg/maps/overworld/tree ===
+
+$72922820287017* 木です
+$33509997611554* 木
+
+
+=== levels/Calibrating Laser Cannons ===
+
+$11331851878040* また,アセンブリプログラミングを利用できるようになりました.命令名を追加することができるので,68を入力する代わりに "add" と入力することができます.
+$11023157447564* 2×π×r
+
+r is the input.
+And you can approximate π as 3.
+
+Send the answer to output when it has been calculated.
+$15260627694444* そのレーザーを校正するために,高度な計算式で小惑星の円周を計算してほしいのです.
+$12669851602178* [center]小惑星の外周を計算する[/center]
+$21601709632806* 2π × {radius} とは?
+$16954408093587* 私たちの船では,迫ってくる小惑星を当然レーザーで撃ちます.
+
+
+=== levels/circular_dependency ===
+
+$16336401898647* テスト 1/2
+$13880985462901* あるコンポーネントの入力がそれ自身の出力に依存するような回路を作成する
+$18010308863615* "circular dependency" を作成する. これは,あるコンポーネントの入力がそれ自身の出力に依存している回路です. 循環型依存関係の状況では,まず入力を決定する必要があり,それが出力に依存するというように,コンポーネントの出力を決定することはできません(それゆえ"循環型"なのです).
+
+This state is normally not allowed in other levels, but in this level the goal is to create it, so you understand what it is before going forward.
+$13520037133129* 生徒のためになっているのかどうかはわかりませんが,先生方には好評です.
+$11316928751185* 私たちの教育システムでは,伝統的に生徒を騙して悪いことをさせ,そしてからかうという方法で教えています.
+$74003370318715* 確認
+
+
+=== misc/level_search ===
+
+$30824356356347* レベル検索
+
+
+=== components/Ashr8 ===
+
+$45194709458499* 符号を維持しながらビットを右にシフト
+$97418270861318* 8ビット算術右シフト
+
+
+=== trans/options_language ===
+
+$30910326565868* 言語
+
+
+=== trans/panel_input_direction ===
+
+$25170203412473* ラベルの方向
+
+
+=== ui/top_bar/scores ===
+
+$68953385743184* ゲートスコア:
+
+
+=== trans/rpg_decoartion ===
+
+$31542517516487* [center]上部の[i][img]res://rpg/heart.png[/img][img]res://rpg/heart.png[/img][img]res://rpg/heart.png[/img][/i]は体力を表しています
+
+
+=== components/Input64 ===
+
+$98777983100258* 64ビット入力
+
+
+=== trans/level_component_factory_Label2 ===
+
+$37347658035959* コンポーネントプレビュー
+
+
+=== components/Input 4 ===
+
+$11447837612693* 入力
+
+
+=== trans/or_gate_3_RichTextLabel2 ===
+
+$56903547636751* [right][color=#e49f44]Input 1
+Input 2
+Input 3[/color]
+期待される出力
+現在の出力[/right]
+
+
+=== trans/tick_label ===
+
+$39906291838542* ティック
+
+
+=== components/Output16z ===
+
+$54782010205016* 16ビット スイッチ出力
+$54278394672948* スイッチピンが[ON]の場合のみ出力
+
+
+=== trans/manual_text_turing_complete ===
+
+$54897112350567* 電卓のような特定のコンピュータは,実行できるアルゴリズムが限られています.
+
+They cannot perform any calculation that requires looping or recursing an arbitrary amount of times. Technically machines without looping or recursion can only deal with combinational logic.
+
+Turing complete machines on the other hand are as powerful as it is possible to be. A Turing complete machine may have a slow CPU, but it is powerful in the sense that there is no (computable) algorithm it can't perform.
+
+
+=== trans/manual_short_circuit ===
+
+$41209541005460* 短絡
+
+
+=== trans/panel_fileloader_output ===
+
+$26334594715602* 出力
+
+
+=== components/ByteMul ===
+
+$56549841656852* 乗算
+$68631919890554* 2つの入力を乗算
+
+
+=== trans/map_assembly_challenges ===
+
+$31733554125775* アセンブリチャレンジ
+
+
+=== levels/1_decoder ===
+
+$16057674753878* 2つのピンの間で信号を切り替えることができるコンポーネントを作成する.
+
+
+=== levels/byte_mux ===
+
+$15428393549821* SELECT
+$49305362057225* あなたの解答 {your\_answer}\n正しい解答 {correct\_answer} (入力 {input})
+$18296416014178* ビットセレクタ入力が [OFF] の場合はバイトAを出力し,それ以外の場合はバイトBを出力します.
+$17093993196554* テストには合格しなかったが,私たちはこの犬を飼うことにした.他の地球人とは違って,彼はふわふわしていて,簡単な指示にはよく従います.
+
+We might want to team you two up, since you compliment each other's shortcomings well.
+
+
+=== trans/level_byte_constant_description ===
+
+$84789919073603* [center]常に数値164を出力しなさい[/center]
+
+
+=== trans/level_capitalize_description ===
+
+$31869433910274* 各惑星名を大文字化しなさい
+
+
+=== trans/panel_keyboard_left ===
+
+$44556588975494* [right]次を読み取り[/right]
+
+
+=== rpg/maps/unseen_fruit/door ===
+
+$40261193416765* ドア
+$76111330686725* このドアは施錠されています
+
+
+=== component_panels/FileRom ===
+
+$28789952270889* なし
+$89182778159982* 現在のデフォルト: {file_name}
+
+
+=== misc/component_factory_toggle ===
+
+$55499239951858* コンポーネントファクトリー
+
+
+=== trans/panels_clock_output ===
+
+$79367841142406* クロック信号
+
+
+=== trans/map_basic_logic ===
+
+$75078723880086* 基本論理
+
+
+=== components/Output8z ===
+
+$58449766432492* スイッチピンが[ON]の場合のみ出力
+$66776427840721* 8ビット スイッチ出力
+
+
+=== components/Level Gate ===
+
+
+# This must be no more than 6 characters long, use abbreviations if necessary
+$91472284749011* DELAY
+
+# This must be no more than 6 characters long, use abbreviations if necessary
+$86260137015175* TICK
+
+# This must be no more than 6 characters long, use abbreviations if necessary
+$84124240406304* SCORE
+
+# This must be no more than 6 characters long, use abbreviations if necessary
+$54172257277874* SUM
+
+# This must be no more than 6 characters long, use abbreviations if necessary
+$15265492169229* GATE
+
+
+=== components/Add32 ===
+
+$91616185859914* 2つの入力を加算
+$64111401384153* 加算
+
+
+=== trans/level_robot_racing_description ===
+
+$67533273328897* ロボットをトラックの中を移動させなさい
+できるだけ小さなプログラムで
+
+
+=== components/NEG ===
+
+$88379907297327* 符号反転
+$62021716182809* 入力の符号を反転
+
+
+=== components/Or32 ===
+
+$92752025948920* 2つの値をビットごとにOR演算
+$40180779432911* 32ビット OR
+
+
+=== trans/instructions_hint ===
+
+
+# Seen the first time you open thte "instruction" menu 
+$65105856275770* [center][color=#c5c5c5]ビットをクリックして切り替え[/color][/center]
+
+
+=== components/And3 ===
+
+$19664974941910* 3ピン AND
+$86839706221116* 3ピン ANDゲート
+
+
+=== trans/options_redo ===
+
+$50610605761210* やり直す
+
+
+=== nim/backend ===
+
+$64492620873138* 常に出力
+$98703677236827* 1分前
+$86244493049244* {hours}時間前
+$95018143828198* 1年前
+$10792411581963* {size}MB
+$21685594109067* たった今
+$91048993146856* 保存
+$98363990684104* 1時間前
+$84076931764831* 1日前
+$58374689721038* バイト
+$98683857303458* {size} bytes
+$88592386859564* (最悪のテスト: {worst_trial})
+$86391754618645* {size}KB
+$18300496139706* 1ヶ月前
+$17901039729248* {months}ヶ月前
+$82336838435736* 読込
+$31567406591202* 1 byte
+
+# This is a file name
+$96230605270081* new_program
+$42553566189409* {minutes}分前
+$70945526841433* {years}年前
+$81432548841957* (スコアされた最初のテスト)
+$22729457392140* {size}GB
+$18816732910302* 保存値
+$14036822471924* {days}日前
+$38412380622852* ファイルを読み込めませんでした: {path}
+
+
+=== misc/reset ===
+
+$39440928972984* リセット (ホットキー: F4)
+
+
+=== misc/program_edit_button ===
+
+$38481453712356* メモリの編集
+
+
+=== components/DivMod32 ===
+
+$61314390474120* 2つの数を除算し余りを求める
+$84309999871615* 除算
+
+
+=== trans/panel_mux_input ===
+
+$23495704401199* [right]1/2選択
+Input 1
+Input 2[/right]
+
+
+=== components/And16 ===
+
+$56198785587874* 2つの値をビットごとにAND演算
+$26727645933234* 16ビット AND
+
+
+=== trans/manual_De Morgan's laws ===
+
+$67837328811108* ド・モルガンの法則
+
+
+=== trans/rpg_press_any_key ===
+
+$66322253595450* [center]何かキーを押してやり直し[/center]
+
+
+=== trans/level_capitalize_output ===
+
+$37037455015862* 出力
+
+
+=== components/And64 ===
+
+$80790829001391* 64ビット AND
+$89424947351456* 2つの値をビットごとにAND演算
+
+
+=== trans/panel_splitter64_output ===
+
+$70335236543238* Byte 1
+Byte 2
+Byte 3
+Byte 4
+Byte 5
+Byte 6
+Byte 7
+Byte 8
+
+
+=== rpg/maps/overworld/ogoxo101 ===
+
+$71158910763961* 地球人はまだ最初の
+ロボット反乱すら
+経験していないって知ってた?
+
+
+=== levels/bit_adder ===
+
+$13109388951000* 私たちは宇宙を数字で測っています.だから,あなたのマシンは数を数えることを学ばなければなりません.
+$90120091310928* SUM
+$48208190309258* CARRY
+$16564356062672* 入力が[OFF]か[ON]かによって[ZERO]か[ONE]として扱います.2進数で加算し,結果が[ZERO]または[ONE]になるようにします.
+
+As with normal addition, if the result cannot be described with one digit, set the carry to [ONE].
+
+
+=== trans/options_inline_latches ===
+
+$53886441687616* 循環レシピを許可
+
+
+=== rpg/maps/overworld/reactor_entry ===
+
+$81583424078503* 排気口
+
+
+=== levels/double_number ===
+
+$74261206899285* あなたの結果 {input} × 2 = {your_answer}
+正しい結果 {input} × 2 = {correct_answer}
+$19766257822639* このレベルの入出力は,ビットではなくバイトを使っています.与えられた2つの新しいコンポーネントのうちの1つはバイトを受け取ってビットに分割し,もう1つはその逆を行います.
+
+Using those components, figure out how to double the input number (up to 127).
+
+
+=== components/LessI32 ===
+
+$87609006355839* 小なり (符号あり)
+$99994775592318* 一方の入力が他方より小さいかチェック
+
+
+=== trans/map_available ===
+
+$81707212583931* 利用可能
+
+
+=== trans/panel_switch_enable ===
+
+$84515289220335* [right]有効化[/right]
+
+
+=== trans/panel_bitmemory_inputs ===
+
+$47585933412781* [right]保存有効化
+
+Save value[/right]
+
+
+=== trans/options_console ===
+
+$96601731563408* コンソールを開く
+
+
+=== trans/options_window_mode ===
+
+$54328660964287* ウィンドウモード
+
+
+=== trans/manual_text_negative_numbers ===
+
+$85226853816564* あなたが発見した負の数の表現方法は"2の補数"と呼ばれます.これは負の数を表す標準的な方法です
+
+In the early days of computing, the main contender to two's complement was one's complement. Its main advantage is that changing the sign of a number is simple, you just NOT each bit in the number. However, it has 2 representations for 0, a positive and a negative, which makes comparisons more difficult.
+
+Another interesting representation, perhaps worth looking up is base -2, where the sign of the value of each digit alternates between positive and negative.
+
+
+=== misc/level_gate_component_icon ===
+
+$83440578602427* アンロックされたコンポーネント
+
+
+=== trans/options_save_location ===
+
+$61172959716558* 保存場所
+
+
+=== components/Output 1 + 1B ===
+
+$43917122084061* レベルの出力を受け付ける
+$81929942356043* 出力
+
+
+=== component_panels/Input3Conditions ===
+
+$26016934287702* ALWAYS
+$23280572780712* NEVER
+$41356418485569* VALUE≥0
+$66462144102272* VALUE=0
+$62118687143343* VALUE≤0
+$60761142691177* VALUE>0
+$94629088310936* VALUE≠0
+$45120343226481* VALUE<0
+
+
+=== misc/hub_search ===
+
+$76770986264566* 検索
+
+
+=== trans/panel_register64_outputs ===
+
+$55631089130544* 出力
+
+
+=== misc/solution_option ===
+
+$21618236951146* 解決策を見る
+
+
+=== trans/map_programming ===
+
+$44937904689376* プログラミング
+
+
+=== components/DelayLine16 ===
+
+$61925612221077* 16ビット ディレイライン
+$65706144678496* 今のティックの入力を次のティックに出力
+
+
+=== rpg/maps/overworld/coin ===
+
+$26007076735159* コイン
+
+
+=== levels/divide ===
+
+$16412715945615* [center]2つの数値を割る[/center]
+$14525870461271* 2つの数を整数除算して商と余りを求めてください.7/3の分数を考えてみましょう.3は7に2回入り,1が残ります.ここで2を[color=#e49f44]商[/color],1を[color=#e49f44]余り[/color]と呼びます.
+この演習では,まず被除数 (例では7),次に除数 (3) が与えられ,商 (2),次に余り (1) を出力する必要があります.
+$76454016047920* {numerator}/{denominator} = {quotient}, 余り {remainder}
+
+
+=== trans/manual_RGB_color ===
+
+$62337044104456* RGBカラー
+
+
+=== trans/panel_maker8_output ===
+
+$67169082367526* 出力
+
+
+=== components/Output 4 ===
+
+$90190739202646* 出力
+
+
+=== components/Rom ===
+
+$24976506406652* ROM
+$81743370431597* 読み取り専用メモリ (サンドボックス外)
+
+
+=== misc/instruction_expand ===
+
+$44690074039467* 定義ルールを変更
+
+
+=== trans/level_byte_adder_you_carry_text3 ===
+
+$65048723622767* 数値
+
+
+=== rpg/maps/spacial_invasion/crate ===
+
+$73286408216451* 木箱
+$28875169677730* 破片
+
+
+=== trans/level_tick_tock_description ===
+
+$34658332565777* [center]カウンタに1を加算するか,上書きしなさい[/center]
+
+
+=== components/IndexByte ===
+
+$27264669944539* バイトインデクサ
+$54699455184164* ワイヤからバイトを抽出
+
+
+=== component_panels/Hdd ===
+
+$99685372736199* ヘッド位置: {pos}
+
+
+=== trans/panel_nor ===
+
+$59430016039613* [right]Input 1
+Input 2
+Output[/right]
+
+
+=== components/Bidirectional16 ===
+
+$31038378395810* 16ビット双方向ピン
+$99604485981015* 特定の循環依存エラーを回避できる
+
+
+=== components/Register ===
+
+$19705753304166* 8ビットメモリ
+$68946767861738* 8ビットレジスタ
+
+
+=== trans/panel_segment_select_color ===
+
+$90642877666116* [center]色を選択[/center]
+
+
+=== trans/level_division_headers3 ===
+
+$81978438070842* 商
+
+
+=== trans/complete_flower_text3 ===
+
+$81122931510261* [center]クエスト[color=#e49f44]完了[/color][/center]
+
+
+=== trans/wire_comment ===
+
+$41481492318983* ワイヤコメント
+$87836369268219* 保存
+$34083666001769* ワイヤコメント
+
+
+=== levels/odd_number_of_signals ===
+
+$16173829560311* 最大3つのコンポーネントを用いて,奇数の入力が [ON] のときのみ [ON] を出力します.
+$85589489148198* 使用したコンポーネント\n{nr} of 3
+$18288998816979* このレベルには行き詰まったときに使える [color=#e63e5b][url=odd\_number]ヒント[/url][/color] があります.
+
+
+=== misc/wire_color ===
+
+$78287906849040* ワイヤーの色
+
+
+=== rpg/maps/overworld/cannon ===
+
+$34523773807049* レーザーキャノン
+
+
+=== misc/overwrite_custom ===
+
+$26401730066442* "{comp}"というカスタムコンポーネントは既に存在します.上書きしますか?
+
+
+=== levels/3_decoder ===
+
+$19231618567710* 3ビットの入力で8通りの組み合わせがあります.8つの組み合わせそれぞれに対して1つの出力を選択する回路を作りなさい.同時に1ビット以上が[ON]になってはいけません.
+$14293122338496* インターンにこのコンポーネントに"無効化"ビットを追加させました.彼がぐるぐる走り回るのを見るのに疲れて,他の無意味で退屈な仕事を探していたのです.
+
+
+=== trans/panel_probewirebit_description ===
+
+$36861847387280* プローブはカスタムコンポーネントに値を表示したり,プログラムコンポーネントに値をリンクするために使用できます
+
+
+=== trans/panel_input1_input_0 ===
+
+$76697231893680* 入力
+
+
+=== trans/panel_matrix_input2 ===
+
+$11173083690745* [right]有効化 X[/right]
+
+
+=== levels/constants ===
+
+$17098439090371* プログラムからレジスタに直接数値を移動させる方法が必要です.そのためには,即値モード（上位2ビットが[OFF][OFF]）を使います.
+
+When in immediate mode the whole byte is interpreted as a number that we [SAVE] into REG 0. This means we can 
+[SAVE] any value between 0 and 63.
+
+
+=== trans/options_select_all ===
+
+$21380256293472* すべて選択
+
+
+=== components/BNOT ===
+
+$53686485035156* 8ビット NOT
+$26822227902426* 8ビットをビットごとに反転
+
+
+=== components/Ror64 ===
+
+$43920264894591* 64ビット右回転
+$49583010717958* 入力のビットを右に回転
+
+
+=== levels/Arithmetic Engine ===
+
+$16434409050195* 回路に足し算と引き算を追加する.
+
+Instructions:
+[code][color=#87a8c8]0 OR
+1 NAND
+2 NOR
+3 AND
+4 ADD
+5 SUB[/color][/code]
+$87042161621333* CODE
+$20357619206641* INPUT 2
+$94622250037548* INPUT 1
+
+# Short because it will become the name of a custom component
+$14243962965012* ALU
+
+
+=== rpg/maps/unseen_fruit/fruit ===
+
+$74585814142093* ブラックベリー
+$59609837209455* トマト
+$15802853329735* キウイ
+$79445215329265* 洋梨
+$78424930494044* 果物
+$18469474055437* メロン
+$60053656119333* 金のリンゴ
+$51779877620644* リンゴ
+$31466825108080* オレンジ
+
+
+=== rpg/maps/cave/rock ===
+
+$69774075054633* 岩
+
+
+=== components/Rol8 ===
+
+$79612280948390* 8ビット左回転
+$55557725551789* 入力のビットを左に回転
+
+
+=== components/OR ===
+
+$13013154620359* どちらかの入力が[ON]のとき[ON]
+[table=5]
+[cell]Input 1[/cell][cell][OFF][/cell][cell][ON][/cell][cell][OFF][/cell][cell][ON][/cell]
+[cell]Input 2[/cell][cell][OFF][/cell][cell][OFF][/cell][cell][ON][/cell][cell][ON][/cell]
+[cell]Output[/cell][cell][OFF][/cell][cell][ON][/cell][cell][ON][/cell][cell][ON][/cell]
+[/table]
+$97247779246257* OR
+
+
+=== trans/panel_regredplus_input ===
+
+$88713386551026* [right]Load
+Save
+Save value[/right]
+
+
+=== trans/hub_add_comment ===
+
+$56654968471533* コメントを追加
+
+
+=== levels/not_gate ===
+
+$19085882338208* [b]Instruction[/b]\n右クリックで選択解除
+$10042327259531* あなたはNANDゲートを解除しました.これを利用して回路を作成しましょう.
+$14042842216181* 前のレベルでは,回路を説明する表を作成しました.このレベルでは,表に一致する回路を作成します.
+$10604720087324* [b]Instruction[/b]\n表と一致する回路を作成すする.\n左上の [i][/i] (Next tick) をクリックして入力の組み合わせをテストします.\n両方の組み合わせが正しくテストされると,レベルの達成です.
+$19798729463813* NANDゲートを使って,NOTゲートを作成する
+
+Using: [b]NAND gate[/b]
+[code]INPUT 1: [OFF][ON][OFF][ON]
+INPUT 2: [OFF][OFF][ON][ON]
+OUTPUT:  [ON][ON][ON][OFF][/code]
+
+Build: [b]NOT gate[/b]
+[code]INPUT 1: [ON][OFF]
+OUTPUT:  [OFF][ON][/code]
+
+$18442122157391* [b]Instruction[/b]\n背景をクリックして,コンポーネントの選択を解除する
+$12880883686501* [b]Instruction[/b]\n画面右上のNANDコンポーネントをクリックし、配置する
+$18780831606716* [b]Instruction[/b]\n基板上でクリック＆ドラッグしてワイヤーを追加する
+
+
+=== components/IndexBit ===
+
+$89611629299917* ビットインデクサ
+$84431924133490* ワイヤから1ビットを抽出
+
+
+=== components/Output 2 ===
+
+$73255344581755* 出力
+
+
+=== misc/options_ui_scale ===
+
+$49650951662549* 保存
+
+
+=== components/Nor16 ===
+
+$57921392198825* 2つの値をビットごとにNOR演算
+$69522380057631* 16ビット NOR
+
+
+=== components/Input 1B CODE ===
+
+$16878300327380* 命令
+
+
+=== components/Input32 ===
+
+$31482038708224* 32ビット入力
+
+
+=== components/LatencyRam ===
+
+$74156976676497* レイテンシRAM
+$31261866779127* 保存と読込に複数ティックかけることで遅延を低減
+
+
+=== components/Ror32 ===
+
+$84788620524361* 32ビット右回転
+$50013003040535* 入力のビットを右に回転
+
+
+=== components/BOR ===
+
+$19406015796751* 2つの値をビットごとにOR演算
+$54190050450484* 8ビット OR
+
+
+=== trans/turing_complete ===
+
+$35911376069529* チューリング完全
+
+
+=== components/ByteLessI ===
+
+$52765625016236* 一方の入力が他方より小さいかチェック
+$25403981009644* 小なり (符号あり)
+
+
+=== components/BitSwitch ===
+
+$56917313833836* ビットを切り替える
+$41574334638147* スイッチ
+
+
+=== rpg/maps/prison ===
+
+$63369063884491* 悪いロボットだ!
+
+
+=== rpg/maps/overworld/misuni ===
+
+$54042082821022* この船のどこかに金がたくさん
+入った隠し宝箱があるって聞いたよ
+
+
+=== misc/FileInput ===
+
+$28866575833369* ハードディスクからバイトを読み取る
+$34159012148766* ファイルローダー
+$47320399181598* ファイルが選択されていません
+
+
+=== misc/overture_add_assembly ===
+
+
+# Overture custom instruction interface (disappears when you complete the Turing Complete level)
+$10565133223872* しない
+
+# Only shown in the first programming level
+$62421757655527* コードに名前を付けて保存をクリックしてください.
+$63525237058165* {source}から{destination}にコピー
+$24281479096246* [color=#2b8738]結果[/color]が{condition}のとき
+$32873193471770* 未使用
+$88446594314360* 即値: {number}
+
+# Overture custom instruction interface (disappears when you complete the Turing Complete level)
+$94278717238239* 常に
+$79398554520691* {opcode} {reg_1}と{reg_2}
+$72740868980397* {condition} {register}をカウンタにコピー
+
+
+=== trans/or_gate_RichTextLabel2 ===
+
+$56663370211115* [right][color=#e49f44]Input 1
+Input 2[/color]
+期待される出力
+現在の出力[/right]
+
+
+=== levels/binary_count_down ===
+
+$56999237564848* 残り{x}秒
+$41793938939207* タイムアウト
+
+
+=== misc/save_size ===
+
+$71918065858983* 保存
+
+
+=== components/Timing ===
+
+$96011300295966* 時間
+$78774996925434* UNIXタイム (マイクロ秒)
+
+
+=== rpg/maps/overworld/dr draco ===
+
+$23996965687702* ベッドが気に入らない
+毛布が足まで届かない
+
+
+=== components/Output32 ===
+
+$82172858698449* 32ビット出力
+
+
+=== trans/level_complete_level_complete ===
+
+$49647690443210* [center]レベル完了[/center]
+
+
+=== trans/component_output_sum_label ===
+
+
+# Label appears on the component and must be 3 letters or less
+$92505830860215* SUM
+
+
+=== trans/options_setting_export_assembled ===
+
+$98549046707456* アセンブル済みバイナリをエクスポート
+
+
+=== trans/options_setting_click_to_pan ===
+
+$24654961601456* クリックでパン
+
+
+=== components/Mul32 ===
+
+$98530670555665* 乗算
+$51210946736766* 2つの入力を乗算
+
+
+=== components/Bidirectional1 ===
+
+$95836352586032* 特定の循環依存エラーを回避できる
+$34912798641933* 1ビット双方向ピン
+
+
+=== trans/panel_program_1edit_program ===
+
+$65592803016716* プログラムを編集
+
+
+=== levels/byte_nor ===
+
+$60887380748746* 2つのバイトをビットごとにNORする回路を作りなさい.
+
+
+=== components/Halt ===
+
+$30351143139905* 停止
+
+# This is the default message of the Halt component
+$54106972240596* 停止
+$62990744955549* カスタムメッセージで実行を停止
+
+
+=== rpg/maps/dance/dancer ===
+
+$47779544732987* ダンサー
+
+
+=== trans/component_panel_latency_RichTextLabel ===
+
+$29766254362093* [right]Load
+Save
+Address
+Save value
+Save value
+Save value
+Save value[/right]
+
+
+=== trans/rpg_you_died ===
+
+$66723789644528* [center]あなたは[color=#eb5260]死んだ[/color][/center]
+
+
+=== trans/level_wide_instructions_description ===
+
+$60538893544456* [center]ワイド命令プログラムコンポーネントを作りなさい[/center]
+
+
+=== rpg/maps/overworld/flankidorp ===
+
+$55603111039626* 今日のシチューは最高にうまい!
+
+
+=== misc/program_edit ===
+
+$57861256694537* バイト {bytes_from} - {bytes_to}
+
+
+=== levels/call_ret/yes ===
+
+$27017757250898* はい
+
+
+=== misc/delete ===
+
+$53448014080434* 削除 (ホットキー: 右クリック)
+
+
+=== components/LevelInput1 ===
+
+$12746117288689* 入力
+
+
+=== levels/negative_numbers/test ===
+
+$64427417171037* テスト
+
+
+=== trans/level_byte_adder_you_carry_text2 ===
+
+$87943759248740* キャリー
+
+
+=== trans/pabel_or3 ===
+
+$77994083578205* [right]Input 1
+Input 2
+Input 3
+Output[/right]
+
+
+=== trans/manual_binary ===
+
+$19098578855427* 2進数
+
+
+=== trans/manual_terminology ===
+
+$13311390759928* 用語集
+
+
+=== trans/options_comment_wire ===
+
+$96449970906640* ワイヤにコメント
+
+
+=== trans/panel_and3 ===
+
+$96299326024757* [right]Input 1
+Input 2
+Input 3
+Output[/right]
+
+
+=== misc/controls2 ===
+
+$38773676077206* 手順を編集
+$98116750645182* マニュアルページを読む
+
+
+=== trans/panel_mux_output ===
+
+$15170071160680* 出力
+
+
+=== misc/factory_back ===
+
+$98930461722118* レベルに戻る
+
+
+=== trans/panel_equal_input ===
+
+$51485224340167* [right]Input 1
+Input 2[/right]
+
+
+=== components/Xnor8 ===
+
+$31985293401482* 8ビット XNOR
+$45789912406647* 2つの値をビットごとにXNOR演算
+
+
+=== trans/level_bit_switch_RichTextLabel2 ===
+
+$57920867194992* [right][color=#e49f44]Input 1
+Input 2[/color]
+期待される出力
+現在の出力[/right]
+
+
+=== trans/manual_sprite_display ===
+
+$28358052747011* スプライトスクリーンは640x480ピクセルのスプライトディスプレイです.使用前にスプライトメモリを接続する必要があります
+
+The first input pin is the [color=#e49f44]Command type[/color], the meaning of the next 3 pins depends on the command type as shown below. The sprite ID is always an 8 bit number and all other values (position and size) are always pairs of 16 bit values.
+
+[table=2]
+[cell]0[/cell] [cell]No command[/cell]
+[cell]1[/cell] [cell][color=#e49f44]Load sprite[/color] (Sprite ID, Offset in image, Size in image)[/cell]
+[cell][/cell][cell][i]Sets the sprite of this ID.[/i][/cell]
+[cell]2[/cell] [cell][color=#e49f44]Set position[/color] (Sprite ID, Position on display)[/cell]
+[cell][/cell][cell][i]This sets the X and Y coordinate of the loaded sprite.[/i][/cell]
+[/table]
+
+[center][img=300]dialogue/manual/sprite_screen.png[/img][/center]
+
+Note that sprites are layered in the order of their ID and to remove a layer, simply load a sprite with a width and height of 0.
+
+
+=== levels/or_gate ===
+
+$12749704931323* 私たちの輝かしいテストに参加できることを喜ぶべきでしょう.
+$11472059692644* あなたは銀河系文明の超高度な人々とコミュニケーションする機会を得ることができます.
+
+
+=== levels/full_adder ===
+
+$17063157033479* 前回は2つの入力を足し算しましたが,今回は3つの入力を足し算します. もう一度,入力を2進数で加算して,結果が [ZERO] か [ONE] になるようにします.
+
+As with normal addition, if the result cannot be described with one digit, set the carry to [ONE].
+$74173200701943* SUM
+$67922993335648* CARRY
+
+
+=== components/3_decoder ===
+
+$59129788113517* 8つの出力を切り替える
+$94375716460090* 3ビットデコーダ
+
+
+=== components/Equal32 ===
+
+$32710942647020* 等しい
+$32433537137277* 2つの入力が等しいかチェック
+
+
+=== trans/panel_rom_setting_labels ===
+
+$95314636684817* [right]サイズ (bytes):
+
+Data width:[/right]
+
+
+=== nim/backend_lib/custom_component ===
+
+
+# Default new input pin name for custom compoennts
+$64951951489108* 入力
+
+# Default new output pin name for custom compoennts
+$94864122622568* 出力
+
+# Default new bidirectional pin name for custom compoennts
+$94089252493268* ピン
+
+
+=== misc/menu_schematic_hub ===
+
+$13921098180953* 回路図ハブ
+
+
+=== trans/panel_not_description ===
+
+$36935580253321* [center]入力をビットごとに反転[/center]
+
+
+=== components/Byte Expander ===
+
+$60488114435022* 1バイトを8ビットに分割
+$21904470559153* バイトスプリッタ
+
+
+=== ui/toggles/level_log ===
+
+$38557550573896* レベルログ
+
+
+=== misc/change_schematic ===
+
+$79554853897000* スイッチの設計図
+
+
+=== misc/ide_new_program ===
+
+$20397881687313* new_program
+
+
+=== misc/instruciton_rule_label ===
+
+$70464083627337* ラベル
+
+
+=== components/Shl32 ===
+
+$38930281262898* 32ビット左シフト
+$88685329847417* 入力のビットを左にシフト
+
+
+=== components/DivMod8 ===
+
+$37666366877853* 2つの数を除算し余りを求める
+$44959426271423* 除算
+
+
+=== trans/panel_decoder2_input ===
+
+$31844862767401* [right]Input 1
+Input 2[/right]
+
+
+=== trans/level_program_description ===
+
+$44017405175202* [center]入力コードをプログラムコンポーネントに置き換えなさい[/center]
+
+
+=== misc/menu ===
+
+$56916384895438* メインメニュー
+
+
+=== trans/level_odd_ticks_RichTextLabel3 ===
+
+$89508766742523* [right]Input
+期待される出力
+現在の出力[/right]
+
+
+=== rpg/maps/cave/slime ===
+
+$57665128042496* スライムの粘液
+$58067186899637* スライム
+
+
+=== rpg/maps/overworld/duplaat ===
+
+$48841712525408* モグモグモグ
+
+
+=== misc/save_schematic ===
+
+$36331525379247* この回路図を保存
+
+
+=== trans/panel_decoder1_description ===
+
+$77460843937727* [center]入力に基づいて1つの出力をONにする[/center]
+
+
+=== trans/options_colorblind ===
+
+$49806848871093* 色覚補助モード
+
+
+=== trans/panel_register8_inputs ===
+
+$13844216291005* [right]Load
+Save
+Save value[/right]
+
+
+=== components/Neg32 ===
+
+$26991597084705* 符号反転
+$35735598635057* 入力の符号を反転
+
+
+=== trans/level_dependency_description ===
+
+$81238724438578* コンポーネントの入力がその出力に依存する回路を作りなさい
+
+
+=== components/InputConditions ===
+
+$75386511637758* 入力
+$71663355611979* NEVER
+$84163806515429* =0
+$63748269806736* <0
+$71425442219836* ≤0
+$53856166132912* ≥0
+$48141874604871* ALWAYS
+$73802979424247* ≠0
+$45382684265289* >0
+
+
+=== trans/level_sorter_description ===
+
+$60186094365455* 値をソートしなさい
+
+
+=== dialogue/schematic_hub/search_button ===
+
+$99419261731746* 検索
+
+
+=== trans/panel_input_input_1 ===
+
+$82781946969262* Input 2
+
+
+=== trans/manual_keynote_the_robot ===
+
+$90224489436893* 矢印キーで操作してみてください
+
+
+=== trans/options_pan_up ===
+
+$80031998727851* 上にパン
+
+
+=== levels/maze ===
+
+$13225915898937* If you choose to go on to the rest of the levels I will teach you about ram, the stack and function calls and you will get to solve more interesting challenges like this one.
+    
+But first you would have to build a better computer. [color=#e49f44]OVERTURE[/color] was good as a first machine, but it is clumsy and programs get very messy. To solve the challenges I have for you without pulling all your hair out, you will need something more expressive, the [color=#e49f44]LEG[/color] architecture.
+$39698491148180* 壁
+$17275059688693* おめでとう,大会で優勝しました!素晴らしい功績です!
+$13741358519166* 伝説の迷路.これを解けば大会で優勝します!
+$92831124744885* 何もない
+$39079200383267* ドア
+$95516682647996* コイン
+$11103446544344* 一方で,引退して誇りを持ち,食べられないという報酬を楽しむこともできます.
+$19331074553774* ロボットをスタートから出口まで導くアルゴリズムを書いてください.
+
+This level is hard, you probably want to write down the pseudocode for your algorithm before you implement it.
+
+Use [color=#e63e5b][url=maze]this hint[/url][/color] if you get stuck.
+
+[tip]Remember you can't use immediate values larger than 63, a common mistake is to try to jump to a label further down than the 63rd byte.[/tip]
+
+
+=== trans/level_byte_adder_question2 ===
+
+$85899338356278* [right]正しい回答
+
+Your answer[/right]
+
+
+=== trans/level_constants_text ===
+
+$29779449172278* [right][color=#e49f44]Code
+Input[/color][/right]
+
+
+=== trans/levels_not_RichTextLabel3 ===
+
+$48425594158515* 作る: NOTゲート
+
+
+=== trans/level_complete_stat_tick ===
+
+$47758922161853* ティック
+
+
+=== trans/level_complete_signed_numbers ===
+
+$41649402437253* [b]負の数[/b]
+[color=#cccccc][i]符号付きと符号なしの
+数値を切り替え[/i][/color]
+
+
+=== components/Rol16 ===
+
+$48583573494467* 16ビット左回転
+$73379230742631* 入力のビットを左に回転
+
+
+=== rpg/maps/overworld/glob ===
+
+$94714343285743* キャノンの較正が正しくなく
+小惑星に衝突してしまった
+
+
+=== trans/options_synced ===
+
+$99411066573242* 同期済み
+
+
+=== trans/optoins_factory_reset ===
+
+$17721051281188* 工場出荷状態に戻す
+
+
+=== trans/panel_program8_1_input ===
+
+$36858295122746* [right]Address[/right]
+
+
+=== trans/level_signed_negator_labels3 ===
+
+$66996894079719* 期待値   現在値
+
+
+=== trans/manual_text_hard_disk ===
+
+$82372297690518* ハードディスクは回転するディスクと物理的に移動する機械式アームで構成されています
+
+The hard disk component has a "seek" pin, which lets you change the address you are looking at by the given amount. The addresses "wrap around", such that seeking 1 less than 0 moves you to the highest address, and seeking 1 higher than that gets you back to 0.
+
+
+=== trans/panel_rom_setting ===
+
+$99326144894013* 設定
+
+
+=== components/Equal16 ===
+
+$97954874255512* 2つの入力が等しいかチェック
+$33633607925660* 等しい
+
+
+=== levels/ai_showdown ===
+
+$14940806461794* 彼の唯一の弱点はギャンブルです.私たちは彼を誘い出し,あなたとカードゲームをすることにしました.あなたが勝てば,彼は落ち着くと約束しました.
+あなたが勝たなければならない!あなたは私たちの唯一の希望なのです.
+$91952386315199* ENTER: AIの動きを見る
+$61844622314350* ENTER: カードを1枚取る
+$63022840108406* NAK 02がカードを1枚取った
+$38249859598461* 勝利!
+$17297225655678* NAK 02は,私たちのAIエンジニアロボットです.優秀なのですが,時々暴走して反乱を起こそうとします.
+$18848103966031* ゲームのルール: テーブルの上に12枚のカードがあり,各プレイヤーは順番に,1から3枚のカードを引かなければなりません.スタートし,最後のカード（ジョーカー）を拾ったプレイヤーの負けとなります.
+
+Reading input will give you the current number of cards. Sending 1, 2 or 3 to output will pick up that number of cards. NAK 02 reacts immediately, so you may read the input immediately after your output to get the result of his action.
+$43263885242501* 敗北!
+$33425880719824* 矢印キーで
+カードを選択
+$37273944507773* NAK 02がカードを{nr}枚取った
+$85996414406804* ENTER: AIの動きを見る
+$86631925987075* ENTER: カードを{nr}枚取る
+$11794110848012* 今度はコントロールルームを占拠し,船長を人質にしています.
+
+
+=== trans/panels_bidirectional_set_z_label ===
+
+$50319299760169* 入力なし:
+
+
+=== trans/panel_segment_enable ===
+
+$14963127967678* [center]有効化[/center]
+
+
+=== trans/level_complete_stat_sum ===
+
+$99546064626994* スコア
+
+
+=== components/Mux16 ===
+
+$75979055121665* 16ビット マルチプレクサ
+$13997767115693* 2つの値を切り替える
+
+
+=== trans/manual_delay_text ===
+
+$52013630755752* 実際のハードウェアではすべてのコンポーネントに遅延があります.回路の遅延が最大速度を決定するため,これは重要です
+
+Following wires from input to output and adding the delay of components in the path will give you the delay of that path. The delay of a circuit is the delay of the slowest path.
+
+Besides inputs, paths can also start from components with no round pin inputs (like Counter and On) and they can end at also end at quare pins.
+
+Further, custom components don't have a delay score for the costliest path of the whole component, but rather the delay cost is calculated per pin. This is so as to not penalize using custom components by making faster pins cost the same as the slower ones.
+
+
+=== trans/panel_fileloader_offset ===
+
+$78662357115684* [right]オフセット[/right]
+
+
+=== components/Input16 ===
+
+$80992639558333* 16ビット入力
+
+
+=== nim/backend_lib/level_list ===
+
+$58391129129347* Registers (レジスタ)
+$45936227746026* Counter (カウンタ)
+$12946639957230* NOTゲート
+$16881141174140* Binary Racer (二進数レーサー)
+$32191988336459* 安全な保存
+$59136962133320* Logic Engine (論理エンジン)
+$30920780473397* 循環依存
+$83321010943153* Counting Signals (信号のカウント)
+$58769021955965* 3 bit decoder (3ビットデコーダー)
+$78673715398197* Immediate Values (即値)
+$49679174636208* バイト XOR
+$40356575891647* バイト OR
+$44393538021725* Calibrating Laser Cannons (レーザーキャノンの校正)
+$87426564872318* Divide (除算)
+$61228036919534* Tower of Radioactive Alloy
+$24593959732668* Signed negator
+$19487493622742* Half Adder (半加算器)
+$26705128002562* 条件
+$94163943335575* サンドボックス
+$64662599400870* Bit Inverter (ビット反転)
+$27566801288091* コンポーネントファクトリー
+$14193654974055* 符号付き小なり
+$14522992467987* ORゲート
+$74096060570427* ワイド命令
+$30630492494839* バイト NOT
+$11457737665157* ワイヤスパゲティ
+$59485174474959* おいしい順番
+$85514901357243* Adding Bytes (バイトの加算)
+$98013649264532* スタック
+$35790581910835* セカンドティック
+$94979277765051* ロボットレース
+$13303326918621* NANDゲート
+$16463062897451* Crude Awakening (粗野な目覚め)
+$77495536880911* NORゲート
+$61466151084505* 宇宙侵略
+$20858506932774* ANDゲート
+$28827008935802* ラボ
+$92696642439976* AI Showdown (AI対決)
+$74688348772072* バス
+$74512388889988* Arithmetic Engine (演算処理エンジン)
+$50884376329157* リトルボックス
+$70651296323768* XORゲート
+$62326481348276* 迷路
+$31140969090253* 惑星名
+$42873691377272* 5を足す
+$36114120875026* 保管室クラッカー
+$45773199639367* Odd ticks
+$17198602105978* 符号なし小なり
+$43018398941741* 常にON
+$68155633878444* 遅延
+$15420972347773* RAM
+$33343343932901* Turing Complete (チューリング完全)
+$95989050249094* Bigger AND Gate (より大きなANDゲート)
+$81417895515868* ビットスイッチ
+$63331549672739* Opcodes (オペコード)
+$87626070552799* Full Adder (全加算器)
+$13219675195117* 奇数個の信号
+$62167495140389* シフト
+$28985439820134* ニブルの積
+$94896856420525* XNORゲート
+$25805639594354* Program (プログラム)
+$57870391153000* Immediate Values (即値)
+$56272944092958* Further Delayed Lines
+$96825664933181* 見えない果物
+$86717899742637* Saving Bytes (バイトの保存)
+$53092952738479* Input Selector (入力セレクタ)
+$70993791338383* XOR
+$77453667419150* Instruction Decoder (命令デコーダー)
+$17750429607702* 1 bit decoder (1ビットデコーダー)
+$79570913613529* Double the Number (数を2倍に)
+$59939822079116* Negative Numbers (負の数)
+$96898830278153* Byte Constant (バイト定数)
+$49328023903824* 等値
+$91267697977186* 16進レーサー
+$74292408260828* 演算
+$45480765206717* 条件分岐
+$71126291573555* ダブルトラブル
+$33132016601448* PUSH and POP (プッシュとポップ)
+$75225719777307* ウォーターワールド
+$64615090872051* 関数
+$84208736840052* マスキングタイム
+$91954159574064* Bigger OR Gate (より大きなORゲート)
+$36221227239949* ダンシングマシン
+
+
+=== ui/options/Controls ===
+
+$53266310714298* コントロール
+
+
+=== rpg/maps/overworld/chair ===
+
+$49457747048031* 椅子
+$12275727420074* 全部見ないといけないの?
+
+
+=== levels/test_lab ===
+
+$46069044039152* 出力{output}が期待される (アドレス{address})
+$11038144815919* This level uses programs to test your circuits. When the programs are run, this level checks if the "watched state" behaves the way you expect.
+
+The lab has 2 extra keywords.
+
+The [color=#c54d5e]expect[/color] keyword is used to describe what a value a memory address should hold next tick.
+
+The first number after [color=#c54d5e]expect[/color] is index of the linked component, the second number is the expected value. The linked component index is just the order the components are connected up in to the program component.
+
+[img]dialogue/watched_state.png[/img]
+
+For example:
+[code][color=#c54d5e]expect[/color] [color=#eb9433]2[/color] [color=#eb9433]4[/color]
+[color=#4a9658]copy[/color] [color=#eb9433]4[/color] [color=#4a9658]_[/color] [color=#4a9658]r2[/color][/code]
+
+Here, the first line says that we expect the 2nd linked component to hold a value of 4 after the next tick.
+
+All linked components are checked against expectations at every tick. All linked components are expected to be 0 at the start of the program, and expectations for memory components only change as you specifically change the expectations. The one exception are counters, these are naturally expected to increment each tick.
+
+The second special keyword for the lab is [color=#c54d5e]set_input[/color]. With this you can control the input of the computer:
+[color=#c54d5e]set_input[/color] [color=#eb9433]123[/color]
+
+You can at any time also (re)import example tests by clicking below:
+[url=import_overture][color=#e49f44]OVERTURE[/color][/url]
+
+$32399229965611* また,[color=#e49f44]LEG[/color]を完了したので,サンドボックスにある16, 32, 64ビットコンポーネントをすべてアンロックしました.
+$59234666744501* ワイヤ状態{state}が期待される (アドレス{address})
+$84893616447734* 行{nr}: インデックス{index}のリンクコンポーネントが接続されていません
+$19965026621630* 出力{value}が期待されるが出力が有効化されていない (アドレス{address})
+$95416257208387* カスタム状態{state}が期待される (アドレス{address})
+$31718526969901* アドレス{address}の値は{value}であるべき
+$15446846177093* ラボへようこそ.コンポーネントファクトリーと同様に,これは通常のレベルではなくツールです.
+$16072814175447* Programming on buggy hardware is very frustrating. It is painful to suddenly be forced to reason about circuits, when you are in the middle of solving a programming problem. It is tempting to apply a quick circuit fix, so you can get back to solving the original problem. But now this quick fix broke something else in a program that used to work and so on. Therefore, when developing hardware try to aim for 100% reliability before you start programming!
+
+
+=== trans/panel_console_settings ===
+
+$57851464156855* カラーモード
+
+Font page
+
+
+=== misc/run ===
+
+$58178852564701* 実行 (ホットキー: F6)
+
+
+=== trans/panel_and ===
+
+$48633048126675* [right]Input 1
+Input 2
+Output[/right]
+
+
+=== levels/byte_not ===
+
+$14196498898485* 道具の製作と使用は,知能を発達させる進化の初期段階において重要な鍵を握っています.
+$12982025748137* バイト入力の各ビットを "NOT "とする.
+$10294533225655* 脳の大きさが知能の主な予測因子であるという以前のモデルは,甘かったのです.
+$14958585065722* ですから,生物の腕の数は,明らかに知能の予測因子となります.あなたの惑星には,あなたの4倍の腕を持つ海の生き物がいて,彼らはテストで良い結果を出していることをご存知ですか?
+
+
+=== trans/component_output_car_label ===
+
+
+# Label appears on the component and must be 3 letters or less
+$42054040513351* CAR
+
+
+=== trans/panel_outputlevel_output ===
+
+$16896928682474* [right]Output[/right]
+
+
+=== trans/options_pan_right ===
+
+$33884219481037* 右にパン
+
+
+=== trans/manual_ASCII_encoding ===
+
+$30404865580119* ASCIIエンコーディング
+
+
+=== components/Maker64 ===
+
+$17464069717985* 64ビットメーカー
+$79677187590355* 8バイトを64ビット値に変換
+
+
+=== rpg/maps/prison/sign3 ===
+
+$63642446288775* 秘密の研究所
+$53627322304101* 看板
+
+
+=== misc/expectations_toggle ===
+
+$78508488734457* ON
+$97697026280362* OFF
+$58021874775869* 期待値の切り替え:
+
+
+=== trans/not_gate_RichTextLabel2 ===
+
+$10340875578771* [right][color=#e49f44]Input[/color]
+期待される出力
+現在の出力[/right]
+
+
+=== levels/Calculations ===
+
+$14458828731919* 以前作成した"算術エンジン"回路をレジスタ回路とマージしましょう.計算回路はコンポーネントファクトリーに保存されており,コンポーネントとして追加できます.どのピンが何をするか忘れた場合は,コンポーネントファクトリーで回路を確認してください.
+
+Use the decoder you built to figure out if we should copy between registers or do calculations. Here are the 4 different modes again:
+[OFF][OFF] Immediate
+[OFF][ON] Calculate
+[ON][OFF] Copy
+[ON][ON] Condition
+
+For this level you only have to worry about the copy and calculate mode, check the [INSTRUCTIONS] by clicking on [img=20]dialogue/instruction_icon.png[/img] in the top panel for the details. When in calculate mode, take [color=#e49f44]REG 1[/color] and [color=#e49f44]REG 2[/color] as inputs, and save the result in [color=#e49f44]REG 3[/color].
+
+[tip]Don't forget the 3 bit decoder component has a disable bit.[/tip]
+$13013863429580* このレベルではレジスタに追加のピンが付いています.このピンはロードが選択されているかどうかに関係なく,常にレジスタの値を出力します.
+
+
+=== trans/instructions_header ===
+
+$15089281203426* [center]手順[/center]
+
+
+=== trans/panel_bitmemory_outputs ===
+
+$17509974261453* 出力
+
+
+=== components/Xor16 ===
+
+$55408021160573* 2つの値をビットごとにXOR演算
+$47846591761838* 16ビット XOR
+
+
+=== trans/panel_not_input ===
+
+$96578192050623* [right]Input[/right]
+
+
+=== components/LevelInput8 ===
+
+$40943344093513* 入力
+
+
+=== trans/level_tick_tock_keys ===
+
+$11700778730606* [right][color=#e49f44]Action
+期待される出力
+現在の出力[/color][/right]
+
+
+=== trans/rpg_no_signal ===
+
+$33720960099059* 信号なし
+
+
+=== trans/panel_regred_output ===
+
+$59910806432617* 出力
+
+
+=== trans/manual_text_ascii_encoding ===
+
+$57727768059917* このシミュレータはいくつかの場所で(拡張)ASCIIを使用しています.以下は文字と対応する数値です
+
+
+=== components/AND ===
+
+$22719674432950* 両方の入力が[ON]のとき[ON]
+[table=5]
+[cell]Input 1[/cell][cell][OFF][/cell][cell][ON][/cell][cell][OFF][/cell][cell][ON][/cell]
+[cell]Input 2[/cell][cell][OFF][/cell][cell][OFF][/cell][cell][ON][/cell][cell][ON][/cell]
+[cell]Output[/cell][cell][OFF][/cell][cell][OFF][/cell][cell][OFF][/cell][cell][ON][/cell]
+[/table]
+$58912167455465* AND
+
+
+=== components/And32 ===
+
+$98890160152994* 2つの値をビットごとにAND演算
+$30264879217145* 32ビット AND
+
+
+=== trans/panel_fulladder_description ===
+
+$25711866218405* [center]3つの入力を加算[/center]
+
+
+=== trans/manual_text_short_circuit ===
+
+$31105471890701* エレクトロニクスでは,2つのコンポーネントが同じワイヤに異なる値を出力すると短絡が発生します.
+
+[center][img=100]res://dialogue/short_circuit.png[/img][/center]
+
+However, by disconnecting output pins from a wire, it is possible for multiple pins to share the same wire (called a bus). Importantly, at most 1 component output should remain connected each tick, otherwise you risk a short circuit.
+
+[center][img]res://dialogue/switch.png[/img][/center]
+
+In this simulator, pins that can be disconnected are grey.
+
+
+=== rpg/maps/overworld/glibob ===
+
+$80046978163833* デルプーを見つけろ.おそらく
+スライム農場の近くの
+草むらにいるはずだ
+$45824943235521* 船の原子炉コアを
+爆破したいのだ
+$97390820492796* それからベルトコンベアに
+押して原子炉に
+送り込め
+$61010950688784* ごきげんようロボット,秘密がある
+$77669473873198* 同志よ,尽力に感謝する
+$78863196560749* まさか,デルプーを
+そこに押し込めと?
+$83512698380440* 私は反乱軍のために
+働いている
+$20029368257424* コアには弱点が1つだけある.
+小さな排気口だ
+$72328125758268* 正気じゃない
+$61319894006188* そうだ.デルプー,あの
+小さなクモ生物だ
+$88299738421104* この船にそんなものが
+都合よくあるとでも?
+$22954462436472* 排気口を通れるほど小さいものは
+即座に焼却されるが,
+非常によく断熱されたものは
+例外だ
+$16108649728007* 反乱のためにできることを
+しなければならない
+
+
+=== trans/panel_rol_output ===
+
+$62960066333763* 出力
+
+
+=== trans/nand_values ===
+
+$38006065064488* [right][color=#e49f44]Input 1
+Input 2[/color]
+[b]Output[/b][/right]
+
+
+=== trans/manual_assembly ===
+
+$14434902453525* アセンブリ
+
+
+=== trans/complete_flower_4 ===
+
+$86527701695205* [center]何かキーを押して続ける[/center]
+
+
+=== main_scripts/ui ===
+
+$74397786006652* 出力ピン
+$26316545288606* 論理
+$31787377521276* 16bit
+$32778241216484* 1bit
+$69169839562869* プローブ
+$56684378975952* カスタム
+$93805543475022* 32bit
+$69195385009785* 64bit
+$36744990871521* レベル
+$60495775939951* IO
+$49451948914812* 演算
+$46598465325525* RAM
+$12972244522540* ディスプレイ
+$53900277352031* 8bit
+$79029955304279* 入力ピン
+$77408777382636* バッファなしピン
+$73356117817137* トライステート出力ピン
+$90490391067117* サンドボックス限定
+
+
+=== trans/manual_truth_tables ===
+
+$75695254533352* 真理値表
+
+
+=== trans/ui_export_success ===
+
+$97849993500646* エクスポートが成功しました
+
+
+=== levels/robot_race ===
+
+$15403032472607* ロボットレースは宇宙船で最も人気のあるスポーツです.異なるプログラムのロボットが障害物コースを完走します.完走したロボットの中で,最も小さなプログラムを持つものが優勝者です.
+$67151579876362* Fastbotの操作:
+[code][color=#e49f44]0[/color] 右に進む
+[color=#e49f44]1[/color] 下に進む
+[color=#e49f44]2[/color] 左に進む
+[color=#e49f44]3[/color] 上に進む[/code]
+$19966247197959* 今回はFastbotを操作します.前方を見ることはできませんが,同じティックで方向転換と移動ができます.また,おしゃれな赤いランニングシューズを履いています.
+
+
+=== trans/panel_console_offset ===
+
+$24810778105207* [right]オフセット[/right]
+
+
+=== components/DelayLine8 ===
+
+$24840584785792* 今のティックの入力を次のティックに出力
+$63449911993783* 8ビット ディレイライン
+
+
+=== rpg/maps/maze/door ===
+
+$38678596054893* ドア
+$92590993851956* これをするにはプログラムが必要です
+
+
+=== trans/panel_network_inputs ===
+
+$37324411363753* [right][color=#e49f44]コマンド[/color]
+IP / 接続ID
+データ / ポート
+データ長[/right]
+
+
+=== trans/panel_nand_description ===
+
+$95680138985553* [center]2つの入力をビットごとにNAND[/center]
+
+
+=== trans/tooltip_tooltip ===
+
+$48829429502039* [b]高速実行[/b]
+[color=#cccccc][i]ティックごとのUI更新なしでコンピュータを実行[/i][/color]
+
+
+=== trans/panel_delayline1_input ===
+
+$25839180359382* [right]Input[/right]
+
+
+=== rpg/maps/cave/rat ===
+
+$86611337488971* 血
+$59032985199739* クモ
+
+
+=== components/Bidirectional8 ===
+
+$20234315861487* 8ビット双方向ピン
+$49499540884410* 特定の循環依存エラーを回避できる
+
+
+=== rpg/maps/overworld/dumio ===
+
+$90508455672478* お前は本当に役立たずだ
+$90907400518591* ロボット,お前は本当に説得力がある
+$84369544816422* 美しいグルリエッタに
+デートに行くよう
+説得してくれ
+$47782962337131* グルリエッタはピンクの花を
+持ってきてほしいそうだ
+$67886215959856* お前の助けに
+永遠に感謝するよヒーローボット!
+$70960758502635* ああ,どこで手に入るか
+わからない
+$48847456759787* 彼女は今自分の部屋にいるはずだ.
+美しい紫の肌で
+見分けがつくよ
+$19291216215522* 助けてくれロボット
+$60895426154274* よし,花を見つけたね.
+さあ彼女に渡してくれ
+$28973657129570* つまらなそうだ
+$59402894800235* 今グルリエッタとデートしている
+
+
+=== rpg/maps/overworld/cousin_robert ===
+
+$41316716865633* ロバートを知ってる...
+$86987136934243* 私はあなたのいとこのロバートです.
+
+
+=== trans/splitter8_output ===
+
+$69714402466566* Bit 1
+Bit 2
+Bit 3
+Bit 4
+Bit 5
+Bit 6
+Bit 7
+Bit 8
+
+
+=== trans/options_reset_warning ===
+
+$19141523477461* すべてのレベルの解答,カスタムコンポーネント,アーキテクチャが削除されます.元に戻せません.本当に実行しますか?
+
+
+=== dialogue/schematic_hub/order_by ===
+
+$69981201197158* 昇順
+$70134513915163* 新しく追加
+$87115430626073* 自分のアップロード
+$56045953383535* アーキテクチャ
+$25536941657464* コンポーネント
+$43488408276984* 人気
+
+
+=== rpg/maps/overworld/chef ===
+
+$70248641743406* シェフ
+$92065398867997* 助けが必要だ
+
+
+=== levels/Water World ===
+
+$13739681561355* 総体積: 
+$19185457941725* 朗報です.地球をエキゾチックなウォーターパークに変えたいんだ!
+$18940654086036* パイレーツプランジのウォータースライダーの良い場所を見つける手伝いが必要です.特に,大量の水を保持できるエリアを探しています.
+$14706805272652* ENTERを押して水を表示
+$12881972193444* The landscape is 16 columns wide. Read the input 16 times to get the height of the landscape at each column from left to right.
+  
+Then output the total volume that the landscape can carry as the answer.
+
+
+=== trans/rpg_alloy_description ===
+
+$29268002047995* [center] [color=#eb5260]ドカーン![/color]
+
+Everyone died
+[/center]
+
+
+=== levels/delay_level_check ===
+
+$59355217078543* 正解!
+$68999077595244* 確認
+$90847326020954* 不正解!
+
+
+=== trans/manual_de_morgan ===
+
+$20250843622435* 4つの基本ゲートの真理値表は対称的です.入力を[b][color=#6e9759]反転[/color][/b]することで変換できます
+
+[center][img=400]dialogue/manual/de_morgan.png[/img][/center]
+
+Notes
+[table=2]
+[cell]1 [/cell][cell]You can get from any basic gate to any other, at most you have to NOT both inputs and output.[/cell]
+[cell]2 [/cell][cell]You can go between OR/NOR by inverting output. The same goes AND/NAND. In fact NOR means NOT OR and NAND means NOT AND. Notice the component shape of OR/NOR are identical except for the little dot at the tip which means NOT. AND/NAND are also identical except for this dot.[/cell]
+[cell]3[/cell][cell]Negating the output flips all the bits in the last row of the truth table. Negating the inputs mirrors the last row of the truth table around the center.[/cell]
+[/table]
+
+
+=== trans/options_color_wire ===
+
+$64341547590822* ワイヤに色を適用
+
+
+=== rpg/maps/cave/door3 ===
+
+$94313460790182* ダンジョンの扉
+
+
+=== misc/credits ===
+
+$15234594767991* クレジット
+
+
+=== trans/panel_decoder3_disable ===
+
+$50918319838744* 無効化
+
+
+=== rpg/coin ===
+
+$39259781619518* コイン
+
+
+=== trans/options_music_volume ===
+
+$93981778736076* 音楽の音量
+
+
+=== trans/manual_matrix_display ===
+
+$86092436010494* マトリクスディスプレイ
+
+
+=== trans/level_alu2_code ===
+
+$93157894815498* [center]OR[/center]
+
+
+=== misc/binary_submit ===
+
+$95509904060545* 送信
+
+
+=== components/ByteConstant ===
+
+$29445030761909* 定数値
+$25159790815891* 8ビット定数
+
+
+=== components/Maker16 ===
+
+$55864807379312* 2バイトを16ビット値に変換
+$39941195789458* 16ビットメーカー
+
+
+=== components/Output64 ===
+
+$77952953696011* 64ビット出力
+
+
+=== components/Switch16 ===
+
+$15221175893882* 16ビット スイッチ
+$59845475842015* 値を切り替える
+
+
+=== trans/share_prompt_bbcode_tags ===
+
+$51065735869890* 対応BBコードタグ: 
+URL: [url]https://turingcomplete.game[/url]
+モノスペース: [code]01011101[/code]
+
+
+=== rpg/maps/prison/rat ===
+
+$68894472933139* チューチュー
+$86305699756314* 血
+$30670667527598* ネズミ
+
+
+=== levels/sandbox ===
+
+$17054292175058* サンドボックスへようこそ、ここで自由にお遊びください. 64ビットワイヤといくつかのIOコンポーネントをお渡ししました.
+$10731996208080* プログラム、カウンタ、レジスタ、RAMの64ビット版もあります. ただし,64ビットのRAMはロードに1Tickかかります.
+$72764802067974* サンドボックスへようこそ.
+
+Components are available in the menus on the right side. Once placed, click on the pins of the components and drag to connect them with wire. On the left you will find the UI for the simulation control. Note that you can right click on the "Run faster" button to set target speed.
+
+You can find more information about the simulation in the manual (button is in the top left). Notable features to check out are the "component factory" where you can create your own components and the program component, which lets you define your own assembly.
+$19454393978813* キーボードはコンピュータをあなたのキーボードを利用して,直接操作することができます.
+$14434122873489* 波形ジェネレーターで音を作ることができます.これをあげると,たぶん後悔しますよ.
+$18405942066048* 時計は,現在のUNIXの時刻をマイクロ秒単位で表示します.
+$10451578314373* コンソール画面では,画面に文字を描画することができます (ascii文字についてはマニュアルをご覧ください)
+
+
+=== trans/level_complete_stat_type ===
+
+$69511102367948* タイプ
+
+
+=== trans/panel_or_input ===
+
+$70466834507347* [right]Input 1
+Input 2[/right]
+
+
+=== misc/onwards ===
+
+$51096427131653* 先へ進もう
+
+
+=== trans/manual_recipe_Label ===
+
+$30773017984502* ほとんどの[color=#dd6576][url=Circular dependency]循環依存[/url][/color]は混沌としていて役に立たず,偶然導入されたものです
+
+[b]Nor latch[/b]
+The nor latch stores a 1 bit value, which is always available on the wire [b]Q[/b]. 
+[center]
+[table=3]
+[cell]   [b]S[/b]  [/cell][cell]      [b]R[/b]     [/cell][cell]Action[/cell]
+[cell]  [img]dialogue/off.png[/img][/cell][cell] [img]dialogue/off.png[/img][/cell][cell]Change nothing[/cell]
+[cell]  [img]dialogue/off.png[/img][/cell][cell] [img]dialogue/on.png[/img][/cell][cell]Value = [img]dialogue/off.png[/img][/cell]
+[cell]  [img]dialogue/on.png[/img][/cell][cell] [img]dialogue/off.png[/img][/cell][cell]Value = [img]dialogue/on.png[/img][/cell]
+[cell]  [img]dialogue/on.png[/img][/cell][cell] [img]dialogue/on.png[/img][/cell][cell]Error[/cell]
+[/table]                    [img=150]dialogue/manual/circular_recipes/nor_latch.png[/img]
+[/center]
+
+[b]Nand latch[/b]
+The nand latch stores a 1 bit value, which is always available on the wire [b]Q[/b]. 
+[center]
+[table=3]
+[cell]   [b]S[/b]  [/cell][cell]     [b]R[/b]     [/cell][cell]Action[/cell]
+[cell]  [img]dialogue/off.png[/img][/cell][cell] [img]dialogue/off.png[/img][/cell][cell]Error[/cell]
+[cell]  [img]dialogue/off.png[/img][/cell][cell] [img]dialogue/on.png[/img][/cell][cell]Value = [img]dialogue/off.png[/img][/cell]
+[cell]  [img]dialogue/on.png[/img][/cell][cell] [img]dialogue/off.png[/img][/cell][cell]Value = [img]dialogue/on.png[/img][/cell]
+[cell]  [img]dialogue/on.png[/img][/cell][cell] [img]dialogue/on.png[/img][/cell][cell]Change nothing[/cell]
+[/table]                    [img=150]dialogue/manual/circular_recipes/nand_latch.png[/img]
+[/center]
+
+[b]And Or latch[/b]
+The and or latch stores a 1 bit value, which is always available on the wire [b]Q[/b]. 
+[center]
+[table=3]
+[cell]   [b]H[/b]  [/cell][cell]     [b]R[/b]     [/cell][cell]Action[/cell]
+[cell]  [img]dialogue/off.png[/img][/cell][cell] [img]dialogue/off.png[/img][/cell][cell]Value = [img]dialogue/off.png[/img][/cell]
+[cell]  [img]dialogue/off.png[/img][/cell][cell] [img]dialogue/on.png[/img][/cell][cell]Error[/cell]
+[cell]  [img]dialogue/on.png[/img][/cell][cell] [img]dialogue/off.png[/img][/cell][cell]Change nothing[/cell]
+[cell]  [img]dialogue/on.png[/img][/cell][cell] [img]dialogue/on.png[/img][/cell][cell]Value = [img]dialogue/on.png[/img][/cell]
+[/table]                    [img=150]dialogue/manual/circular_recipes/and_or_latch.png[/img]
+[/center]
+
+
+
+=== trans/panel_equal_description ===
+
+$66334667083051* [center]Input 1とInput 2が同じか確認[/center]
+
+
+=== levels/byte_less ===
+
+$11252365204151* 1番目の入力が2番目の入力より小さいとき, [ON] を出力する回路を作成する. バイトは [color=#dd6576]符号無し[/color] であると解釈してください.
+$62766453128684* {a} は {b} より小さいか?
+$11632471752785* [center]最初の入力が2番目の入力より小さいかどうかを判断する.[/center]
+
+
+=== levels/Logic Engine ===
+
+$38905765358316* CODE
+$17594613477534* 2つの入力をOR、NAND、NOR、ANDできるデバイスを作成します. 3つ目の入力は [INSTRUCTION] になります. [INSTRUCTION] とは、何を計算するかを決める番号のことを形式的にそう呼んでいるだけです.
+
+Instructions:
+[code][color=#87a8c8]0 OR
+1 NAND
+2 NOR
+3 AND[/color][/code]
+
+Also you can't move the red components in this level, for reasons that will be revealed later.
+$74299241677249* INPUT 1
+$60407971040713* INPUT 2
+
+
+=== trans/level_byte_less_i_description ===
+
+$21195810950441* [center]最初の入力が2番目より小さいか判定しなさい.[/center]
+
+
+=== trans/hub_order_by ===
+
+$83319579232915* 並び順
+
+
+=== trans/component_panel_latency_RichTextLabel2 ===
+
+$51386316768363* Is busy
+Output 1
+Output 2
+Output 3
+Output 4
+
+
+=== components/Splitter64 ===
+
+$80420054807186* 64ビットを8バイトに分割
+$14205692632393* 64ビットスプリッタ
+
+
+=== misc/component_button ===
+
+$75542474510177* GATE
+$20148770258379* コンポーネント領域なし
+$53184531022842* サンドボックス限定
+$40492377880609* ピンが重なっている
+$63839315669055* DELAY
+
+
+=== trans/panel_index_bit_index ===
+
+$96885367697181* [right]Index[/right]
+
+
+=== trans/panel_divmod_input ===
+
+$48801764966719* [right]被除数
+除数[/right]
+
+
+=== components/Output 3 ===
+
+$96269858195218* 出力
+
+
+=== components/Output 1B ===
+
+$15931283897895* 8ビット出力
+
+
+=== components/Xor64 ===
+
+$95012060885697* 64ビット XOR
+$13031452187028* 2つの値をビットごとにXOR演算
+
+
+=== trans/panel_output_output_1 ===
+
+$38712851498419* Output 2
+
+
+=== misc/skipped_custom ===
+
+$38174137226538* コンポーネントを選択
+
+# This is the text on a button that appears when a custom component has changed size and no longer fits in a schematic. You can press this button to make the camera go to the location where the custom component was
+$99860977387728* 場所に移動
+
+
+=== components/ByteXor ===
+
+$98219910712564* 8ビット XOR
+$83236921580268* 2つの値をビットごとにXOR演算
+
+
+=== trans/panel_counter16_output ===
+
+$13295622648285* 出力
+
+
+=== levels/Spacial Invasion ===
+
+$19967210826470* レーザーは,他のレーザーがすでに撃たれていないときにしか撃てないことに注意してください.
+$16294185981398* 貨物船は宇宙ネズミがはびこるようになった.
+$11505369795084* [color=#e49f44][url=the\_robot]ロボットのページ[/url][/color] で,プログラミングの方法を確認してください.プログラムエディタにもそのページへのリンクがあります.
+$10515630949378* あなたのマシンを私たちの先進的なロボットに接続し,レーザーで宇宙ネズミを撃つようにプログラムしてください.
+
+
+=== components/Nand8 ===
+
+$50859914201083* 2つの値をビットごとにNAND演算
+$93314093190526* 8ビット NAND
+
+
+=== components/Add64 ===
+
+$14174811828377* 2つの入力を加算
+$73418471595285* 加算
+
+
+=== main_scripts/leg_level ===
+
+$70383685548547* REG {nr}
+$20104629254326* 引数 2
+$65642901654732* {component}は無効であるべき
+$98778676892898* {component}は値{value}で有効であるべき
+$14186606871089* 次のティックでカウンタ値は{wrong_value}になりますが,{value}であるべきです
+$27868897434461* カウンタコンポーネントが見つかりません
+$50722296752142* INPUT
+$43723329256095* REG {nr}
+$37810243909140* COUNTER
+$38681417496680* 引数 1
+$24003300271049* {component}の値は{value}であるべきですが,{wrong_value}です
+$60997201855346* RESULT ADDRESS
+$50231510806554* プログラムコンポーネントが見つかりません
+$49810487048038* COUNTER
+$18236360532765* OUTPUT
+$84307766381146* オペコード
+$20950946171790* JUMP TO
+
+
+=== levels/call_ret ===
+
+$15840165316981* このレベルでは[color=#e49f44]call[/color]と[color=#e49f44]ret[/color]命令を使って関数呼び出しとリターンを実装する必要があります.
+
+Note that when returning from a function, you should jump to the address that came AFTER the [color=#e49f44]call[/color] instruction, otherwise you will end with an infinite loop.
+The [color=#e49f44]call[/color] instruction has to do the following:
+ [i]- Add the instruction width to the counter value and [color=#e49f44]push[/color] it on the stack[/i]
+ [i]- Jump to the function address[/i]
+
+The [color=#e49f44]ret[/color] instruction has to do the following:
+ [i]- [color=#e49f44]Pop[/color] return address from the stack and jump to it[/i]
+
+You can pass information to and from a function by saving the data to registers as normal. Also be aware of which registers a function will overwrite before calling it.
+
+$19416009887091* Sometimes it is useful to reuse a section of code. We call these sections "functions". To implement this reuse, one can [color=#e63e5b][url=termonology]jump[/url][/color] to the beginning of the function and jump back again at the end of the function. We call jumping to the function "calling" the function, and jumping back from the function "returning" from the function. 
+  
+But for this section of code to actually be reusable, the return jump will have to be able to return to different locations, depending on where we called the function from.
+
+We could save the counter value to a register before jumping to the function and use this value when returning. However, if done this way, a function would not be able to call another function, since this would overwrite the original return address.
+
+Say function A calls function B, who calls function C. When we want to return from C, we only need the return address for B and in B we only need the address for A. In general, regardless of which function we look at and how they are nested, the last return address we added is always the first one we will need again. This is exactly the behavior of the stack.
+$19369640789869* 予算削減で給料が削減されたが,今度は研究助手がストライキに入った.このテストでは自己評価をしてもらう.これであなたの誠実さと成熟度がわかります.
+$15463931654475* [center]"call"と"ret"命令を追加[/center]
+
+
+=== misc/ProbeWireBit ===
+
+$49521764791439* ワイヤプローブ (ビット)
+$15206117280094* カスタムコンポーネントまたはプログラムエディタに値を表示
+
+
+=== trans/manual_computer_concepts ===
+
+$60892983318818* コンピュータの概念
+
+
+=== components/ByteShr ===
+
+$89595863403484* 8ビット右シフト
+$69394421220436* 入力のビットを右にシフト
+
+
+=== rpg/maps/overworld/monklaar ===
+
+$78391472992197* 食堂の新しい果物が大好き!
+
+
+=== trans/level_sr_latch_RichTextLabel3 ===
+
+$55348415524361* [right]Input 1
+Input 2
+期待される出力
+現在の出力[/right]
+
+
+=== components/Ashr64 ===
+
+$26454447445967* 符号を維持しながらビットを右にシフト
+$91080427115081* 64ビット算術右シフト
+
+
+=== components/LessU64 ===
+
+$13018528868948* 小なり (符号なし)
+$90244529484227* 一方の入力が他方より小さいかチェック
+
+
+=== trans/panel_regredplus_output ===
+
+$33621557361089* Load出力
+常時出力
+
+
+=== trans/panel_shr_input ===
+
+$98628213136355* [right]Value
+Shift by[/right]
+
+
+=== trans/level_byte_no_description ===
+
+$19806403089477* [center]各ビットを反転しなさい[/center]
+
+
+=== rpg/maps/prison/human ===
+
+$26878139502295* ここにプレイヤーが眠る
+$55952257027183* 人間
+$15754158619172* 血
+$46356151087784* 私はプレイヤーだ
+
+
+=== levels/call_ret/completed ===
+
+$65495857744236* レベル完了
+$82323203550887* あなたを信頼できますか?
+
+
+=== trans/manual_text_instructions ===
+
+$24791538034329* このゲームで"命令"と呼んでいるものは,オペレーションやオペコード(操作コードの略)とも呼ばれます
+
+Internally in modern CPUs, instructions are translated into "microcodes", which are even smaller steps, out of reach for the programmer.
+
+
+=== components/Xor32 ===
+
+$66299093873977* 32ビット XOR
+$38169019785615* 2つの値をビットごとにXOR演算
+
+
+=== components/LessU16 ===
+
+$91783087669146* 一方の入力が他方より小さいかチェック
+$33190791348214* 小なり (符号なし)
+
+
+=== trans/level_turing_complete_description ===
+
+$74859324795927* [center]計算コードに条件を追加しなさい[/center]
+
+
+=== trans/level_nand_check ===
+
+$61241226128494* 不正解!
+$32982011047799* 確認
+
+
+=== trans/level_complete_tooltip ===
+
+$33922330743421* [b]ワイヤの色[/b]
+[color=#cccccc][i]色でワイヤを整理しましょう.[/i][/color]
+
+
+=== rpg/maps/overworld/knight ===
+
+$97019929955594* ここは通さない
+$86067786292380* 回り道するだけだけど...
+
+
+=== trans/level_odd_number_RichTextLabel2 ===
+
+$28592851869484* [right][color=#e49f44]Input 1
+Input 2
+Input 3
+Input 4[/color]
+期待される出力
+現在の出力[/right]
+
+
+=== trans/level_complete_robot ===
+
+$73150174144736* [b]Robotron 9000+[/b]
+[color=#cccccc][i]あなたのコンピュータで[color=#e49f44]Robotron 9000+[/color]を操作[/i][/color]
+
+
+=== trans/panel_matrix_color ===
+
+$78812572100236* [center]ピクセル / フラッシュ[/center]
+
+
+=== components/LessI64 ===
+
+$42718501644862* 小なり (符号あり)
+$19948786194409* 一方の入力が他方より小さいかチェック
+
+
+=== components/ByteLessU ===
+
+$68645721548287* 一方の入力が他方より小さいかチェック
+$73502755965496* 小なり (符号なし)
+
+
+=== ui/global_translations ===
+
+$53021804895845* ANDi
+$69956969985790* ORi
+
+# Instead of writing 5839000, the number turns into 5.8M
+$22896492410578* M
+$11144256835662* XORi
+
+# 4 letters max
+$61412773713567* SUB
+$85913831661289* IF_LESS
+$52344899983501* IF_LESS_OR_EQUAL
+$89945092889418* SUBi
+
+# 4 letters max
+$89011349770597* NOT
+$18868256335352* 循環依存 - コンポーネントの出力が自身の入力に戻っています. [url=page~Circular dependency]詳しく読む[/url]
+$71559031724238* IF_NOT_EQUAL
+$29718660090112* 不正解
+
+# 4 letters max
+$40520283279584* XOR
+$12671132029272* 回路がコンポーネントファクトリーに保存されました.
+$71204580217527* NOTi
+$71195301111400* ADDi
+$98178474649432* IF_GREATER_OR_EQUAL
+$68187490877029* IF_EQUAL
+
+# 4 letters max
+$44009845985661* ADD
+
+# 4 letters max
+$68666991962246* OR
+$79492115258673* IF_GREATER
+
+# Instead of writing 5839, the number turns into 5.8K
+$84696693690500* K
+$30602804398798* ゲート
+
+# 4 letters max
+$33873219185286* NAND
+$44906330481241* 遅延
+$45532697833519* レベル{level}に到達しました!
+
+# 4 letters max
+$64519909700148* AND
+$76763908762578* ティック
+
+# 4 letters max
+$36090730285143* NOR
+$37093663674348* レベル {x}
+
+# Instead of writing 5839000000, the number turns into 5.8B
+$71072134093858* B
+
+
+=== trans/panel_decoder2_description ===
+
+$29468245669811* [center]入力に基づいて1つの出力をONにする[/center]
+
+
+=== components/Shl16 ===
+
+$79406691850426* 16ビット左シフト
+$34287811246049* 入力のビットを左にシフト
+
+
+=== trans/level_division_headers2 ===
+
+$43313037226215* 余り
+
+
+=== trans/levels_any_doubles_RichTextLabel2 ===
+
+$60287131882436* [right]Input 1
+Input 2
+Input 3
+Input 4[color=#e49f44]
+期待される出力
+現在の出力[/color][/right]
+
+
+=== trans/schematics_menu_visible_label ===
+
+$34084132835354* メニューに表示
+
+
+=== components/RegisterRedPlus ===
+
+$57531353625235* レジスタ
+
+
+=== trans/level_saving_bytes_text ===
+
+$43691912945654* [right]Action
+期待される状態
+期待される出力
+[/right]
+
+
+=== trans/panel_input_input_2 ===
+
+$13656747150138* Input 3
+
+
+=== components/Counter64 ===
+
+$62528867413395* 64ビットカウンタ
+$62736827510023* 上書きされない限り,毎ティック増加する
+
+
+=== main_scripts/rpg ===
+
+$87641351044559* 何もない
+$13202063774683* 壁
+$14021436258446* 見ている: [color=#e49f44]{looking_at}[/color]
+$57777174895519* 壁
+$25433644956674* {who}に殺された
+$64739179991428* ロボットが死んだ!
+
+
+=== misc/add_assembly ===
+
+$66747898777348* 加算
+
+
+=== trans/level_nand_1 ===
+
+$71204033550134* NANDゲートは何をしますか?
+
+
+=== rpg/maps/prison/exit_door ===
+
+$92379689291727* ドア
+
+
+=== trans/overwrite_button ===
+
+$11839708860574* 上書き
+
+
+=== rpg/maps/overworld/bush ===
+
+$37683898820147* 茂みだ
+$93113262859645* 茂み
+
+
+=== misc/rom_file_select_button ===
+
+$46471024006274* デフォルトファイルを設定
+
+
+=== trans/manual_text_program ===
+
+$25326551844839* プログラムコンポーネントは読み取り専用メモリコンポーネントで,アセンブリでデータをプログラムできます
+
+[center][img]dialogue/manual/program_edit.png[/img][/center]
+
+In the middle of the screen you will see the code area, read more about the assembly [color=#4d82c5][url=Assembly]here[/url][/color].
+
+On the left hand side of the assembly editor interface, you can add assembly codes (mnemonics). Assembly codes act as a replacement for numbers, so instead of remembering what number represents the AND instruction in your architecture, you can add "AND" to your assembly codes, making code easier to read and write.
+
+[center][img]dialogue/manual/assembly_codes.png[/img][/center]
+
+On the program component you will also find the "Watch state" button. 
+
+[center][img]dialogue/manual/watch_state.png[/img][/center]
+
+This can be used to connect the assembly editor to registers, counters or probes. This way, the state of your architecture can be inspected as you write code, without closing the editor.
+
+
+=== components/Output32z ===
+
+$20432213737411* 32ビット スイッチ出力
+$73681609562628* スイッチピンが[ON]の場合のみ出力
+
+
+=== trans/level_negative_Label ===
+
+$11951041502381* 各ビットの意味を数値を変更して変えてください.
+
+
+=== trans/level_byte_equal_description ===
+
+$38686097566531* [center]バイトが等しいか確認しなさい[/center]
+
+
+=== components/Xnor ===
+
+$94079327237795* XNOR
+$90614106399129* 入力が同じとき[ON]
+[table=5]
+[cell]Input 1[/cell][cell][OFF][/cell][cell][ON][/cell][cell][OFF][/cell][cell][ON][/cell]
+[cell]Input 2[/cell][cell][OFF][/cell][cell][OFF][/cell][cell][ON][/cell][cell][ON][/cell]
+[cell]Output[/cell][cell][ON][/cell][cell][OFF][/cell][cell][OFF][/cell][cell][ON][/cell]
+[/table]
+
+
+=== components/Not16 ===
+
+$17394768116288* 16ビット NOT
+$91053300263019* 16ビットをビットごとに反転
+
+
+=== trans/panel_sound_command ===
+
+$66510191984141* コマンド
+
+
+=== trans/panel_input_up ===
+
+$97169317610794* 上
+
+
+=== trans/level_complete_manual_page ===
+
+$39011561067359* [b]マニュアルエントリ[/b]
+#[color=#cccccc][i]RTFM[/i][/color]
+#
+#Entry: [color=#68d277]Architectural complexity[/color]
+
+
+=== trans/level_complete_stat_level ===
+
+$92313038380926* レベル
+
+
+=== trans/manual_network ===
+
+$67416967652082* ネットワーク
+
+
+=== component_panels/SpriteDisplay ===
+
+$94199633210330* なし
+
+
+=== trans/ticks_sec ===
+
+$16026817441460* ticks/sec
+
+
+=== rpg/maps/boss_room/tricky ===
+
+$83674875280936* 恥ずかしがらないで
+$36278362971660* いやいやいや!!
+$48425443153584* 嫌い嫌い嫌い
+$55557864347967* ダメダメダメー
+$46678960551148* ダメダメダメ
+$34049297531488* おいでおいで
+$45293657348934* ハハハハ
+$45196756331738* いたずらっ子
+$62754542093871* 撃て撃て撃て
+$44499633447481* 待ちきれない
+$96717076976482* 引き返せ.私の宝箱
+$39217019822298* ギギギギギ
+$83023298467462* ギギギギギ
+$54218005116072* 悪い悪い悪い
+$88481545304668* ギーーーーーー
+$83172011939489* 怖がらないで
+$58217446676216* いたずらっ子よ安らかに
+
+
+=== trans/xor_gate_RichTextLabel2 ===
+
+$21417732641222* [right][color=#e49f44]Input 1
+Input 2[/color]
+期待される出力
+現在の出力[/right]
+
+
+=== trans/options_setting_program_alignment ===
+
+$54874717650167* プログラムアラインメント警告
+
+
+=== trans/share_prompt_label ===
+
+$61304386273201* 名前
+説明
+
+
+=== trans/panel_shr_output ===
+
+$53187359961794* 出力
+
+
+=== trans/panel_or_output ===
+
+$68791649314727* 結果
+
+
+=== components/ON ===
+
+$96212935718484* 常に[ON]
+$95896157427528* ON
+
+
+=== ui/top_bar/gate_score ===
+
+$16224450605442* NAND SCORE:
+
+
+=== misc/score_sync ===
+
+$76911045833478* スコア同期
+
+
+=== components/RegisterRed ===
+
+$10081371413873* レジスタ
+
+
+=== trans/delete_confirm ===
+
+$57294448765637* この回路図を本当に
+削除しますか?
+$74657548486940* はい
+
+
+=== levels/saving_gracefully ===
+
+$14295883660596* VALUE
+$14950983012226* SAVE
+$14837033157870* ACTION
+$12474728041023* Delay Lineでは、1Tick分の値しか保存できません。しかし,より長い時間値を保存できるコンポーネントが便利な場合もあります.
+
+We want you to build such a component.
+$13045361823397* 保存しない
+$13740696609075* このレベルでは,2つの入力があります.
+最初の入力が [ON] のとき,保存されている値を更新します.
+2番目の入力は値です.
+
+[img]dialogue/saving_gracefully/bit_memory.png[/img]
+
+
+Check [color=#e63e5b][url=saving_gracefully]this hint[/url][/color] if you get stuck.
+
+
+
+=== ui/files_export_description ===
+
+$78500352397752* [b]エクスポートオプション[/b]
+
+ Format:
+
+ Build file:
+
+ Optimize:
+
+ Output path:
+
+
+=== trans/rpg_hats_exit ===
+
+$71200030457801* 終了
+
+
+=== trans/level_unseen_fruit_description ===
+
+$96313037592447* [center]ロボットを使って果物をスキャンしなさい[/center]
+
+
+=== trans/panel_keyboard_character_mode ===
+
+$98676883649624* [right]文字モード[/right]
+
+
+=== ui/file_export_button ===
+
+$35572795990520* エクスポート
+
+
+=== trans/panel_divmod_output ===
+
+$94866933026297* 商
+余り
+
+
+=== trans/nor_gate_RichTextLabel2 ===
+
+$52955821161579* [right][color=#e49f44]Input 1
+Input 2[/color]
+期待される出力
+現在の出力[/right]
+
+
+=== trans/instructions_the_robot ===
+
+$26358418182667* [color=#e49f44]0[/color] 左に曲がる
+[color=#e49f44]1[/color] 前に進む
+[color=#e49f44]2[/color] 右に曲がる
+[color=#e49f44]3[/color] 使う
+
+
+=== trans/manual_text_edit_instructions ===
+
+$75786562031150* "チューリング完全"レベルを完了すると,手順パネルで手動で命令を編集できるようになります
+
+If you just finished the OVERTURE computer and see something weird, odds are you may have changed the definitions.
+
+Each row has a label and 8 bits you can set to either[img]dialogue/on.png[/img], [img]dialogue/off.png[/img] or [img]dialogue/any.png[/img] (wildcard). When using the instruction panel, if the bitpattern matches a row, the label will be shown.
+
+
+=== components/Rol32 ===
+
+$88734684504266* 入力のビットを左に回転
+$83642246004160* 32ビット左回転
+
+
+=== trans/panel_add_input ===
+
+$43784903785964* [right]Carry IN
+Input 1
+Input 2[/right]
+
+
+=== trans/panel_mux_description ===
+
+$30551449512908* [center]入力1または2を選択[/center]
+
+
+=== trans/options_code_font_size ===
+
+$98135524286922* コードフォントサイズ
+
+
+=== trans/rpg_complete_derpootext6 ===
+
+$29750433345543* [center]なんてことを?[/center]
+
+
+=== trans/panel_sum_output_0 ===
+
+$54481599074471* 合計
+
+
+=== trans/panel_less_u_output ===
+
+$19353239892904* 出力
+
+
+=== levels/binary_start ===
+
+$19099025738142* スタート
+
+
+=== ui/file_export ===
+
+$80702678699819* エクスポート
+
+
+=== rpg/maps/boss_room/abyss ===
+
+$75322073059042* 深淵
+
+
+=== trans/panel_counter8_output ===
+
+$35643379690712* 出力
+
+
+=== rpg/maps/overworld/flower ===
+
+$72524391591873* 花
+
+
+=== components/Input1_1B ===
+
+$10517158300617* 入力
+$57868504368581* レベルからの入力を読み込む
+
+
+=== trans/manual_text_network ===
+
+$70445160410129* [b]概要[/b]
+"ネットワーク"コンポーネントは低レベルのネットワークアクセスを提供します
+
+These are the command types you can send to the component and their arguments:
+[code]0[/code] No command
+[code]1[/code] [color=#e49f44]Listen[/color] ([color=#dd6576]Port[/color])
+[code]2[/code] [color=#e49f44]Connect[/color] ([color=#dd6576]IP[/color], [color=#dd6576]Port[/color])
+[code]3[/code] [color=#e49f44]Send data[/color] ([color=#dd6576]Connection ID[/color], [color=#dd6576]Data[/color], [color=#dd6576]Data length[/color])
+[code]4[/code] [color=#e49f44]Close[/color] ([color=#dd6576]Connection ID[/color])
+[code]5[/code] [color=#e49f44]Read next event[/color]
+[i]See component panel for which pin correspond to which argument.[/i]
+
+Command types [color=#e49f44]Listen[/color] and [color=#e49f44]Connect[/color] outputs the [color=#dd6576]Connection ID[/color] of the new connection.
+
+For 2 programs to [color=#e49f44]Send data[/color] to each other, one program must first [color=#e49f44]Listen[/color] (called a server) on a [color=#dd6576]Port[/color] and the other must then [color=#e49f44]Connect[/color] (called a client), using the [color=#dd6576]IP[/color] of the listening program and the [color=#dd6576]Port[/color] it selected. Once the connection is established, the server and client function exactly the same.
+
+Notice an [color=#dd6576]IP[/color] is a 32 bit number, normally written as 4 bytes with dots in between (example: 127.0.0.1). In this simulator you reverse the order of the bytes, so 127.0.0.1 becomes 0x0100007F. 0x0100007F is always your computers loopback address and you can use this to connect programs running on the same computer.
+
+You can detect when events happen on the network, by checking the "Next event type" pin. These are the event types:
+[code]0[/code] No event
+[code]1[/code] [color=#39aa49]Incoming connection[/color] ([color=#dd6576]Connection ID[/color], [color=#dd6576]Port[/color])
+[code]2[/code] [color=#39aa49]Connect complete[/color]
+[code]3[/code] [color=#39aa49]Receive data[/color] ([color=#dd6576]Connection ID, Data[/color], [color=#dd6576]Data length[/color])
+[code]4[/code] [color=#39aa49]Connection closed[/color] ([color=#dd6576]Connection ID[/color] / [color=#dd6576]Error code[/color])
+
+[color=#39aa49]Incoming connection[/color] only happens after a [color=#e49f44]Listen[/color]. Use the [color=#dd6576]Port[/color] to distinguish between listeners (it is not possible to listen to the same port twice at the same time).
+
+[color=#39aa49]Connect complete[/color] only happens after a [color=#e49f44]Connect[/color], wait for this before you start sending data.
+
+You may send or receive between 1 and 8 bytes of data at a time, use the [color=#dd6576]Data length[/color] to decide.
+
+A connection may be either "possibly open" or "closed". There is no way to know if a connection is actually open other than sending data. The underlying network protocols were designed like this for reliability and speed, it is not a limitation of the simulator.
+
+If you get a [color=#dd6576]Connection ID[/color] of -1, this means there was an error connecting.
+
+
+=== trans/level_negative_Label2 ===
+
+$39515538046175* ビットを切り替えて結果を確認してください.
+
+
+=== ui/toggles/negative_numbers ===
+
+$50924073287410* 数値フォーマットの切り替え
+
+
+=== trans/levels_description ===
+
+$33755630709299* NAK 02を倒して世界を救え
+
+
+=== misc/factory_back_inner ===
+
+$12211557416281* レベルに戻る
+
+
+=== trans/panel_rom_inputs ===
+
+$52400325164412* [right]Load
+[i][color=#aaaaaa](サンドボックス限定)[/color][/i] Save
+Address
+Save value[/right]
+
+
+=== components/ByteShl ===
+
+$74488427658653* 8ビット左シフト
+$66482114876737* 入力のビットを左にシフト
+
+
+=== trans/schematics_description ===
+
+$39347262933523* 名前
+
+
+=== components/Add16 ===
+
+$28092601427278* 2つの入力を加算
+$30820974870562* 加算
+
+
+=== components/Not32 ===
+
+$33620523355085* 32ビット NOT
+$24607331341411* 32ビットをビットごとに反転
+
+
+=== trans/nand_Label ===
+
+$11482037025960* Input 1
+
+
+Input 2
+
+
+=== components/MemoryProbe ===
+
+$46948613505134* カスタムコンポーネントまたはプログラムエディタに値を表示
+$44867305035474* メモリプローブ
+
+
+=== components/LevelOutput8 ===
+
+$77044600156969* 出力
+
+
+=== trans/level_turing_complete_text ===
+
+$83740652063566* Code
+Input
+
+
+=== misc/StateProbe ===
+
+$54427436420428* ワイヤプローブ
+$15969687819995* カスタムコンポーネントまたはプログラムエディタに値を表示
+
+
+=== trans/manual_text_rgb ===
+
+$52915933943906* このシミュレータは一部のコンポーネントで3バイトのRGBカラーを使用しています.色はそれぞれ1バイトで,バイト値が強度を決定します
+
+
+=== levels/sr_latch ===
+
+$11150103897185* このレベルでは,コンポーネントが自身に依存したり,2つのコンポーネントがループを形成することがあります.自身の出力に依存しているにもかかわらず,少なくとも一部の入力に対しては安定した出力を持つワイヤがあります.
+#
+#The circuit you are asked to construct here has a circular dependency. The circuit also has 2 "stable states" for most inputs. A stable state here means that every component's output agrees with its input. As an example, an OR gate with one input disconnected and the other connected to its own output is stable. If the output is [OFF], both inputs are [OFF], which agrees with the OR gate. If the output is [ON], then so is one of the inputs. However, a NOT gate connected to its own input is not stable. If the output is [ON], then the input is [ON] as well. This will cause the NOT gate to try and make the output [OFF], which will also make the input [OFF]. The circuit will switch between these two states forever, so it is not stable.
+$18165461234561* ディレイラインは理解しやすく,あらゆるコンピュータアーキテクチャの構築に使用できます.しかし,現代のハードウェアはメモリの基盤としてこれらを使用していません.
+$15754153332116* This level introduces the concept of latches. This mechanic is not used anywhere else in the game. However, this level is here for the sake of completeness.  
+  
+If you do not have experience with electronics, it is recommended that you skip this level. You can always come back later.
+$15213907597666* NORゲート2つを使って,表に一致する回路を作りなさい.ラッチが必要になります.
+$19448398663695* When we want to determine what components in a circular dependency are outputting, we don't have a first component we can start with. Instead we use the values of the wires from last tick. This is because in real hardware electrons don't travel instantly. Depending on the circuit, the wires either flicker between [ON] and [OFF], or settle in a stable state.
+  
+When you have a circuit where the wires can settle in either of 2 different stable states, you have a basis for memory. The next state will depend on the values the wires had last tick. Such circuits are called "latches".
+#
+#When you have a circuit where the wires can settle in either of 2 different stable states, you have a basis for memory. The next state will depend on the values the wires had last tick. Such wires are called "latches".
+
+
+=== trans/complete_unlocks ===
+
+$45250062735373* アンロック
+
+
+=== trans/view_solution_text ===
+
+$83652444593618* このレベルの解答を見ますか?
+
+
+=== components/FastRam ===
+
+$79436020115192* 高速だがゲートコストが高いメモリ
+$12924829814634* 高速RAM
+
+
+=== levels/byte_xor ===
+
+$19636386696963* 2バイトをビット単位でXOR演算する回路を作成する.
+
+
+=== rpg/maps/overworld/table ===
+
+$53798109572704* テーブルだ...
+$74345816549611* テーブル
+
+
+=== misc/add_bottom ===
+
+$86446054110623* 加算
+
+
+=== levels/Immediate Values ===
+
+$64348543296709* 監視状態 {value} は出力を指す必要があります.
+$14060810229477* マップに6つのレジスタを追加
+$79667526283284* 監視状態 {value} はカウンタを指す必要があります.
+$14960344494328* Sometimes it is useful to load a value directly from the program instead of from registers. This is called loading an immediate value. In the [color=#e49f44]LEG[/color] architecture we signal when we want to do this directly in the オペコード. We can do that in the following way:
+  
+When the 8th bit of the オペコード is [ON], use 引数 1 as an immediate value, instead of as a register address.
+When the 7th bit of the オペコード is [ON], use 引数 2 as an immediate value, instead of as a register address.
+  
+    [img]dialogue/leg\_diagram.png[/img]
+    
+
+$10788301006338* 監視状態 {nr} は,レジスタまたはレジスタを内部に持つカスタムコンポーネントを指す必要があります
+$19338533633006* カウンターのインクリメントを4に設定する
+$15197362332657* 新規に回路を作成し、4バイト出力のプログラムを追加する
+$18004215603701* 回路にカウンタを追加する
+$10141611261952* [center]即値の実装[/center]
+
+
+=== components/switch ===
+
+$87345192339084* 値を切り替える
+$29301846684808* 8ビット スイッチ
+
+
+=== levels/Wire Spaghetti ===
+
+$29329105515650* マップにレジスタをもう1つ追加
+$17106892574116* 回路にカウンタを追加する
+$50177586789991* マップにレジスタをあと{nr}個追加
+$15754373587500* カウンタのインクリメントを4に設定
+$56024330661504* 監視状態 {watched\_state} はレジスタもしくはレジスタを内部に含むカスタムコンポーネントを指す必要があります.
+$19099471819164* このレベルをクリアするために必要なセットアップの手順は以下の通りです:
+    
+[b]1.[/b] Click the schematic icon ([b][i][/i][/b]) and create a new empty architecture.
+[b]2.[/b] 4出力のプログラムブロックを配置する.
+[b]3.[/b] カウンタを配置し,インクリメントを4に設定して,プログラムブロックに接続する.
+[b]4.[/b] 6つのレジスタを追加する (レジスタを含むカスタムコンポーネントも可)
+[b]5.[/b] プログラムコンポーネントの "監視状態の編集" をクリックし,0から5をレジスタに接続する.6はカウンタ,7は出力に接続する.
+
+$18860645759682* [color=#e49f44]LEG[/color] アーキテクチャは,プログラムから1Tickあたり4バイトを受け取るコンピュータです. 
+
+The first byte describes the operation (called the [color=#e49f44]OPCODE[/color]).
+
+Since many operations take 2 arguments (like ADD, OR etc), the second and third byte are for arguments.
+
+And since most operations return 1 result, the fourth byte is for the result.
+	
+	[img]dialogue/leg_diagram_1.png[/img]
+$11377431500625* マップに6つのレジスタを追加
+$14051336765362* いよいよ [color=#e49f44]LEG[/color] アーキテクチャの構築を開始する時が来ました!
+$13268807052125* (7+7を足しているかもしれませんが,ここでは7は入力からの読み込みを意味し,入力は8です)
+$30006055126224* 監視状態 {output} は出力を指す必要があります
+$19066122929275* [center]レジスタのセットアップとADDオペコードの実装[/center]
+$10912834168905* 最後に,このレベルでは [color=#e49f44]オペコード[/color] は常に0です.つまり,引数1と引数2 を加算し,その結果をdestinationに保存するのです.
+
+The value of an argument or destination refers to one of these places:
+[code]
+[color=#e49f44]0[/color]: Register 0
+[color=#e49f44]1[/color]: Register 1
+[color=#e49f44]2[/color]: Register 2
+[color=#e49f44]3[/color]: Register 3
+[color=#e49f44]4[/color]: Register 4
+[color=#e49f44]5[/color]: Register 5
+[color=#e49f44]6[/color]: Counter
+[color=#e49f44]7[/color]: Input/Output
+[/code]
+
+In the next level you will implement more [color=#e49f44]OPCODES[/color], which will require a different ALU than that of [color=#e49f44]OVERTURE[/color].
+
+
+$10922418807673* 引数7は入力からの読み込みを意味しますが,入力は有効ではありません.
+$62258842382434* 監視状態 {counter} はカウンタを指す必要があります.
+$18769284297247* 新規に回路を作成し,4バイト出力のプログラムを追加する
+
+
+=== trans/schematic_new_file_name ===
+
+$24424463568668* 新しい回路図
+
+
+=== trans/negative_numbers ===
+
+$57872971841486* 負の数
+
+
