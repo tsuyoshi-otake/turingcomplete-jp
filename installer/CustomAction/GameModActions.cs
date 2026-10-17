@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -75,26 +74,35 @@ namespace TuringCompleteJpCA
                     return ActionResult.Failure;
                 }
 
-                // [1] バックアップ
+                byte[] modContent;
+                using (var stream = resAssembly.GetManifestResourceStream(resourceName))
+                using (var ms = new MemoryStream())
+                {
+                    stream.CopyTo(ms);
+                    modContent = ms.ToArray();
+                }
+
+                // [1] バックアップ（公式ファイルだけを残す。MOD 入りのファイルで上書きしない）
                 Directory.CreateDirectory(backupDir);
                 string origFile = Path.Combine(translationsPath, TranslationFile);
                 string backupFile = Path.Combine(backupDir, TranslationFile);
                 if (File.Exists(origFile))
                 {
-                    File.Copy(origFile, backupFile, true);
-                    Log(session, "InstallMod: Backed up " + origFile);
+                    BackupDecision decision = DecideBackup(File.ReadAllBytes(origFile), modContent, File.Exists(backupFile));
+                    if (decision == BackupDecision.Overwrite)
+                    {
+                        File.Copy(origFile, backupFile, true);
+                        Log(session, "InstallMod: Backed up " + origFile);
+                    }
+                    else
+                    {
+                        Log(session, "InstallMod: Kept existing backup (" + decision + ")");
+                    }
                 }
 
                 // [2] 翻訳ファイルコピー
-                using (var stream = resAssembly.GetManifestResourceStream(resourceName))
-                {
-                    if (stream != null)
-                    {
-                        using (var fs = File.Create(origFile))
-                            stream.CopyTo(fs);
-                        Log(session, "InstallMod: Installed " + TranslationFile);
-                    }
-                }
+                File.WriteAllBytes(origFile, modContent);
+                Log(session, "InstallMod: Installed " + TranslationFile);
 
                 // [3] 言語設定を Japanese に変更
                 UpdateLanguageSetting("Japanese", session);
@@ -173,6 +181,38 @@ namespace TuringCompleteJpCA
         }
 
         // ── ヘルパー ─────────────────────────────────────────
+
+        internal enum BackupDecision
+        {
+            /// <summary>現在のファイルをバックアップする（公式ファイル、またはバックアップがまだない）</summary>
+            Overwrite,
+            /// <summary>現在のファイルはこの MOD と同一（再インストール／修復）</summary>
+            KeepCurrentIsThisMod,
+            /// <summary>公式ファイルとは判定できず、既にバックアップがある（旧版 MOD の可能性）</summary>
+            KeepUnknownWithExistingBackup,
+        }
+
+        /// <summary>
+        /// 現在の Japanese.txt をバックアップしてよいかを判定する (#5)。
+        /// ゲーム 2.1.334 以降の公式ファイルは "MISSING TRANSLATION" などのブロック見出しを含む。MOD のファイルは含まない。
+        /// Steam の更新で公式ファイルに戻っていれば、古いバックアップを新しい公式ファイルで更新する。
+        /// </summary>
+        internal static BackupDecision DecideBackup(byte[] current, byte[] modContent, bool backupExists)
+        {
+            if (current.SequenceEqual(modContent))
+                return BackupDecision.KeepCurrentIsThisMod;
+            if (LooksOfficial(current) || !backupExists)
+                return BackupDecision.Overwrite;
+            return BackupDecision.KeepUnknownWithExistingBackup;
+        }
+
+        static readonly Regex OfficialBlockHeader = new Regex(
+            @"^=+ (MISSING|OUTDATED|FINISHED) TRANSLATION =+\r?$", RegexOptions.Multiline);
+
+        static bool LooksOfficial(byte[] content)
+        {
+            return OfficialBlockHeader.IsMatch(Encoding.UTF8.GetString(content));
+        }
 
         static string FindSteamGameDir(Session session)
         {
@@ -266,41 +306,16 @@ namespace TuringCompleteJpCA
         {
             try
             {
-                string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                string dbPath = Path.Combine(appData, "godot", "app_userdata", "Turing Complete", "progress.dat");
-
-                if (!File.Exists(dbPath))
-                {
-                    Log(session, "UpdateLanguageSetting: progress.dat not found at " + dbPath);
-                    return;
-                }
-
-                using (var conn = new SQLiteConnection("Data Source=" + dbPath))
-                {
-                    conn.Open();
-                    using (var cmd = new SQLiteCommand(conn))
-                    {
-                        // まず既存のレコードを確認
-                        cmd.CommandText = "SELECT COUNT(*) FROM progress WHERE key = 'setting_language'";
-                        long count = (long)cmd.ExecuteScalar();
-
-                        if (count > 0)
-                        {
-                            cmd.CommandText = "UPDATE progress SET value = @lang WHERE key = 'setting_language'";
-                        }
-                        else
-                        {
-                            cmd.CommandText = "INSERT INTO progress (key, value) VALUES ('setting_language', @lang)";
-                        }
-                        cmd.Parameters.AddWithValue("@lang", language);
-                        int rows = cmd.ExecuteNonQuery();
-                        Log(session, "UpdateLanguageSetting: Set to '" + language + "' (" + rows + " rows)");
-                    }
-                }
+                int rows = GameLanguageSetting.Write(language);
+                Log(session, "UpdateLanguageSetting: Set to '" + language + "' (" + rows + " rows)");
+            }
+            catch (FileNotFoundException)
+            {
+                Log(session, "UpdateLanguageSetting: progress.dat not found at " + GameLanguageSetting.DbPath);
             }
             catch (Exception ex)
             {
-                Log(session, "UpdateLanguageSetting: " + ex.Message);
+                Log(session, "UpdateLanguageSetting: FAILED - " + ex.Message);
             }
         }
     }

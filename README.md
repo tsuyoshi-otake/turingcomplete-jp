@@ -42,7 +42,7 @@ Steam版 [Turing Complete](https://store.steampowered.com/app/1444480/) の日�
 - Steam のゲームディレクトリを自動検出
 - オリジナルの Japanese.txt をバックアップ
 - 翻訳補完済みの Japanese.txt をコピー
-- ゲームの言語設定を「Japanese」に変更（※現状この処理は失敗することがあります）
+- ゲームの言語設定を「Japanese」に変更（一度もゲームを起動していない場合は設定ファイルがないため、手動で選択してください）
 
 > **Note:** 日本語で表示されない場合は、ゲームの「Settings（設定）」で言語を「Japanese」に切り替えてください。
 
