@@ -4,7 +4,7 @@
 
   <Package Name="Turing Complete 日本語化MOD"
            Manufacturer="turingcomplete-jp"
-           Version="1.1.0.0"
+           Version="1.1.1.0"
            UpgradeCode="d3a7f1b9-5e2c-4d8a-9b6f-7c1e4a3d5b8e"
            Compressed="yes"
            InstallerVersion="500"
