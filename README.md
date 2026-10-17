@@ -88,3 +88,7 @@ dotnet build MsiPackage/MsiPackage.wixproj -c Release
 
 - Turing Complete 公式: https://turingcomplete.game/
 - Steam: https://store.steampowered.com/app/1444480/
+
+## ライセンス
+
+インストーラー（`installer/`）と翻訳ツール（`tools/`）は [MIT License](LICENSE) です。翻訳ファイル（`mod/translations/Japanese.txt`）はゲーム「Turing Complete」のテキストを翻訳したものです。原文の権利は開発元にあり、MIT License の対象外です。
