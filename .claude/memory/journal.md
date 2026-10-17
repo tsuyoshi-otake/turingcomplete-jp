@@ -13,3 +13,10 @@
 - fix: `.gitattributes` で `mod/**` と `tools/translation/**` を `eol=lf` に固定（384c5d7, #3）。再翻訳本体は 8d30092（#2）。
 - verification: 再ビルドした CustomAction.dll に、実機確認したファイルとバイト単位で同一の内容が含まれている。v1.1.0 タグを付けてリリースし、`releases/latest/download/turingcomplete-jp.msi` の sha256（554af90f…e1e2）がビルド成果物と一致。Issue #1 は #2 のマージでクローズ。
 - learning: リリース用 MSI は「マージ後の main をクリーンにチェックアウトした状態」からビルドし、埋め込まれたファイルが検証済みのものと同一か確認してからアップロードする。
+
+## 2026-10-17 インストーラーの言語自動設定とバックアップ保護（#5, 5e28642）
+- symptom: インストールしてもゲームの言語が Japanese に切り替わらない。CA ログに `SQLite.Interop.dll を読み込めません (0x8007007E)` が出る。MajorUpgrade や修復のあと、`.jp-mod-backup/Japanese.txt` が MOD 入りのファイルで上書きされることがあり、アンインストールしても公式ファイルに戻らない。
+- root cause: System.Data.SQLite のネイティブ DLL が DTF の CustomAction.CA.dll に同梱されない。InstallMod が、現在のファイルの中身を確認せずに毎回バックアップしていた。
+- fix: Windows 標準の winsqlite3.dll を P/Invoke で呼ぶ GameLanguageSetting を追加（UPDATE し、0 行なら INSERT）。InstallMod に DecideBackup を追加し、上書きは「公式の見出しがある」または「バックアップがない」場合だけにした。
+- verification: progress.dat のコピーに対して Write と DecideBackup を 64bit と 32bit の PowerShell から実行して確認。実機で msiexec /qn を 4 回実行（1.1.0 からのアップグレード → 修復 → アンインストール → 再インストール）。CA ログに `Set to 'Japanese' (1 rows)`、`KeepCurrentIsThisMod`、`Set to '' (1 rows)` が出て、アンインストールで公式ファイル（217,279 バイト）に戻った。最終状態は Japanese で、バックアップは元の公式ファイルとバイト単位で同一。
+- learning: Git Bash から `msiexec //i ... //l*v` を実行すると rc=103 で何も起きない。msiexec は PowerShell の Start-Process から実行する。
