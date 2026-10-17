@@ -20,3 +20,10 @@
 - fix: Windows 標準の winsqlite3.dll を P/Invoke で呼ぶ GameLanguageSetting を追加（UPDATE し、0 行なら INSERT）。InstallMod に DecideBackup を追加し、上書きは「公式の見出しがある」または「バックアップがない」場合だけにした。
 - verification: progress.dat のコピーに対して Write と DecideBackup を 64bit と 32bit の PowerShell から実行して確認。実機で msiexec /qn を 4 回実行（1.1.0 からのアップグレード → 修復 → アンインストール → 再インストール）。CA ログに `Set to 'Japanese' (1 rows)`、`KeepCurrentIsThisMod`、`Set to '' (1 rows)` が出て、アンインストールで公式ファイル（217,279 バイト）に戻った。最終状態は Japanese で、バックアップは元の公式ファイルとバイト単位で同一。
 - learning: Git Bash から `msiexec //i ... //l*v` を実行すると rc=103 で何も起きない。msiexec は PowerShell の Start-Process から実行する。
+
+## 2026-10-17 v1.1.1 リリース（#5, #8, #9）
+- symptom: #5 の修正（言語の自動設定、バックアップ保護）を配布する。リリース前のチェックで LICENSE がないことがわかった。
+- root cause: リポジトリ作成時に LICENSE を置いていなかった（v1.0.0 と v1.1.0 も LICENSE なしで公開済み）。
+- fix: Package.wxs を 1.1.1.0 に上げた（6103b20, #8）。ユーザーの判断で MIT LICENSE を追加し、翻訳テキストはゲーム原文の派生物として対象外にした（a1363bf, #9）。a1363bf に v1.1.1 タグを付けてリリース。
+- verification: 事前チェック 4 項目の結果 — 個人情報らしき文字列なし（GUID は製品用）、作者は otak@odangoo.com のみ、公開済みでタグは v1.0.0/v1.1.0、LICENSE は追加済み。bin/obj を消してクリーンビルド（0 エラー）。埋め込まれた Japanese.txt は mod/ とバイト単位で同一（CR 0）。実機で 1.1.0 から 1.1.1 にアップグレードし、`Set to 'Japanese' (1 rows)` が出て、バックアップは公式ファイル（217,279 バイト）のまま。`releases/latest/download/turingcomplete-jp.msi` の sha256（d44dfcfc…）がビルド成果物と一致。
+- learning: LICENSE の末尾に適用範囲の注記を足すと、GitHub の licenseInfo は MIT ではなく "other" と判定される。この PC には git の user.name / user.email が設定されていない。commit と tag -a のたびに `-c user.name=... -c user.email=...` を付ける。
